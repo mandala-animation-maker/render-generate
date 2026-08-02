@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Value Over Time — 60 Slide Poster Art Direction</title>
+  
+  <!-- Fonts: Montserrat (900), Instrument Sans, Instrument Serif, DM Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Instrument+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome CDN for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #060608;
+      font-family: 'Instrument Sans', sans-serif;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 0;
+    }
+
+    /* Standard 1080x1920 Canvas Slide */
+    .slide {
+      width: 1080px;
+      height: 1920px;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 80px;
+      padding: 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.8);
+      background-size: cover;
+      background-position: center;
+    }
+
+    /* Typography Hierarchy */
+    .main-word {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 140px;
+      text-transform: uppercase;
+      line-height: 0.85;
+      letter-spacing: -4px;
+      word-break: break-word;
+      z-index: 10;
+      position: relative;
+      margin: 30px 0;
+    }
+
+    .main-word canvas {
+      display: block;
+      height: auto;
+      max-width: 100%;
+    }
+
+    .text-glow canvas {
+      filter: drop-shadow(0 0 30px currentColor);
+    }
+
+    .font-serif { font-family: 'Instrument Serif', serif; }
+    .font-sans { font-family: 'Instrument Sans', sans-serif; }
+    .font-mono { font-family: 'DM Mono', monospace; }
+
+    .header-tag {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 24px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.85;
+      z-index: 10;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+      padding-bottom: 20px;
+    }
+
+    .footer-tag {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 22px;
+      z-index: 10;
+      border-top: 2px solid rgba(255, 255, 255, 0.15);
+      padding-top: 20px;
+    }
+
+    .story-caption {
+      font-size: 36px;
+      line-height: 1.35;
+      max-width: 820px;
+      z-index: 10;
+      position: relative;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 28px;
+      border-radius: 100px;
+      font-size: 22px;
+      font-weight: 600;
+      z-index: 10;
+    }
+
+    /* Unique CSS-Only Art Components (No SVG) */
+    .css-art-container {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Artwork Style 1: Stop Symbol */
+    .css-art-octagon {
+      width: 450px;
+      height: 450px;
+      background: linear-gradient(135deg, #ff2a5f, #800020);
+      clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+      box-shadow: 0 0 100px rgba(255, 42, 95, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 8px solid rgba(255, 255, 255, 0.2);
+    }
+
+    /* Artwork Style 2: Price Tag Graphic */
+    .css-art-tag {
+      width: 380px;
+      height: 220px;
+      background: linear-gradient(45deg, #f39c12, #e67e22);
+      border-radius: 20px;
+      position: relative;
+      transform: rotate(-12deg);
+      box-shadow: 20px 20px 60px rgba(0,0,0,0.5);
+    }
+    .css-art-tag::before {
+      content: '';
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      background: #111;
+      border-radius: 50%;
+    }
+
+    /* Artwork Style 3: Abstract Orbit Aura */
+    .css-art-orbit {
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      border: 3px dashed rgba(255, 255, 255, 0.25);
+      position: relative;
+      animation: spin 30s linear infinite;
+    }
+    .css-art-orbit::after {
+      content: '';
+      position: absolute;
+      top: -15px;
+      left: 50%;
+      width: 30px;
+      height: 30px;
+      background: #00f0ff;
+      border-radius: 50%;
+      box-shadow: 0 0 30px #00f0ff;
+    }
+
+    /* Artwork Style 4: Geometric Weight / Barbell */
+    .css-art-block {
+      width: 500px;
+      height: 260px;
+      background: linear-gradient(135deg, #111, #222);
+      border: 4px solid #333;
+      border-radius: 24px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.9);
+      position: relative;
+      overflow: hidden;
+    }
+    .css-art-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 10px;
+      background: linear-gradient(90deg, #ff0055, #00e5ff);
+    }
+
+    /* Artwork Style 5: Glassmorphism Card Stack */
+    .css-art-glass {
+      width: 520px;
+      height: 320px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 30px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+      position: relative;
+    }
+    .css-art-glass::after {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: #7928ca;
+      border-radius: 50%;
+      top: -30px;
+      right: -30px;
+      filter: blur(20px);
+    }
+
+    /* Artwork Style 6: Equalizer Bars */
+    .css-art-eq {
+      display: flex;
+      gap: 16px;
+      align-items: flex-end;
+      height: 250px;
+    }
+    .css-art-eq span {
+      width: 24px;
+      background: linear-gradient(to top, #00c6ff, #0072ff);
+      border-radius: 12px;
+    }
+
+    /* Artwork Style 7: Target Radar Scanner */
+    .css-art-radar {
+      width: 480px;
+      height: 480px;
+      border: 2px solid rgba(0, 255, 136, 0.3);
+      border-radius: 50%;
+      position: relative;
+      background: radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 70%);
+    }
+    .css-art-radar::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 0; right: 0; height: 2px; background: rgba(0, 255, 136, 0.2);
+    }
+    .css-art-radar::after {
+      content: '';
+      position: absolute;
+      left: 50%; top: 0; bottom: 0; width: 2px; background: rgba(0, 255, 136, 0.2);
+    }
+
+    /* Themes */
+    .theme-dark { background: #0b0c10; color: #fff; }
+    .theme-crimson { background: #1a0507; color: #fff; }
+    .theme-cyber { background: #050b14; color: #00f0ff; }
+    .theme-gold { background: #120e07; color: #f39c12; }
+    .theme-emerald { background: #03140e; color: #00ff88; }
+    .theme-monochrome { background: #121212; color: #ffffff; }
+    .theme-violet { background: #0f081d; color: #b877ff; }
+
+    /* Highlights */
+    .text-glow { text-shadow: 0 0 30px currentColor; }
+    .accent-pink { color: #ff007f; }
+    .accent-cyan { color: #00f0ff; }
+    .accent-gold { color: #ffd700; }
+    .accent-green { color: #00ff88; }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== FRAME 1 ==================== -->
+  <div class="slide theme-crimson">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-hand"></i> Directive 01/60</span>
+      <span>01 // FRAME</span>
+    </div>
+    
+    <div class="css-art-container">
+      <div class="css-art-octagon">
+        <i class="fa-solid fa-ban" style="font-size: 160px; color: #fff;"></i>
+      </div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 42, 95, 0.2); color: #ff2a5f; border: 1px solid #ff2a5f;">
+        <i class="fa-solid fa-triangle-exclamation"></i> CRITICAL SHIFT 🛑
+      </div>
+      <h1 class="main-word text-glow" style="font-size: 180px; color: #ff2a5f;">STOP</h1>
+      <p class="story-caption font-serif" style="font-size: 48px; color: #f0e6d2;">
+        Halt the narrative that hard work alone equals high value.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-compass"></i> POSITIONING MASTERCLASS</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 2 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-chart-line"></i> Directive 02/60</span>
+      <span>02 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-tag"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(243, 156, 18, 0.2); color: #f39c12; border: 1px solid #f39c12;">
+        <i class="fa-solid fa-tag"></i> VALUE EXCHANGE 🏷️
+      </div>
+      <h1 class="main-word" style="font-size: 150px; color: #fff;">SELLING</h1>
+      <p class="story-caption font-sans" style="color: #a0a0a0;">
+        When you pitch effort instead of outcomes, you pitch low efficiency.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-bullhorn"></i> MARKETING PSYCHOLOGY</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 3 ==================== -->
+  <div class="slide theme-violet">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-user"></i> Directive 03/60</span>
+      <span>03 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-orbit"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(184, 119, 255, 0.2); color: #b877ff; border: 1px solid #b877ff;">
+        <i class="fa-solid fa-fingerprint"></i> OWNERSHIP 🫵
+      </div>
+      <h1 class="main-word" style="font-size: 180px; color: #b877ff;">YOUR</h1>
+      <p class="story-caption font-mono" style="color: #d1b3ff;">
+        It is your responsibility to package your knowledge correctly.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-crown"></i> BRAND IDENTITY</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 4 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-bolt"></i> Directive 04/60</span>
+      <span>04 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-block"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 0, 85, 0.2); color: #ff0055; border: 1px solid #ff0055;">
+        <i class="fa-solid fa-fire"></i> THE WRONG METRIC 😣
+      </div>
+      <h1 class="main-word" style="font-size: 110px; color: #ff0055;">STRUGGLE.</h1>
+      <p class="story-caption font-serif" style="font-size: 42px; color: #e0e0e0;">
+        Nobody pays for your pain; they pay to eliminate their own.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-heart-crack"></i> NO PITTY SALES</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 5 ==================== -->
+  <div class="slide theme-monochrome">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-arrow-right"></i> Directive 05/60</span>
+      <span>05 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 300px; height: 300px; border: 20px solid #fff; border-radius: 50%;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: #333; color: #fff;">
+        <i class="fa-solid fa-cube"></i> ARTICLE 💡
+      </div>
+      <h1 class="main-word" style="font-size: 220px; color: #ffffff;">A</h1>
+      <p class="story-caption font-sans" style="color: #888;">
+        Single perspective change that alters your entire pipeline.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-layer-group"></i> SYSTEM PARADIGM</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 6 ==================== -->
+  <div class="slide theme-gold">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-briefcase"></i> Directive 06/60</span>
+      <span>06 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-glass"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 215, 0, 0.2); color: #ffd700; border: 1px solid #ffd700;">
+        <i class="fa-solid fa-user-tie"></i> THE BUYER 🤝
+      </div>
+      <h1 class="main-word" style="font-size: 150px; color: #ffd700;">CLIENT</h1>
+      <p class="story-caption font-serif" style="font-size: 44px; color: #fff8e7;">
+        Seeks certainty, rapid execution, and reliable transformation.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-handshake"></i> B2B STRATEGY</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 7 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-xmark"></i> Directive 07/60</span>
+      <span>07 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 400px; height: 400px; border: 10px dashed #ff4757; transform: rotate(45deg);"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 71, 87, 0.2); color: #ff4757;">
+        <i class="fa-solid fa-circle-xmark"></i> MISCONCEPTION 🚫
+      </div>
+      <h1 class="main-word" style="font-size: 110px; color: #ff4757;">DOESN'T</h1>
+      <p class="story-caption font-mono" style="color: #ccc;">
+        They do not care about the sleepless nights in your process.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-filter"></i> TRUTH FILTER</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 8 ==================== -->
+  <div class="slide theme-emerald">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-cart-shopping"></i> Directive 08/60</span>
+      <span>08 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-radar"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(0, 255, 136, 0.2); color: #00ff88; border: 1px solid #00ff88;">
+        <i class="fa-solid fa-money-bill-wave"></i> TRANSACTION 💰
+      </div>
+      <h1 class="main-word" style="font-size: 180px; color: #00ff88;">BUY</h1>
+      <p class="story-caption font-sans" style="color: #e0ffea;">
+        They invest capital in exchange for frictionless progress.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-vault"></i> VALUE IN EXCHANGE</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 9 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-arrow-down-wide-short"></i> Directive 09/60</span>
+      <span>09 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 500px; height: 10px; background: linear-gradient(90deg, transparent, #fff, transparent);"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255,255,255,0.1); color: #fff;">
+        <i class="fa-solid fa-font"></i> SPECIFIC 🎯
+      </div>
+      <h1 class="main-word" style="font-size: 180px; color: #ffffff;">THE</h1>
+      <p class="story-caption font-serif" style="font-size: 40px; color: #aaa;">
+        Pinpointing the exact component that delivers success.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-bullseye"></i> CORE TARGET</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 10 ==================== -->
+  <div class="slide theme-cyber">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-clock"></i> Directive 10/60</span>
+      <span>10 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-eq">
+        <span style="height: 100px;"></span>
+        <span style="height: 200px;"></span>
+        <span style="height: 150px;"></span>
+        <span style="height: 240px;"></span>
+      </div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(0, 240, 255, 0.2); color: #00f0ff;">
+        <i class="fa-solid fa-stopwatch"></i> TIME METRIC ⏳
+      </div>
+      <h1 class="main-word" style="font-size: 150px; color: #00f0ff;">EIGHT</h1>
+      <p class="story-caption font-mono" style="color: #99f7ff;">
+        Eight manual hours spent doing labor isn't a badge of honor.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-microchip"></i> EFFICIENCY INDEX</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 11 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-hourglass-half"></i> Directive 11/60</span>
+      <span>11 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 350px; height: 350px; border-radius: 50%; background: conic-gradient(#333 0deg 270deg, #ff9f43 270deg 360deg);"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 159, 67, 0.2); color: #ff9f43;">
+        <i class="fa-solid fa-business-time"></i> DURATION 🕒
+      </div>
+      <h1 class="main-word" style="font-size: 150px; color: #ff9f43;">HOURS</h1>
+      <p class="story-caption font-sans" style="color: #ccc;">
+        Time spent is an internal operational cost, not external value.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-chart-pie"></i> AGGREGATE DURATION</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 12 ==================== -->
+  <div class="slide theme-violet">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-user-gear"></i> Directive 12/60</span>
+      <span>12 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-orbit"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(184, 119, 255, 0.2); color: #b877ff;">
+        <i class="fa-solid fa-address-card"></i> OPERATOR 👤
+      </div>
+      <h1 class="main-word" style="font-size: 180px; color: #b877ff;">YOU</h1>
+      <p class="story-caption font-serif" style="font-size: 44px; color: #f3e8ff;">
+        You are the engine, but the client only cares about the destination.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-wand-magic-sparkles"></i> EXPERT FOCUS</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 13 ==================== -->
+  <div class="slide theme-crimson">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-face-frown"></i> Directive 13/60</span>
+      <span>13 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-octagon" style="background: linear-gradient(135deg, #570000, #110000); border-color: #ff0055;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 0, 85, 0.2); color: #ff0055;">
+        <i class="fa-solid fa-skull"></i> UNNECESSARY PAIN 🩹
+      </div>
+      <h1 class="main-word" style="font-size: 100px; color: #ff0055;">SUFFERED.</h1>
+      <p class="story-caption font-mono" style="color: #ffb3c1;">
+        Suffering without leverage is simply bad architecture.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-shield-halved"></i> PROCESS RECONFIG</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 14 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-users"></i> Directive 14/60</span>
+      <span>14 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-glass"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255,255,255,0.1); color: #fff;">
+        <i class="fa-solid fa-eye"></i> STAKEHOLDERS 👥
+      </div>
+      <h1 class="main-word" style="font-size: 160px; color: #ffffff;">THEY</h1>
+      <p class="story-caption font-sans" style="color: #aaa;">
+        They need answers that eliminate ambiguity quickly.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-diagram-project"></i> CLIENT PERSPECTIVE</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 15 ==================== -->
+  <div class="slide theme-emerald">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-bag-shopping"></i> Directive 15/60</span>
+      <span>15 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-radar"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(0, 255, 136, 0.2); color: #00ff88;">
+        <i class="fa-solid fa-cart-check"></i> INTENT 🛍️
+      </div>
+      <h1 class="main-word" style="font-size: 180px; color: #00ff88;">BUY</h1>
+      <p class="story-caption font-serif" style="font-size: 46px; color: #d4ffe4;">
+        Re-evaluating what is actually being purchased.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-coins"></i> PURCHASE VALUE</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 16 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-check-double"></i> Directive 16/60</span>
+      <span>16 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 250px; height: 250px; background: #222; transform: rotate(15deg);"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255,255,255,0.1); color: #fff;">
+        <i class="fa-solid fa-arrow-right-long"></i> THE ESSENCE ✨
+      </div>
+      <h1 class="main-word" style="font-size: 180px; color: #ffffff;">THE</h1>
+      <p class="story-caption font-mono" style="color: #bbb;">
+        The precise output that moves the needle.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-filter-circle-dollar"></i> CORE OUTPUT</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 17 ==================== -->
+  <div class="slide theme-gold">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-stopwatch-20"></i> Directive 17/60</span>
+      <span>17 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-tag" style="transform: rotate(5deg);"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 215, 0, 0.2); color: #ffd700;">
+        <i class="fa-solid fa-bolt-lightning"></i> RAPID DURATION ⚡
+      </div>
+      <h1 class="main-word" style="font-size: 170px; color: #ffd700;">FIVE</h1>
+      <p class="story-caption font-sans" style="color: #fff3cc;">
+        Five focused minutes can undo five months of confusion.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-gauge-high"></i> HIGH VELOCITY</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 18 ==================== -->
+  <div class="slide theme-cyber">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-hourglass-start"></i> Directive 18/60</span>
+      <span>18 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-eq">
+        <span style="height: 200px;"></span>
+        <span style="height: 80px;"></span>
+        <span style="height: 180px;"></span>
+      </div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(0, 240, 255, 0.2); color: #00f0ff;">
+        <i class="fa-solid fa-clock-rotate-left"></i> TIME UNIT ⏱️
+      </div>
+      <h1 class="main-word" style="font-size: 120px; color: #00f0ff;">MINUTES</h1>
+      <p class="story-caption font-serif" style="font-size: 42px; color: #e6ffff;">
+        Speed is the product of condensed experience.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-bolt"></i> COMPRESSED WORK</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 19 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-link"></i> Directive 19/60</span>
+      <span>19 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 300px; height: 300px; border-left: 8px solid #fff; border-bottom: 8px solid #fff;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255,255,255,0.1); color: #fff;">
+        <i class="fa-solid fa-node-plus"></i> CONNECTOR 🔗
+      </div>
+      <h1 class="main-word" style="font-size: 200px; color: #ffffff;">OF</h1>
+      <p class="story-caption font-sans" style="color: #999;">
+        Bridging high-level strategy with tangible execution.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-network-wired"></i> LINKAGE</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 20 ==================== -->
+  <div class="slide theme-emerald">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-lightbulb"></i> Directive 20/60</span>
+      <span>20 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 450px; height: 450px; background: radial-gradient(circle, #00ff88 0%, transparent 70%); opacity: 0.3;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(0, 255, 136, 0.2); color: #00ff88; border: 1px solid #00ff88;">
+        <i class="fa-solid fa-gem"></i> THE HIGHEST VALUE 💎
+      </div>
+      <h1 class="main-word text-glow" style="font-size: 130px; color: #00ff88;">CLARITY</h1>
+      <p class="story-caption font-serif" style="font-size: 48px; color: #f0fff6;">
+        Clarity eliminates millions of dollars in wasted trial and error.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-eye"></i> ABSOLUTE VISION</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 21 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-location-crosshairs"></i> Directive 21/60</span>
+      <span>21 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-block"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255,255,255,0.1); color: #fff;">
+        <i class="fa-solid fa-crosshairs"></i> PIVOTAL 📌
+      </div>
+      <h1 class="main-word" style="font-size: 170px; color: #ffffff;">THAT</h1>
+      <p class="story-caption font-mono" style="color: #aaa;">
+        That exact insight which transforms a bottleneck into a breakthrough.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-turn-up"></i> LEVERAGE POINT</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 22 ==================== -->
+  <div class="slide theme-gold">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-floppy-disk"></i> Directive 22/60</span>
+      <span>22 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-glass"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 215, 0, 0.2); color: #ffd700;">
+        <i class="fa-solid fa-life-ring"></i> PRESERVATION 🛡️
+      </div>
+      <h1 class="main-word" style="font-size: 150px; color: #ffd700;">SAVES</h1>
+      <p class="story-caption font-sans" style="color: #fff9e6;">
+        Saving time, capital, energy, and brand reputation simultaneously.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-piggy-bank"></i> ASSET PROTECTION</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 23 ==================== -->
+  <div class="slide theme-violet">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-folder-open"></i> Directive 23/60</span>
+      <span>23 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-orbit"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(184, 119, 255, 0.2); color: #b877ff;">
+        <i class="fa-solid fa-building-user"></i> CLIENT ASSETS 🏢
+      </div>
+      <h1 class="main-word" style="font-size: 160px; color: #b877ff;">THEIR</h1>
+      <p class="story-caption font-serif" style="font-size: 42px; color: #f3e8ff;">
+        Respecting their momentum and business ecosystem above all else.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-sitemap"></i> ENTERPRISE VALUE</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 24 ==================== -->
+  <div class="slide theme-cyber">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-rocket"></i> Directive 24/60</span>
+      <span>24 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 350px; height: 350px; border: 4px solid #00f0ff; transform: rotate(45deg); box-shadow: 0 0 50px #00f0ff;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(0, 240, 255, 0.2); color: #00f0ff; border: 1px solid #00f0ff;">
+        <i class="fa-solid fa-shuttle-space"></i> THE MOMENT 🚀
+      </div>
+      <h1 class="main-word text-glow" style="font-size: 130px; color: #00f0ff;">LAUNCH.</h1>
+      <p class="story-caption font-mono" style="color: #ccffff;">
+        The critical window where failure is exponentially expensive.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-tower-broadcast"></i> GO-TO-MARKET</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 25 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-code-branch"></i> Directive 25/60</span>
+      <span>25 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 200px; height: 200px; background: #333; border-radius: 50%;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255,255,255,0.1); color: #fff;">
+        <i class="fa-solid fa-question"></i> HYPOTHESIS 🤔
+      </div>
+      <h1 class="main-word" style="font-size: 220px; color: #ffffff;">IF</h1>
+      <p class="story-caption font-sans" style="color: #888;">
+        Testing the logic of hourly billing against mastery.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-scale-balanced"></i> LOGIC TEST</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 26 ==================== -->
+  <div class="slide theme-monochrome">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-font"></i> Directive 26/60</span>
+      <span>26 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 400px; height: 400px; border: 2px solid #fff;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: #222; color: #fff;">
+        <i class="fa-solid fa-i-cursor"></i> SINGULARITY ☝️
+      </div>
+      <h1 class="main-word" style="font-size: 240px; color: #ffffff;">A</h1>
+      <p class="story-caption font-serif" style="font-size: 44px; color: #bbb;">
+        A single true expert shifts the dynamic entirely.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-crown"></i> INDIVIDUAL IMPACT</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 27 ==================== -->
+  <div class="slide theme-gold">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-chess-king"></i> Directive 27/60</span>
+      <span>27 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-glass" style="border-color: #ffd700;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 215, 0, 0.2); color: #ffd700; border: 1px solid #ffd700;">
+        <i class="fa-solid fa-award"></i> TOP 1% 👑
+      </div>
+      <h1 class="main-word text-glow" style="font-size: 130px; color: #ffd700;">MASTER</h1>
+      <p class="story-caption font-serif" style="font-size: 46px; color: #fff8e7;">
+        Someone who has internalized pattern recognition over thousands of iterations.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-medal"></i> EXPERT STATUS</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 28 ==================== -->
+  <div class="slide theme-emerald">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-flag-checkered"></i> Directive 28/60</span>
+      <span>28 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-radar"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(0, 255, 136, 0.2); color: #00ff88;">
+        <i class="fa-solid fa-circle-check"></i> EXECUTION 🏁
+      </div>
+      <h1 class="main-word" style="font-size: 110px; color: #00ff88;">FINISHES</h1>
+      <p class="story-caption font-sans" style="color: #d8ffe8;">
+        Completes high-stakes objectives while amateurs are still debating.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-square-check"></i> COMPLETION RATE</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 29 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-right-to-bracket"></i> Directive 29/60</span>
+      <span>29 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 150px; height: 300px; background: #222; border-radius: 100px;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255,255,255,0.1); color: #fff;">
+        <i class="fa-solid fa-right-long"></i> WITHIN ⏳
+      </div>
+      <h1 class="main-word" style="font-size: 220px; color: #ffffff;">IN</h1>
+      <p class="story-caption font-mono" style="color: #888;">
+        In record time, without missing micro-details.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-clock"></i> TIMEFRAME</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 30 ==================== -->
+  <div class="slide theme-cyber">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-gauge-simple-high"></i> Directive 30/60</span>
+      <span>30 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-eq">
+        <span style="height: 180px;"></span>
+        <span style="height: 220px;"></span>
+        <span style="height: 140px;"></span>
+      </div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(0, 240, 255, 0.2); color: #00f0ff;">
+        <i class="fa-solid fa-bolt"></i> VELOCITY ⏱️
+      </div>
+      <h1 class="main-word" style="font-size: 110px; color: #00f0ff;">MINUTES,</h1>
+      <p class="story-caption font-serif" style="font-size: 42px; color: #d6ffff;">
+        What takes days for others takes minutes for the master.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-stopwatch"></i> RAPID DELIVERY</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 31 ==================== -->
+  <div class="slide theme-violet">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-user-check"></i> Directive 31/60</span>
+      <span>31 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-orbit"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(184, 119, 255, 0.2); color: #b877ff;">
+        <i class="fa-solid fa-id-card"></i> RECIPIENT 🫵
+      </div>
+      <h1 class="main-word" style="font-size: 180px; color: #b877ff;">YOU</h1>
+      <p class="story-caption font-sans" style="color: #ebd6ff;">
+        As the buyer, understand what you are truly acquiring.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-graduation-cap"></i> BUYER MINDSET</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 32 ==================== -->
+  <div class="slide theme-crimson">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-circle-minus"></i> Directive 32/60</span>
+      <span>32 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-octagon"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 0, 85, 0.2); color: #ff0055;">
+        <i class="fa-solid fa-ban"></i> NEGATION ❌
+      </div>
+      <h1 class="main-word" style="font-size: 130px; color: #ff0055;">AREN'T</h1>
+      <p class="story-caption font-mono" style="color: #ffccd5;">
+        You are not paying for physical clock duration.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-triangle-exclamation"></i> FALSE METRIC</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 33 ==================== -->
+  <div class="slide theme-emerald">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-credit-card"></i> Directive 33/60</span>
+      <span>33 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-tag"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(0, 255, 136, 0.2); color: #00ff88;">
+        <i class="fa-solid fa-receipt"></i> COMPENSATION 💳
+      </div>
+      <h1 class="main-word" style="font-size: 140px; color: #00ff88;">PAYING</h1>
+      <p class="story-caption font-serif" style="font-size: 44px; color: #d4ffe4;">
+        Paying for the removal of risk and guaranteed outcome.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-cash-register"></i> VALUE DISBURSED</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 34 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-arrow-right-arrow-left"></i> Directive 34/60</span>
+      <span>34 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 300px; height: 300px; border-top: 10px solid #fff; border-right: 10px solid #fff;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255,255,255,0.1); color: #fff;">
+        <i class="fa-solid fa-bullseye"></i> PURPOSE 🎯
+      </div>
+      <h1 class="main-word" style="font-size: 180px; color: #ffffff;">FOR</h1>
+      <p class="story-caption font-sans" style="color: #aaa;">
+        For the end state, not the construction noise.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-crosshairs"></i> TARGET PURPOSE</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 35 ==================== -->
+  <div class="slide theme-cyber">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-clock-rotate-left"></i> Directive 35/60</span>
+      <span>35 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 400px; height: 400px; border-radius: 50%; border: 10px dotted #00f0ff;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(0, 240, 255, 0.2); color: #00f0ff;">
+        <i class="fa-solid fa-hourglass"></i> CHRONOS ⌛
+      </div>
+      <h1 class="main-word" style="font-size: 160px; color: #00f0ff;">TIME.</h1>
+      <p class="story-caption font-mono" style="color: #b3ffff;">
+        Time spent is a terrible measure of artistic mastery.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-ban font-mono"></i> ANTI-HOURLY</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 36 ==================== -->
+  <div class="slide theme-violet">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-user-large"></i> Directive 36/60</span>
+      <span>36 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-orbit"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(184, 119, 255, 0.2); color: #b877ff;">
+        <i class="fa-solid fa-lightbulb"></i> TRUTH 💡
+      </div>
+      <h1 class="main-word" style="font-size: 180px; color: #b877ff;">YOU</h1>
+      <p class="story-caption font-serif" style="font-size: 44px; color: #f0dbff;">
+        You are investing in wisdom accumulated over decades.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-gem"></i> INVESTOR REALITY</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 37 ==================== -->
+  <div class="slide theme-monochrome">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-equals"></i> Directive 37/60</span>
+      <span>37 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 400px; height: 20px; background: #fff; box-shadow: 0 40px 0 #fff;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: #222; color: #fff;">
+        <i class="fa-solid fa-check"></i> STATE OF BEING ⚡
+      </div>
+      <h1 class="main-word" style="font-size: 200px; color: #ffffff;">ARE</h1>
+      <p class="story-caption font-sans" style="color: #aaa;">
+        Currently paying for specialized leverage.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-infinity"></i> CONTINUOUS VALUE</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 38 ==================== -->
+  <div class="slide theme-emerald">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-money-bill-transfer"></i> Directive 38/60</span>
+      <span>38 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-tag"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(0, 255, 136, 0.2); color: #00ff88;">
+        <i class="fa-solid fa-hand-holding-dollar"></i> REAL TRANSACTION 💸
+      </div>
+      <h1 class="main-word" style="font-size: 140px; color: #00ff88;">PAYING</h1>
+      <p class="story-caption font-serif" style="font-size: 42px; color: #ccffea;">
+        Buying speed, perfection, and peace of mind.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-coins"></i> PREMIUM EXCHANGE</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 39 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-location-arrow"></i> Directive 39/60</span>
+      <span>39 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 250px; height: 250px; border-bottom: 8px solid #fff; border-left: 8px solid #fff;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255,255,255,0.1); color: #fff;">
+        <i class="fa-solid fa-compass"></i> DIRECTION 🧭
+      </div>
+      <h1 class="main-word" style="font-size: 180px; color: #ffffff;">FOR</h1>
+      <p class="story-caption font-mono" style="color: #999;">
+        For the distillation of thousands of failures.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-route"></i> PATHWAY</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 40 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-diamond"></i> Directive 40/60</span>
+      <span>40 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 300px; height: 300px; background: rgba(255,255,255,0.05); transform: rotate(45deg);"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255,255,255,0.1); color: #fff;">
+        <i class="fa-solid fa-star"></i> THE ACCUMULATION 🌟
+      </div>
+      <h1 class="main-word" style="font-size: 180px; color: #ffffff;">THE</h1>
+      <p class="story-caption font-sans" style="color: #aaa;">
+        The sheer depth of expertise applied instantly.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-layer-group"></i> DEPTH INDEX</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 41 ==================== -->
+  <div class="slide theme-gold">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-calendar-days"></i> Directive 41/60</span>
+      <span>41 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-glass" style="border-color: #ffd700;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 215, 0, 0.2); color: #ffd700; border: 1px solid #ffd700;">
+        <i class="fa-solid fa-hourglass-start"></i> 10 YEARS OF CRAFT ⏳
+      </div>
+      <h1 class="main-word text-glow" style="font-size: 130px; color: #ffd700;">DECADE</h1>
+      <p class="story-caption font-serif" style="font-size: 46px; color: #fff6d6;">
+        Ten years of practice compressed into ten seconds of execution.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-award"></i> CRAFT MASTERY</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 42 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-cube"></i> Directive 42/60</span>
+      <span>42 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 200px; height: 200px; border: 2px solid #555;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255,255,255,0.1); color: #fff;">
+        <i class="fa-solid fa-box"></i> OBJECT 📦
+      </div>
+      <h1 class="main-word" style="font-size: 220px; color: #ffffff;">IT</h1>
+      <p class="story-caption font-mono" style="color: #777;">
+        The refined process that renders effort invisible.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-microchip"></i> COMPONENT</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 43 ==================== -->
+  <div class="slide theme-violet">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-wrench"></i> Directive 43/60</span>
+      <span>43 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-block"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(184, 119, 255, 0.2); color: #b877ff;">
+        <i class="fa-solid fa-hammer"></i> INVESTMENT 🛠️
+      </div>
+      <h1 class="main-word" style="font-size: 160px; color: #b877ff;">TOOK</h1>
+      <p class="story-caption font-serif" style="font-size: 44px; color: #f5e8ff;">
+        The heavy lifting was completed years before you met them.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-dumbbell"></i> HEAVY PREPARATION</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 44 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-arrow-right-long"></i> Directive 44/60</span>
+      <span>44 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 400px; height: 4px; background: #fff;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255,255,255,0.1); color: #fff;">
+        <i class="fa-solid fa-route"></i> BRIDGE 🌉
+      </div>
+      <h1 class="main-word" style="font-size: 220px; color: #ffffff;">TO</h1>
+      <p class="story-caption font-sans" style="color: #999;">
+        Bridging high difficulty into radical simplicity.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-diagram-next"></i> PATHWAY</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 45 ==================== -->
+  <div class="slide theme-emerald">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-wand-magic"></i> Directive 45/60</span>
+      <span>45 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-radar"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(0, 255, 136, 0.2); color: #00ff88;">
+        <i class="fa-solid fa-gears"></i> CREATION ⚙️
+      </div>
+      <h1 class="main-word" style="font-size: 150px; color: #00ff88;">MAKE</h1>
+      <p class="story-caption font-serif" style="font-size: 44px; color: #e6fffa;">
+        Engineering complex tasks into frictionless outputs.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-sliders"></i> SIMPLIFICATION</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 46 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-square"></i> Directive 46/60</span>
+      <span>46 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 300px; height: 300px; border: 1px solid rgba(255,255,255,0.3);"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255,255,255,0.1); color: #fff;">
+        <i class="fa-solid fa-circle"></i> ENTITY ⚪
+      </div>
+      <h1 class="main-word" style="font-size: 220px; color: #ffffff;">IT</h1>
+      <p class="story-caption font-mono" style="color: #aaa;">
+        Making the final product feel entirely natural.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-cube"></i> RESULT ENTITY</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 47 ==================== -->
+  <div class="slide theme-cyber">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-eye"></i> Directive 47/60</span>
+      <span>47 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 500px; height: 250px; border-radius: 50%; border: 4px solid #00f0ff;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(0, 240, 255, 0.2); color: #00f0ff;">
+        <i class="fa-solid fa-glasses"></i> PERCEPTION 👁️
+      </div>
+      <h1 class="main-word" style="font-size: 150px; color: #00f0ff;">LOOK</h1>
+      <p class="story-caption font-serif" style="font-size: 42px; color: #d6ffff;">
+        Making the impossible appear like second nature.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-masks-theater"></i> OPTICAL ELEGANCE</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 48 ==================== -->
+  <div class="slide theme-gold">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-feather"></i> Directive 48/60</span>
+      <span>48 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-glass" style="border-radius: 50%;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 215, 0, 0.2); color: #ffd700; border: 1px solid #ffd700;">
+        <i class="fa-solid fa-sparkles"></i> ULTIMATE MASTERY ✨
+      </div>
+      <h1 class="main-word text-glow" style="font-size: 95px; color: #ffd700;">EFFORTLESS.</h1>
+      <p class="story-caption font-sans" style="color: #fff9e6;">
+        Effortlessness is the ultimate illusion of total mastery.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-wand-magic-sparkles"></i> APEX PERFORMANCE</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 49 ==================== -->
+  <div class="slide theme-crimson">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-turtle"></i> Directive 49/60</span>
+      <span>49 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-octagon"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 0, 85, 0.2); color: #ff0055;">
+        <i class="fa-solid fa-triangle-exclamation"></i> FALSE MYTH 🛑
+      </div>
+      <h1 class="main-word" style="font-size: 110px; color: #ff0055;">SLOWNESS</h1>
+      <p class="story-caption font-mono" style="color: #ffccd5;">
+        Slowness is often mistaken for thoroughness.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-hand"></i> DEBUNKED CONCEPT</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 50 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-ban"></i> Directive 50/60</span>
+      <span>50 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 300px; height: 300px; border: 10px solid #ff4757; border-radius: 50%;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 71, 87, 0.2); color: #ff4757;">
+        <i class="fa-solid fa-xmark"></i> NEGATION ❌
+      </div>
+      <h1 class="main-word" style="font-size: 140px; color: #ff4757;">ISN'T</h1>
+      <p class="story-caption font-serif" style="font-size: 44px; color: #e0e0e0;">
+        Taking longer does not magically increase value.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-slash"></i> BREAKING EQUATIONS</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 51 ==================== -->
+  <div class="slide theme-gold">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-certificate"></i> Directive 51/60</span>
+      <span>51 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-tag"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 215, 0, 0.2); color: #ffd700;">
+        <i class="fa-solid fa-star"></i> STANDARDS ⭐
+      </div>
+      <h1 class="main-word" style="font-size: 130px; color: #ffd700;">QUALITY.</h1>
+      <p class="story-caption font-sans" style="color: #fff6d6;">
+        Quality is precision, correctness, and speed combined.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-gem"></i> BENCHMARK</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 52 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-arrow-right"></i> Directive 52/60</span>
+      <span>52 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 250px; height: 250px; background: #222;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255,255,255,0.1); color: #fff;">
+        <i class="fa-solid fa-circle-dot"></i> IDENTITY 🎯
+      </div>
+      <h1 class="main-word" style="font-size: 220px; color: #ffffff;">IT</h1>
+      <p class="story-caption font-mono" style="color: #888;">
+        Slowness in execution reveals systemic issues.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-fingerprint"></i> REAL DIAGNOSTIC</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 53 ==================== -->
+  <div class="slide theme-monochrome">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-check"></i> Directive 53/60</span>
+      <span>53 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 400px; height: 8px; background: #fff;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: #222; color: #fff;">
+        <i class="fa-solid fa-equals"></i> DEFINITION 📌
+      </div>
+      <h1 class="main-word" style="font-size: 220px; color: #ffffff;">IS</h1>
+      <p class="story-caption font-serif" style="font-size: 46px; color: #ccc;">
+        Defining slowness by its true nature.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-book"></i> LITERAL MEANING</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 54 ==================== -->
+  <div class="slide theme-crimson">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-gears"></i> Directive 54/60</span>
+      <span>54 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-block" style="border-color: #ff0055;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 0, 85, 0.2); color: #ff0055; border: 1px solid #ff0055;">
+        <i class="fa-solid fa-triangle-exclamation"></i> SYSTEM DRAG ⚙️
+      </div>
+      <h1 class="main-word text-glow" style="font-size: 110px; color: #ff0055;">FRICTION.</h1>
+      <p class="story-caption font-sans" style="color: #ffccd5;">
+        Friction destroys energy, delays revenue, and burns trust.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-volcano"></i> SYSTEM WASTE</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 55 ==================== -->
+  <div class="slide theme-cyber">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-gauge-high"></i> Directive 55/60</span>
+      <span>55 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-eq">
+        <span style="height: 250px;"></span>
+        <span style="height: 220px;"></span>
+        <span style="height: 280px;"></span>
+      </div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(0, 240, 255, 0.2); color: #00f0ff; border: 1px solid #00f0ff;">
+        <i class="fa-solid fa-bolt"></i> TURBO CHARGED ⚡
+      </div>
+      <h1 class="main-word text-glow" style="font-size: 150px; color: #00f0ff;">SPEED</h1>
+      <p class="story-caption font-mono" style="color: #e6ffff;">
+        Speed is pure clarity executing without hesitation.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-wind"></i> VELOCITY ADVANTAGE</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 56 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-xmark"></i> Directive 56/60</span>
+      <span>56 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 350px; height: 350px; border: 8px dashed #ff4757; border-radius: 50%;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 71, 87, 0.2); color: #ff4757;">
+        <i class="fa-solid fa-ban"></i> FALSE EQUALITY ❌
+      </div>
+      <h1 class="main-word" style="font-size: 140px; color: #ff4757;">ISN'T</h1>
+      <p class="story-caption font-serif" style="font-size: 44px; color: #ccc;">
+        Speed is not sloppiness when done by experts.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-scissors"></i> DISTINCTION</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 57 ==================== -->
+  <div class="slide theme-crimson">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-person-running"></i> Directive 57/60</span>
+      <span>57 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-octagon"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 0, 85, 0.2); color: #ff0055;">
+        <i class="fa-solid fa-person-walking-luggage"></i> CARELESSNESS 🏃
+      </div>
+      <h1 class="main-word" style="font-size: 120px; color: #ff0055;">RUSHING.</h1>
+      <p class="story-caption font-sans" style="color: #ffccd5;">
+        Rushing comes from anxiety; speed comes from mastery.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-heart-pulse"></i> CALM VELOCITY</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 58 ==================== -->
+  <div class="slide theme-dark">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-location-pin"></i> Directive 58/60</span>
+      <span>58 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 250px; height: 250px; background: rgba(255,255,255,0.08); border-radius: 50%;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255,255,255,0.1); color: #fff;">
+        <i class="fa-solid fa-compass"></i> POINT 📌
+      </div>
+      <h1 class="main-word" style="font-size: 220px; color: #ffffff;">IT</h1>
+      <p class="story-caption font-mono" style="color: #888;">
+        Speed is the undeniable proof of high competence.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-check-double"></i> FINAL PROOF</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 59 ==================== -->
+  <div class="slide theme-monochrome">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-arrow-right-to-bracket"></i> Directive 59/60</span>
+      <span>59 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div style="width: 350px; height: 8px; background: #fff;"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: #222; color: #fff;">
+        <i class="fa-solid fa-circle-check"></i> ULTIMATE STATE 🟢
+      </div>
+      <h1 class="main-word" style="font-size: 220px; color: #ffffff;">IS</h1>
+      <p class="story-caption font-serif" style="font-size: 46px; color: #bbb;">
+        The culmination of thousands of hours of effort.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-flag"></i> FINAL VERDICT</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- ==================== FRAME 60 ==================== -->
+  <div class="slide theme-gold">
+    <div class="header-tag">
+      <span><i class="fa-solid fa-crown"></i> Directive 60/60</span>
+      <span>60 // FRAME</span>
+    </div>
+
+    <div class="css-art-container">
+      <div class="css-art-glass" style="border: 3px solid #ffd700; width: 600px; height: 400px; box-shadow: 0 0 100px rgba(255,215,0,0.3);"></div>
+    </div>
+
+    <div>
+      <div class="badge font-mono" style="background: rgba(255, 215, 0, 0.25); color: #ffd700; border: 2px solid #ffd700;">
+        <i class="fa-solid fa-trophy"></i> APEX DESTINATION 🏆
+      </div>
+      <h1 class="main-word text-glow" style="font-size: 110px; color: #ffd700;">MASTERY.</h1>
+      <p class="story-caption font-serif" style="font-size: 52px; color: #ffffff;">
+        Charge for the decade of discipline, never for the minutes of execution.
+      </p>
+    </div>
+
+    <div class="footer-tag font-mono">
+      <span><i class="fa-solid fa-infinity"></i> VALUE UNLOCKED</span>
+      <span>@callistra.design</span>
+    </div>
+  </div>
+
+  <!-- Script: Pixel Displace Text Effect Engine -->
+  <script>
+    function getSpatialRandom(x, y) {
+      let n = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
+      return n - Math.floor(n);
+    }
+
+    function renderDisplacedTextForElement(el) {
+      const text = el.innerText.trim();
+      if (!text) return;
+
+      const computedStyle = window.getComputedStyle(el);
+      const fontSize = parseFloat(computedStyle.fontSize) || 140;
+      const color = computedStyle.color || '#ffffff';
+      
+      const origBlockSize = 50; // Grid Block Size specified
+      const origDrift = 15;     // Scatter Amount specified
+
+      const tempCanvas = document.createElement('canvas');
+      const tempCtx = tempCanvas.getContext('2d');
+      tempCtx.font = `900 ${fontSize}px "Montserrat", sans-serif`;
+      
+      const lines = text.split('\n');
+      let maxLineWidth = 0;
+      lines.forEach(line => {
+        const w = tempCtx.measureText(line).width;
+        if (w > maxLineWidth) maxLineWidth = w;
+      });
+
+      const lineHeight = fontSize * 0.95;
+      const textHeight = lines.length * lineHeight;
+      
+      const padding = origDrift * 2 + 40;
+      const width = Math.ceil(maxLineWidth + padding * 2);
+      const height = Math.ceil(textHeight + padding * 2);
+
+      const offscreen = document.createElement('canvas');
+      offscreen.width = width;
+      offscreen.height = height;
+      const octx = offscreen.getContext('2d');
+
+      octx.font = `900 ${fontSize}px "Montserrat", sans-serif`;
+      octx.textAlign = 'left';
+      octx.textBaseline = 'middle';
+      octx.fillStyle = color;
+
+      let startY = (height / 2) - (textHeight / 2) + (lineHeight / 2);
+      lines.forEach((line, index) => {
+        octx.fillText(line, padding, startY + (index * lineHeight));
+      });
+
+      const canvas = document.createElement('canvas');
+      canvas.width = width;
+      canvas.height = height;
+
+      const ctx = canvas.getContext('2d');
+
+      const sourceData = octx.getImageData(0, 0, width, height);
+      const targetData = ctx.createImageData(width, height);
+      const sourceBuffer = new Uint32Array(sourceData.data.buffer);
+      const targetBuffer = new Uint32Array(targetData.data.buffer);
+
+      for (let y = 0; y < height; y += origBlockSize) {
+        for (let x = 0; x < width; x += origBlockSize) {
+          const randX = getSpatialRandom(x, y);
+          const randY = getSpatialRandom(x + 100, y + 100);
+
+          const driftOffsetX = Math.round((randX - 0.5) * origDrift);
+          const driftOffsetY = Math.round((randY - 0.5) * origDrift);
+
+          const blockW = Math.min(origBlockSize, width - x);
+          const blockH = Math.min(origBlockSize, height - y);
+
+          for (let by = 0; by < blockH; by++) {
+            const sy = y + by;
+            const dy = sy + driftOffsetY;
+
+            if (dy >= 0 && dy < height) {
+              for (let bx = 0; bx < blockW; bx++) {
+                const sx = x + bx;
+                const dx = sx + driftOffsetX;
+
+                if (dx >= 0 && dx < width && sy >= 0 && sx >= 0 && sy < height && sx < width) {
+                  const sourcePixel = sourceBuffer[sy * width + sx];
+                  if (sourcePixel !== 0) {
+                    targetBuffer[dy * width + dx] = sourcePixel;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      ctx.putImageData(targetData, 0, 0);
+
+      el.innerHTML = '';
+      el.appendChild(canvas);
+      el.style.fontSize = '0px';
+      el.style.lineHeight = '0';
+    }
+
+    document.fonts.ready.then(() => {
+      document.querySelectorAll('.main-word').forEach(el => {
+        renderDisplacedTextForElement(el);
+      });
+    });
+  </script>
+</body>
+</html>
