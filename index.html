@@ -2,1236 +2,545 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Font Theft & License Poster Carousel (68 Frames) — @callistra.design</title>
+  <title>Pixel Displace - 5 Carousel Slide Styles</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@500;700;800&family=Space+Grotesk:wght@500;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   
-  <!-- Google Fonts CDN -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@900&display=swap" rel="stylesheet">
-  
-  <!-- FontAwesome Icons CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    
-    body {
-      background-color: #030305;
-      font-family: 'Instrument Sans', sans-serif;
-      color: #ffffff;
+    body { 
+      background-color: #050505; 
+      font-family: 'Inter', sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 60px 0;
+      padding: 40px 0;
     }
 
-    /* Standard 1080px x 1920px Vertical Reel/Story Slide Canvas */
+    /* Common Instagram Carousel Slide Base (1080 x 1350) */
     .slide {
       width: 1080px;
-      height: 1920px;
+      height: 1350px;
       position: relative;
       overflow: hidden;
-      margin-bottom: 80px;
-      background: #09090d;
-      color: #ffffff;
+      margin-bottom: 60px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+      flex-shrink: 0;
+    }
+
+    /* Target Image Container Box */
+    .image-placeholder {
+      background-color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888888;
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+
+    /* ==========================================================================
+       STYLE 1: CYBERPUNK / TECH GLITCH
+       ========================================================================== */
+    #slide-style-1 {
+      background: #090B10;
+      color: #FFFFFF;
+      font-family: 'Space Grotesk', sans-serif;
       padding: 80px 70px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: 0 30px 100px rgba(0,0,0,0.9);
-      border-radius: 40px;
+      border: 1px solid #1A2332;
     }
-
-    /* Ambient Background Effects */
-    .bg-grid {
+    
+    /* Background Grid Overlay */
+    #slide-style-1::before {
+      content: '';
       position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image: 
+        linear-gradient(to right, rgba(0,255,136,0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,255,136,0.04) 1px, transparent 1px);
+      background-size: 40px 40px;
       pointer-events: none;
-      z-index: 1;
     }
 
-    .bg-glow-red {
-      position: absolute;
-      width: 900px;
-      height: 900px;
-      background: radial-gradient(circle, rgba(255, 42, 95, 0.18) 0%, rgba(0,0,0,0) 70%);
-      top: 15%; left: 10%;
-      pointer-events: none; z-index: 1;
+    .s1-header { display: flex; justify-content: space-between; align-items: center; z-index: 2; }
+    .s1-code { 
+      background: rgba(0, 255, 136, 0.1); 
+      border: 1px solid #00FF88; 
+      color: #00FF88; 
+      padding: 10px 24px; 
+      font-size: 22px; 
+      font-weight: 700;
+      letter-spacing: 3px;
     }
+    .s1-badge { color: #00E5FF; font-size: 20px; letter-spacing: 2px; }
 
-    .bg-glow-amber {
-      position: absolute;
-      width: 900px;
-      height: 900px;
-      background: radial-gradient(circle, rgba(255, 183, 0, 0.16) 0%, rgba(0,0,0,0) 70%);
-      bottom: 15%; right: 10%;
-      pointer-events: none; z-index: 1;
+    .s1-title { 
+      font-size: 72px; 
+      font-weight: 700; 
+      line-height: 1.05; 
+      text-transform: uppercase;
+      margin-top: 20px;
+      margin-bottom: 30px;
+      z-index: 2;
     }
+    .s1-title span { color: #00FF88; text-shadow: 0 0 15px rgba(0,255,136,0.4); }
 
-    .bg-glow-cyan {
-      position: absolute;
-      width: 900px;
-      height: 900px;
-      background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, rgba(0,0,0,0) 70%);
-      top: 30%; right: 5%;
-      pointer-events: none; z-index: 1;
-    }
-
-    .bg-glow-green {
-      position: absolute;
-      width: 900px;
-      height: 900px;
-      background: radial-gradient(circle, rgba(0, 230, 118, 0.18) 0%, rgba(0,0,0,0) 70%);
-      top: 20%; left: 10%;
-      pointer-events: none; z-index: 1;
-    }
-
-    /* Layout Containers */
-    .slide-header, .slide-top-narrative, .css-art-box, .slide-main-word-wrap, .slide-bottom-narrative, .slide-footer {
+    .s1-image-box {
+      width: 100%;
+      height: 760px;
+      border: 2px solid #00E5FF;
+      box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
       position: relative;
-      z-index: 10;
+      z-index: 2;
     }
 
-    /* Top Header */
-    .slide-header {
+    .s1-footer { 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      border-top: 1px solid #1A2332;
+      padding-top: 30px;
+      z-index: 2;
+    }
+    .s1-url { color: #FFFFFF; font-size: 32px; font-weight: 700; letter-spacing: 1px; }
+    .s1-tag { color: #667085; font-size: 20px; }
+
+
+    /* ==========================================================================
+       STYLE 2: SWISS NEO-BRUTALISM
+       ========================================================================== */
+    #slide-style-2 {
+      background: #FFE600;
+      color: #000000;
+      font-family: 'Inter', sans-serif;
+      padding: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .s2-top-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid rgba(255,255,255,0.12);
+      border-bottom: 4px solid #000000;
       padding-bottom: 25px;
     }
-
-    .header-tag {
-      font-family: 'DM Mono', monospace;
-      font-size: 22px;
-      letter-spacing: 2px;
-      color: #ff3366;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .header-author {
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: 24px;
-      font-weight: 600;
-      color: #cbd5e1;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    /* Top Narrative */
-    .slide-top-narrative { margin-top: 20px; }
-    .serif-title {
-      font-family: 'Instrument Serif', serif;
-      font-size: 48px;
-      font-style: italic;
-      color: #f1f5f9;
-      line-height: 1.1;
-    }
-    .sans-desc {
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: 26px;
-      color: #94a3b8;
-      margin-top: 10px;
-      line-height: 1.35;
-    }
-
-    /* Reduced Main Word Typography Container */
-    .slide-main-word-wrap {
-      text-align: center;
-      margin: 10px 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-
-    .main-word {
-      font-family: 'Montserrat', sans-serif;
+    .s2-code {
+      background: #000000;
+      color: #FFFFFF;
       font-weight: 900;
-      font-size: 110px; /* Reduced from 150px to prevent slide cut-offs */
+      font-size: 28px;
+      padding: 8px 20px;
+    }
+    .s2-site { font-size: 32px; font-weight: 900; }
+
+    .s2-title {
+      font-size: 80px;
+      font-weight: 900;
+      line-height: 0.95;
       text-transform: uppercase;
       letter-spacing: -2px;
-      line-height: 1;
-      word-break: normal;
-      white-space: nowrap;
-      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 15px 30px rgba(0,0,0,0.7));
+      margin: 30px 0;
     }
 
-    .main-word.accent-red {
-      background: linear-gradient(180deg, #ff4d6d 0%, #c9184a 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .main-word.accent-amber {
-      background: linear-gradient(180deg, #ffb703 0%, #fb8500 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .main-word.accent-cyan {
-      background: linear-gradient(180deg, #00f0ff 0%, #0077b6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .main-word.accent-green {
-      background: linear-gradient(180deg, #00e676 0%, #00a843 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Pure CSS Frame Art Container */
-    .css-art-box {
+    .s2-image-box {
       width: 100%;
-      height: 480px;
+      height: 720px;
+      border: 5px solid #000000;
+      box-shadow: 12px 12px 0px #000000;
+    }
+
+    .s2-footer {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      margin: 15px 0;
-      background: rgba(255, 255, 255, 0.02);
-      border: 2px dashed rgba(255, 255, 255, 0.12);
-      border-radius: 32px;
-      overflow: hidden;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-top: 4px solid #000000;
+      padding-top: 25px;
     }
+    .s2-action { font-size: 36px; font-weight: 900; text-transform: uppercase; }
+    .s2-num { font-size: 40px; font-weight: 900; }
 
-    /* Shared Icon Element Styling */
-    .art-icon { font-size: 110px; color: #ffffff; filter: drop-shadow(0 0 25px rgba(255,255,255,0.3)); }
-    .art-icon.red { color: #ff2a5f; filter: drop-shadow(0 0 35px rgba(255,42,95,0.6)); }
-    .art-icon.cyan { color: #00f0ff; filter: drop-shadow(0 0 35px rgba(0,240,255,0.6)); }
-    .art-icon.amber { color: #ffb703; filter: drop-shadow(0 0 35px rgba(255,183,3,0.6)); }
-    .art-icon.green { color: #00e676; filter: drop-shadow(0 0 35px rgba(0,230,118,0.6)); }
 
-    /* Custom CSS Visual Assets */
-    .css-trash-card { width: 180px; height: 220px; background: rgba(255,42,95,0.1); border: 2px solid #ff2a5f; backdrop-filter: blur(10px); border-radius: 24px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 40px rgba(255,42,95,0.3); }
-    .css-red-arrow { width: 0; height: 0; border-top: 50px solid transparent; border-bottom: 50px solid transparent; border-left: 100px solid #ff2a5f; transform: rotate(-45deg); filter: drop-shadow(0 0 20px #ff2a5f); }
-    .css-serif-a { font-family: 'Instrument Serif', serif; font-size: 260px; position: relative; color: #fff; }
-    .css-anchor-dot { position: absolute; width: 20px; height: 20px; background: #00f0ff; border-radius: 50%; box-shadow: 0 0 15px #00f0ff; }
-    .css-double-chevron { display: flex; gap: 10px; font-size: 100px; color: #ffb703; filter: drop-shadow(0 0 25px #ffb703); }
-    .css-pulsing-warning { width: 200px; height: 200px; border-radius: 50%; border: 6px solid #ff2a5f; display: flex; align-items: center; justify-content: center; font-size: 90px; color: #ff2a5f; box-shadow: 0 0 50px rgba(255,42,95,0.6); }
-    .css-crosshair { width: 220px; height: 220px; border: 3px solid #00f0ff; border-radius: 50%; position: relative; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 40px rgba(0,240,255,0.4); }
-    .css-crosshair::before, .css-crosshair::after { content:''; position: absolute; background: #00f0ff; }
-    .css-crosshair::before { width: 100%; height: 2px; } .css-crosshair::after { height: 100%; width: 2px; }
-    .css-download-tray { width: 220px; height: 140px; border: 6px solid #00e676; border-top: none; border-radius: 0 0 20px 20px; position: relative; display: flex; justify-content: center; box-shadow: 0 15px 30px rgba(0,230,118,0.3); }
-    .css-download-arrow { position: absolute; top: -40px; font-size: 80px; color: #00e676; }
-    .css-code-brackets { font-family: 'DM Mono', monospace; font-size: 140px; color: #00f0ff; text-shadow: 0 0 30px #00f0ff; font-weight: bold; }
-    .css-intersect-cross { width: 180px; height: 180px; position: relative; display: flex; align-items: center; justify-content: center; }
-    .css-cross-line { position: absolute; width: 100%; height: 12px; background: linear-gradient(90deg, #ffb703, #ff2a5f); border-radius: 6px; }
-    .css-price-badge { background: #00e676; color: #000; font-family: 'Montserrat', sans-serif; font-size: 70px; font-weight: 900; padding: 20px 40px; border-radius: 20px; position: relative; box-shadow: 0 0 40px rgba(0,230,118,0.5); }
-    .css-strike-line { position: absolute; width: 110%; height: 10px; background: #ff2a5f; top: 50%; left: -5%; transform: rotate(-12deg); }
-    .css-yellow-target { width: 210px; height: 210px; border: 8px solid #ffcc00; border-radius: 50%; box-shadow: 0 0 40px rgba(255,204,0,0.5); display: flex; align-items: center; justify-content: center; }
-    .css-ttf-card { width: 180px; height: 230px; border: 4px solid #00f0ff; border-radius: 16px; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,240,255,0.05); box-shadow: 0 0 35px rgba(0,240,255,0.3); }
-    .css-ios-toggle { width: 180px; height: 100px; background: #00e676; border-radius: 50px; padding: 10px; position: relative; box-shadow: 0 0 40px rgba(0,230,118,0.5); }
-    .css-toggle-knob { width: 80px; height: 80px; background: #fff; border-radius: 50%; position: absolute; right: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
-    .css-geom-a { font-family: 'Montserrat', sans-serif; font-size: 200px; font-weight: 900; color: #fff; text-shadow: 0 0 30px rgba(255,255,255,0.5); }
-    .css-browser-window { width: 360px; height: 220px; background: #111827; border: 2px solid rgba(255,255,255,0.2); border-radius: 16px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.8); }
-    .css-browser-bar { height: 36px; background: #1f2937; display: flex; align-items: center; padding: 0 14px; gap: 8px; }
-    .css-browser-dot { width: 10px; height: 10px; border-radius: 50%; background: #ff5f56; }
-    .css-ampersand { font-family: 'Instrument Serif', serif; font-size: 240px; background: linear-gradient(180deg, #ffb703, #fb8500); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .css-id-badge { width: 200px; height: 260px; border: 3px solid #ff2a5f; border-radius: 20px; padding: 20px; display: flex; flex-direction: column; gap: 15px; box-shadow: 0 0 35px rgba(255,42,95,0.3); }
-    .css-eye-strike { position: relative; display: flex; align-items: center; justify-content: center; }
-    .css-split-screen { width: 100%; height: 100%; background: linear-gradient(135deg, #000000 50%, #e60000 50%); }
-    .css-grid-lines { width: 280px; height: 180px; border-bottom: 2px dashed #00f0ff; border-top: 2px dashed #00f0ff; position: relative; display: flex; align-items: center; justify-content: center; }
-    .css-prohibition { width: 180px; height: 180px; border: 16px solid #ff2a5f; border-radius: 50%; position: relative; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 40px rgba(255,42,95,0.5); }
-    .css-prohibition-slash { width: 100%; height: 16px; background: #ff2a5f; transform: rotate(-45deg); }
-    .css-timer { font-family: 'DM Mono', monospace; font-size: 65px; color: #ff2a5f; text-shadow: 0 0 25px #ff2a5f; letter-spacing: 4px; background: #000; padding: 15px 30px; border-radius: 12px; border: 2px solid #ff2a5f; }
-    .css-terminal-box { width: 380px; height: 220px; background: #0d1117; border: 2px solid #30363d; border-radius: 12px; padding: 20px; font-family: 'DM Mono', monospace; font-size: 22px; color: #00f0ff; }
-    .css-url-bar { width: 420px; background: #161b22; border: 2px solid #ff2a5f; border-radius: 30px; padding: 14px 24px; font-family: 'DM Mono', monospace; font-size: 20px; color: #ff4d6d; text-align: center; }
-    .css-lightning { font-size: 160px; color: #ffb703; filter: drop-shadow(0 0 40px #ffb703); }
-    .css-corner-brackets { width: 220px; height: 220px; position: relative; }
-    .css-corner-bracket { position: absolute; width: 40px; height: 40px; border-color: #00f0ff; border-style: solid; }
-    .css-cb-tl { top:0; left:0; border-width: 6px 0 0 6px; }
-    .css-cb-tr { top:0; right:0; border-width: 6px 6px 0 0; }
-    .css-cb-bl { bottom:0; left:0; border-width: 0 0 6px 6px; }
-    .css-cb-br { bottom:0; right:0; border-width: 0 6px 6px 0; }
-
-    /* Bottom Narrative Card */
-    .slide-bottom-narrative {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 24px;
-      padding: 28px;
-      backdrop-filter: blur(12px);
-    }
-    .mono-code {
-      font-family: 'DM Mono', monospace;
-      font-size: 22px;
-      color: #38bdf8;
-      margin-bottom: 10px;
+    /* ==========================================================================
+       STYLE 3: MODERN DARK GLASSMORPHISM
+       ========================================================================== */
+    #slide-style-3 {
+      background: #0D0E12;
+      color: #FFFFFF;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      padding: 80px 70px;
       display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .bottom-desc {
-      font-family: 'Instrument Sans', sans-serif;
-      font-size: 26px;
-      color: #cbd5e1;
-      line-height: 1.35;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .slide-footer {
+    /* Ambient Glowing Orbs */
+    .s3-orb-1 {
+      position: absolute;
+      width: 500px; height: 500px;
+      background: #7928CA;
+      filter: blur(140px);
+      top: -100px; right: -100px;
+      opacity: 0.5;
+    }
+    .s3-orb-2 {
+      position: absolute;
+      width: 500px; height: 500px;
+      background: #FF0080;
+      filter: blur(150px);
+      bottom: -100px; left: -100px;
+      opacity: 0.35;
+    }
+
+    .s3-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 2px solid rgba(255,255,255,0.12);
-      padding-top: 25px;
+      z-index: 2;
     }
-    .footer-info {
-      font-family: 'DM Mono', monospace;
+    .s3-pill {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 12px 28px;
+      border-radius: 100px;
       font-size: 20px;
-      color: #64748b;
+      font-weight: 600;
+    }
+    .s3-pill-accent {
+      background: linear-gradient(135deg, #FF0080, #7928CA);
+      border: none;
+      font-weight: 700;
+    }
+
+    .s3-title {
+      font-size: 68px;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin: 20px 0 10px 0;
+      z-index: 2;
+    }
+
+    .s3-image-box {
+      width: 100%;
+      height: 750px;
+      border-radius: 28px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.2);
+      z-index: 2;
+    }
+
+    .s3-footer {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 24px 36px;
+      border-radius: 20px;
+      z-index: 2;
     }
-    .footer-count {
-      font-family: 'DM Mono', monospace;
-      font-size: 24px;
-      font-weight: 500;
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.12);
-      padding: 6px 18px;
-      border-radius: 30px;
+    .s3-url { font-size: 28px; font-weight: 700; color: #FFFFFF; }
+    .s3-sub { font-size: 20px; color: #A1A1AA; }
+
+
+    /* ==========================================================================
+       STYLE 4: ACID GRAPHIC / Y2K POSTER
+       ========================================================================== */
+    #slide-style-4 {
+      background: #EAE6DF;
+      color: #111111;
+      font-family: 'Syne', sans-serif;
+      padding: 70px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
+
+    .s4-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #111;
+      padding-bottom: 15px;
+    }
+    .s4-highlight { color: #E04026; }
+
+    .s4-title-wrap { margin: 20px 0; }
+    .s4-title {
+      font-size: 76px;
+      font-weight: 800;
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: -2px;
+    }
+
+    .s4-image-container {
+      position: relative;
+      width: 100%;
+      height: 740px;
+    }
+    .s4-image-box {
+      width: 100%;
+      height: 100%;
+      border: 3px solid #111111;
+    }
+    /* Crosshair Graphic Corners */
+    .s4-corner {
+      position: absolute;
+      width: 20px; height: 20px;
+      border-top: 3px solid #E04026;
+      border-left: 3px solid #E04026;
+      top: -10px; left: -10px;
+    }
+    .s4-corner-br {
+      top: auto; left: auto;
+      bottom: -10px; right: -10px;
+      border: none;
+      border-bottom: 3px solid #E04026;
+      border-right: 3px solid #E04026;
+    }
+
+    .s4-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #111111;
+      color: #EAE6DF;
+      padding: 25px 35px;
+      margin-top: 20px;
+    }
+    .s4-url { font-size: 32px; font-weight: 800; letter-spacing: -0.5px; }
+    .s4-code-tag { 
+      background: #E04026; 
+      color: #FFFFFF; 
+      padding: 6px 16px; 
+      font-size: 22px; 
+      font-weight: 700; 
+    }
+
+
+    /* ==========================================================================
+       STYLE 5: LUXURY MODERN EDITORIAL
+       ========================================================================== */
+    #slide-style-5 {
+      background: #121110;
+      color: #F4F1EA;
+      font-family: 'Inter', sans-serif;
+      padding: 90px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .s5-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid #2A2825;
+      padding-bottom: 25px;
+    }
+    .s5-code-label {
+      font-size: 18px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #C5A880;
+    }
+    .s5-code-val {
+      font-size: 28px;
+      font-weight: 700;
+      color: #F4F1EA;
+    }
+
+    .s5-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 74px;
+      font-weight: 700;
+      line-height: 1.1;
+      margin: 35px 0;
+      color: #F4F1EA;
+    }
+    .s5-title italic {
+      font-style: italic;
+      font-weight: 400;
+      color: #C5A880;
+    }
+
+    .s5-image-box {
+      width: 100%;
+      height: 720px;
+      border: 1px solid #2A2825;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    }
+
+    .s5-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 25px;
+      border-top: 1px solid #2A2825;
+    }
+    .s5-url {
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+      color: #F4F1EA;
+    }
+    .s5-brand {
+      font-size: 18px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #88837A;
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- SLIDE 1: Delete -->
-  <div class="slide" id="slide-1">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-triangle-exclamation"></i> ACTION REQUIRED</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Rule #1 — Asset Remediation</div><div class="sans-desc">Clear unauthorized typography files immediately from local repositories.</div></div>
-    <div class="css-art-box"><div class="css-trash-card"><i class="fa-solid fa-trash-can art-icon red"></i></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">DELETE</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-terminal"></i> system_purge.exe --force</div><div class="bottom-desc">Hosting unlicensed fonts creates severe legal exposure for your brand and client ecosystem.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-shield-halved"></i> TYPOGRAPHY COMPLIANCE</span><span class="footer-count">01 / 68</span></div>
+  <!-- ==========================================
+       SLIDE 1: CYBERPUNK / TECH GLITCH
+       ========================================== -->
+  <div class="slide" id="slide-style-1">
+    <div class="s1-header">
+      <div class="s1-code">CODE // 000</div>
+      <div class="s1-badge">CALLISTRA LABS</div>
+    </div>
+    
+    <div>
+      <div class="s1-title">Pixel Displace <br><span>Text Effect Maker</span></div>
+      <!-- IMAGE PLACEHOLDER BOX -->
+      <div class="image-placeholder s1-image-box">
+        [ MAIN IMAGE HERE ]
+      </div>
+    </div>
+
+    <div class="s1-footer">
+      <div class="s1-url">callistra.design</div>
+      <div class="s1-tag">SWIPE FOR MORE &#8594;</div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       SLIDE 2: SWISS NEO-BRUTALISM
+       ========================================== -->
+  <div class="slide" id="slide-style-2">
+    <div class="s2-top-bar">
+      <div class="s2-site">CALLISTRA.DESIGN</div>
+      <div class="s2-code">CODE: 000</div>
+    </div>
+
+    <div class="s2-title">
+      Pixel Displace<br>Text Effect<br>Maker
+    </div>
+
+    <!-- IMAGE PLACEHOLDER BOX -->
+    <div class="image-placeholder s2-image-box">
+      [ MAIN IMAGE HERE ]
+    </div>
+
+    <div class="s2-footer">
+      <div class="s2-action">VISIT WEBSITE</div>
+      <div class="s2-num">01/05</div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       SLIDE 3: MODERN DARK GLASSMORPHISM
+       ========================================== -->
+  <div class="slide" id="slide-style-3">
+    <!-- Background Glows -->
+    <div class="s3-orb-1"></div>
+    <div class="s3-orb-2"></div>
+
+    <div class="s3-header">
+      <div class="s3-pill s3-pill-accent">EFFECT CODE 000</div>
+      <div class="s3-pill">PHOTOSHOP ASSET</div>
+    </div>
+
+    <div>
+      <div class="s3-title">Pixel Displace <br>Text Effect Maker</div>
+      <!-- IMAGE PLACEHOLDER BOX -->
+      <div class="image-placeholder s3-image-box">
+        [ MAIN IMAGE HERE ]
+      </div>
+    </div>
+
+    <div class="s3-footer">
+      <div class="s3-url">callistra.design</div>
+      <div class="s3-sub">Get Access Now &#8594;</div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       SLIDE 4: ACID GRAPHIC / Y2K POSTER
+       ========================================== -->
+  <div class="slide" id="slide-style-4">
+    <div class="s4-meta">
+      <div>VOL. 01 <span class="s4-highlight">//</span> ASSET DISCOVERY</div>
+      <div>[ CODE 000 ]</div>
+    </div>
+
+    <div class="s4-title-wrap">
+      <div class="s4-title">Pixel Displace</div>
+      <div class="s4-title" style="color: #E04026;">Text Effect Maker</div>
+    </div>
+
+    <div class="s4-image-container">
+      <div class="s4-corner"></div>
+      <div class="s4-corner s4-corner-br"></div>
+      <!-- IMAGE PLACEHOLDER BOX -->
+      <div class="image-placeholder s4-image-box">
+        [ MAIN IMAGE HERE ]
+      </div>
+    </div>
+
+    <div class="s4-footer">
+      <div class="s4-url">callistra.design</div>
+      <div class="s4-code-tag">REF: #000</div>
+    </div>
+  </div>
+
+
+  <!-- ==========================================
+       SLIDE 5: LUXURY MODERN EDITORIAL
+       ========================================== -->
+  <div class="slide" id="slide-style-5">
+    <div class="s5-header">
+      <div>
+        <div class="s5-code-label">Effect Code</div>
+        <div class="s5-code-val">000</div>
+      </div>
+      <div class="s5-brand">CALLISTRA STUDIO</div>
+    </div>
+
+    <div>
+      <div class="s5-title">
+        Pixel Displace <br><italic>Text Effect</italic> Maker
+      </div>
+      <!-- IMAGE PLACEHOLDER BOX -->
+      <div class="image-placeholder s5-image-box">
+        [ MAIN IMAGE HERE ]
+      </div>
+    </div>
+
+    <div class="s5-footer">
+      <div class="s5-url">callistra.design</div>
+      <div class="s5-brand">01 — 05</div>
+    </div>
   </div>
 
-  <!-- SLIDE 2: that -->
-  <div class="slide" id="slide-2">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-bullseye"></i> TARGET VECTOR</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Targeting Unlicensed Vectors</div><div class="sans-desc">It is not a random font. It is the specific vector file in your layout.</div></div>
-    <div class="css-art-box"><div class="css-red-arrow"></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">THAT</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-crosshairs"></i> target_id: #font_vector_02</div><div class="bottom-desc">Automated web crawlers target exact font checksums stored on web servers.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-font"></i> LEGAL METRICS 2026</span><span class="footer-count">02 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 3: font -->
-  <div class="slide" id="slide-3">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-font"></i> TYPEFACE ANCHOR</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Digital Asset In Question</div><div class="sans-desc">Fonts are software protected under intellectual property law.</div></div>
-    <div class="css-art-box"><div class="css-serif-a">A<div class="css-anchor-dot" style="top:20px; left:110px;"></div><div class="css-anchor-dot" style="bottom:40px; right:30px;"></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">FONT</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-file-code"></i> asset_type: .otf / .ttf / .woff2</div><div class="bottom-desc">Typography is software code. Using it without licensing constitutes software piracy.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-scale-balanced"></i> COPYRIGHT AUDIT</span><span class="footer-count">03 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 4: right -->
-  <div class="slide" id="slide-4">
-    <div class="bg-grid"></div><div class="bg-glow-amber"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-angles-right"></i> FAST FORWARD</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Zero Procrastination</div><div class="sans-desc">Every minute it stays on server, the exposure risk doubles.</div></div>
-    <div class="css-art-box"><div class="css-double-chevron"><i class="fa-solid fa-chevron-right"></i><i class="fa-solid fa-chevron-right"></i></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-amber">RIGHT</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-hourglass-half"></i> status: URGENT_PRIORITY</div><div class="bottom-desc">Take immediate remediation steps before audit bots register the domain.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-circle-radiation"></i> URGENCY WARNING</span><span class="footer-count">04 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 5: now. -->
-  <div class="slide" id="slide-5">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-bell"></i> CRITICAL TIMING</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">This Very Moment</div><div class="sans-desc">Do not wait for client approval to remove stolen files.</div></div>
-    <div class="css-art-box"><div class="css-pulsing-warning"><i class="fa-solid fa-exclamation"></i></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">NOW.</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-stopwatch"></i> timestamp: 00:00:00</div><div class="bottom-desc">Prompt resolution is your only valid defense against copyright claims.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-circle-exclamation"></i> ACTION ALERT</span><span class="footer-count">05 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 6: You -->
-  <div class="slide" id="slide-6">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-user-ninja"></i> CREATIVE FOCUS</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Individual Accountability</div><div class="sans-desc">As the creative professional, liability starts with your decision.</div></div>
-    <div class="css-art-box"><div class="css-crosshair"><div style="width:20px; height:20px; background:#00f0ff; border-radius:50%;"></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">YOU</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-fingerprint"></i> designer_id: VERIFIED</div><div class="bottom-desc">Designers are legally accountable for supply chain integrity of typography assets.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-id-card"></i> RESPONSIBILITY</span><span class="footer-count">06 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 7: downloaded -->
-  <div class="slide" id="slide-7">
-    <div class="bg-grid"></div><div class="bg-glow-green"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-download"></i> TRAY CAPTURE</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Transfer Trace</div><div class="sans-desc">Grabbing illegal ZIP files from sketchy font sites leaves clear records.</div></div>
-    <div class="css-art-box"><div class="css-download-tray"><i class="fa-solid fa-arrow-down css-download-arrow"></i></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-green">DOWNLOADED</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-cloud-arrow-down"></i> download_history.log</div><div class="bottom-desc">"Free download" buttons on aggregator sites do not grant commercial usage rights.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-hard-drive"></i> DIGITAL FOOTPRINT</span><span class="footer-count">07 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 8: it -->
-  <div class="slide" id="slide-8">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-code"></i> BRACKET VECTOR</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Single File</div><div class="sans-desc">It takes just one unauthorized file to jeopardize the entire project.</div></div>
-    <div class="css-art-box"><div class="css-code-brackets">{ }</div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">IT</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-circle-info"></i> object_ref: font_file_32</div><div class="bottom-desc">A single stolen font binary is enough to trigger statutory legal penalties.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-microchip"></i> ASSET TRACKING</span><span class="footer-count">08 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 9: for -->
-  <div class="slide" id="slide-9">
-    <div class="bg-grid"></div><div class="bg-glow-amber"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-xmark"></i> GEOMETRIC CROSS</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Under What Terms?</div><div class="sans-desc">Obtaining commercial grade tools for personal shortcut gains.</div></div>
-    <div class="css-art-box"><div class="css-intersect-cross"><div class="css-cross-line" style="transform:rotate(45deg);"></div><div class="css-cross-line" style="transform:rotate(-45deg);"></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-amber">FOR</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-tag"></i> terms: UNLICENSED_PURPOSE</div><div class="bottom-desc">Commercial utility requires commercial licensing. Zero exceptions apply.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-receipt"></i> TRANSACTION AUDIT</span><span class="footer-count">09 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 10: free. -->
-  <div class="slide" id="slide-10">
-    <div class="bg-grid"></div><div class="bg-glow-green"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-tag"></i> ZERO DOLLARS</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Illusion of Free</div><div class="sans-desc">Nothing in professional typography production comes without cost.</div></div>
-    <div class="css-art-box"><div class="css-price-badge">$0.00<div class="css-strike-line"></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-green">FREE.</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-triangle-exclamation"></i> cost_estimate: $50,000 FINE</div><div class="bottom-desc">"Free for personal use" NEVER means free for client websites or commercial work.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-ban"></i> PRICE TRAP ALERT</span><span class="footer-count">10 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 11: You -->
-  <div class="slide" id="slide-11">
-    <div class="bg-grid"></div><div class="bg-glow-amber"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-circle-dot"></i> HIGH CONTRAST</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Direct Action Taken</div><div class="sans-desc">You made the deliberate choice to embed it in production.</div></div>
-    <div class="css-art-box"><div class="css-yellow-target"><div style="width:50px; height:50px; background:#ffcc00; border-radius:50%;"></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-amber">YOU</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-code-commit"></i> actor: DESIGNER_MAIN</div><div class="bottom-desc">Actions in software deployment carry direct legal accountability.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-shield"></i> AUDIT #11</span><span class="footer-count">11 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 12: used -->
-  <div class="slide" id="slide-12">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-arrow-pointer"></i> CURSOR CLICK</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Active Implementation</div><div class="sans-desc">It didn't just sit on your hard drive; you used it in deliverables.</div></div>
-    <div class="css-art-box"><div style="border:3px solid #00f0ff; padding:20px 40px; border-radius:12px; position:relative;"><i class="fa-solid fa-arrow-pointer art-icon cyan" style="position:absolute; top:-20px; right:-20px;"></i><span style="font-size:32px; font-weight:bold; color:#fff;">BUTTON_FRAME</span></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">USED</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-cubes"></i> execution: ACTIVE_CSS_INJECTION</div><div class="bottom-desc">Embedding font files in CSS stylesheets constitutes commercial distribution.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-code"></i> CSS AUDIT</span><span class="footer-count">12 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 13: it -->
-  <div class="slide" id="slide-13">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-file-lines"></i> TTF FILE</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Unlicensed Font Binary</div><div class="sans-desc">The specific component that exposes the company.</div></div>
-    <div class="css-art-box"><div class="css-ttf-card"><i class="fa-solid fa-file-font art-icon cyan"></i><span style="font-family:'DM Mono'; font-size:24px; color:#00f0ff; margin-top:10px;">.TTF</span></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">IT</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-database"></i> file_checksum: 0x99A81B</div><div class="bottom-desc">Foundries track distinct file hashes across web builds.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-box"></i> ASSET TRACKING</span><span class="footer-count">13 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 14: on -->
-  <div class="slide" id="slide-14">
-    <div class="bg-grid"></div><div class="bg-glow-green"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-toggle-on"></i> TOGGLE SWITCH</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Live Environment</div><div class="sans-desc">Published live on active public production servers.</div></div>
-    <div class="css-art-box"><div class="css-ios-toggle"><div class="css-toggle-knob"></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-green">ON</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-network-wired"></i> environment: PRODUCTION_LIVE</div><div class="bottom-desc">Public web accessibility makes automated indexing instantaneous.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-globe"></i> SERVER STATUS</span><span class="footer-count">14 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 15: a -->
-  <div class="slide" id="slide-15">
-    <div class="bg-grid"></div><div class="bg-glow-amber"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-shapes"></i> GEOMETRIC TYPE</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">A Paying Account</div><div class="sans-desc">A commercial entity paying for professional brand identity.</div></div>
-    <div class="css-art-box"><div class="css-geom-a">a</div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-amber">A</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-building"></i> entity: THIRD_PARTY_CLIENT</div><div class="bottom-desc">Clients trust designers to deliver legally compliant creative assets.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-user-tie"></i> CLIENT MANAGEMENT</span><span class="footer-count">15 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 16: client -->
-  <div class="slide" id="slide-16">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-briefcase"></i> CORPORATE ICON</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Unsuspecting Client</div><div class="sans-desc">They paid you for compliance, but received immense legal exposure.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-briefcase art-icon red"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">CLIENT</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-triangle-exclamation"></i> victim: CLIENT_ORGANIZATION</div><div class="bottom-desc">When law firms issue cease and desist orders, they go directly to the client.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-scale-balanced"></i> EXPOSURE WARNING</span><span class="footer-count">16 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 17: project. -->
-  <div class="slide" id="slide-17">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-window-maximize"></i> WIREFRAME UI</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Commercial Deliverable</div><div class="sans-desc">The client project now acts as evidence for legal teams.</div></div>
-    <div class="css-art-box"><div class="css-browser-window"><div class="css-browser-bar"><div class="css-browser-dot"></div></div><div style="padding:20px; display:flex; flex-direction:column; gap:12px;"><div style="width:70%; height:16px; background:#00f0ff; border-radius:4px;"></div><div style="width:100%; height:12px; background:#374151; border-radius:4px;"></div><div style="width:85%; height:12px; background:#374151; border-radius:4px;"></div></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">PROJECT.</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-folder-open"></i> asset_package: CLIENT_WEB_BUILD</div><div class="bottom-desc">Every commercial campaign requires full licensing clearance.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-check-double"></i> PROJECT AUDIT</span><span class="footer-count">17 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 18: And -->
-  <div class="slide" id="slide-18">
-    <div class="bg-grid"></div><div class="bg-glow-amber"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-font"></i> AMPERSAND</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Realization</div><div class="sans-desc">And now comes the dangerous game of chance.</div></div>
-    <div class="css-art-box"><div class="css-ampersand">&amp;</div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-amber">AND</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-route"></i> sequence: RISK_ESCALATION</div><div class="bottom-desc">Hoping you won't get caught is not a legal compliance strategy.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-compass"></i> RISK FLOW</span><span class="footer-count">18 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 19: you're -->
-  <div class="slide" id="slide-19">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-id-badge"></i> ID BADGE</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Guilt & Anxiety</div><div class="sans-desc">Knowing deep down that the assets are unlicensed.</div></div>
-    <div class="css-art-box"><div class="css-id-badge"><i class="fa-solid fa-user-shield art-icon red" style="font-size:60px;"></i><div style="width:100%; height:8px; background:#ff2a5f; border-radius:4px;"></div><div style="width:60%; height:8px; background:#64748b; border-radius:4px;"></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">YOU'RE</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-brain"></i> state: ANXIOUS_AWARENESS</div><div class="bottom-desc">Cutting corners creates lingering technical and legal debt.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-triangle-exclamation"></i> PSYCHOLOGY</span><span class="footer-count">19 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 20: praying -->
-  <div class="slide" id="slide-20">
-    <div class="bg-grid"></div><div class="bg-glow-amber"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-sun"></i> GOLDEN RAYS</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Praying For Luck</div><div class="sans-desc">Relying on luck while copyright bots run 24/7 scanning engines.</div></div>
-    <div class="css-art-box"><div style="width:220px; height:220px; border-radius:50%; background:conic-gradient(#ffb703, transparent, #fb8500, transparent); filter:blur(8px);"></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-amber">PRAYING</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-dice"></i> odds_of_detection: 99.8%</div><div class="bottom-desc">Hope is not a security measure against web scraping crawlers.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-shield-cat"></i> RISK ANALYSIS</span><span class="footer-count">20 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 21: nobody -->
-  <div class="slide" id="slide-21">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-ghost"></i> 404 BOX</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Illusion of Obscurity</div><div class="sans-desc">Assuming your client site is too small to be noticed.</div></div>
-    <div class="css-art-box"><div style="border:2px dashed #64748b; padding:30px 50px; border-radius:16px; font-family:'DM Mono'; font-size:32px; color:#64748b;">404 NOT FOUND</div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">NOBODY</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-user-secret"></i> stealth_mode: FAILED</div><div class="bottom-desc">Web crawlers inspect every site equally regardless of monthly traffic.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-bug"></i> AUDIT METRICS</span><span class="footer-count">21 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 22: notices. -->
-  <div class="slide" id="slide-22">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-eye-slash"></i> EYE STRIKE</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Inevitable Discovery</div><div class="sans-desc">Believing the foundry will never discover the vectors.</div></div>
-    <div class="css-art-box"><div class="css-eye-strike"><i class="fa-solid fa-eye art-icon red"></i><div style="position:absolute; width:120%; height:8px; background:#ff2a5f; transform:rotate(-30deg);"></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">NOTICES.</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-triangle-exclamation"></i> status: MATCH_FOUND</div><div class="bottom-desc">Checksum verification immediately flags stolen typography vectors.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-eye"></i> SYSTEM DETECTION</span><span class="footer-count">22 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 23: But -->
-  <div class="slide" id="slide-23">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-percent"></i> DIAGONAL SLASH</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Brutal Reality</div><div class="sans-desc">Here is what actually happens behind the scenes.</div></div>
-    <div class="css-art-box"><div class="css-split-screen"></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">BUT</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-bolt"></i> event: REALITY_CHECK</div><div class="bottom-desc">Modern IP enforcement operates on pure automation and machine vision.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-gavel"></i> ENFORCEMENT</span><span class="footer-count">23 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 24: font -->
-  <div class="slide" id="slide-24">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-ruler-combined"></i> METRIC RULER</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Type Designers & Foundries</div><div class="sans-desc">Font creators invest years into precision engineering.</div></div>
-    <div class="css-art-box"><div class="css-grid-lines"><span style="font-family:'Instrument Serif'; font-size:120px; color:#00f0ff;">Hg</span></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">FONT</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-pen-nib"></i> industry: TYPE_DESIGN</div><div class="bottom-desc">Type foundries protect their work with aggressive legal technology.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-copyright"></i> IP PROTECTION</span><span class="footer-count">24 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 25: foundries -->
-  <div class="slide" id="slide-25">
-    <div class="bg-grid"></div><div class="bg-glow-amber"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-cubes"></i> METALLIC MATRIX</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Corporate Enforcement</div><div class="sans-desc">Major type foundries have dedicated legal departments.</div></div>
-    <div class="css-art-box"><div style="display:grid; grid-template-columns:repeat(3, 80px); gap:15px;"><div style="height:80px; background:linear-gradient(135deg, #475569, #1e293b); border-radius:12px;"></div><div style="height:80px; background:linear-gradient(135deg, #475569, #1e293b); border-radius:12px;"></div><div style="height:80px; background:linear-gradient(135deg, #475569, #1e293b); border-radius:12px;"></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-amber">FOUNDRIES</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-scale-balanced"></i> department: LEGAL_IP_RECOVERY</div><div class="bottom-desc">Foundries monetize unlicensed usage through retroactive legal settlements.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-gavel"></i> LEGAL ENTITY</span><span class="footer-count">25 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 26: don't -->
-  <div class="slide" id="slide-26">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-ban"></i> PROHIBITION SIGN</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">No Speculation Needed</div><div class="sans-desc">They don't guess or rely on manual reporting.</div></div>
-    <div class="css-art-box"><div class="css-prohibition"><div class="css-prohibition-slash"></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">DON'T</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-shield-xmark"></i> mode: ZERO_GUESSWORK</div><div class="bottom-desc">Manual auditing has been entirely replaced by automated tracking.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-robot"></i> SYSTEM DATA</span><span class="footer-count">26 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 27: guess -->
-  <div class="slide" id="slide-27">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-question"></i> 3D PLANE</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Algorithmic Certainty</div><div class="sans-desc">Every font file carries mathematical identifiers.</div></div>
-    <div class="css-art-box"><div style="transform: rotateY(30deg) rotateX(15deg); display:flex; gap:20px;"><i class="fa-solid fa-question art-icon cyan"></i><i class="fa-solid fa-question art-icon cyan" style="font-size:80px;"></i></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">GUESS</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-microchip"></i> method: VECTOR_CHECKSUM_MATCH</div><div class="bottom-desc">Font glyphs are compared mathematically to master outline files.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-calculator"></i> VERIFICATION</span><span class="footer-count">27 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 28: anymore. -->
-  <div class="slide" id="slide-28">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-clock"></i> DIGITAL TIMER</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Times Have Changed</div><div class="sans-desc">The era of unmonitored web design is over.</div></div>
-    <div class="css-art-box"><div class="css-timer">00:00:00</div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">ANYMORE.</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-timeline"></i> era: AUTOMATED_ENFORCEMENT</div><div class="bottom-desc">AI web scanners now process billions of URLs every day.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-chart-line"></i> ERA SHIFT</span><span class="footer-count">28 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 29: They -->
-  <div class="slide" id="slide-29">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-network-wired"></i> NETWORK NODES</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Copyright Holders</div><div class="sans-desc">Equipped with specialized legaltech crawlers.</div></div>
-    <div class="css-art-box"><div style="display:flex; align-items:center; gap:20px;"><div style="width:30px; height:30px; background:#00f0ff; border-radius:50%; box-shadow:0 0 20px #00f0ff;"></div><div style="width:180px; height:2px; border-top:3px dashed #00f0ff;"></div><div style="width:50px; height:50px; background:#00f0ff; border-radius:50%; box-shadow:0 0 30px #00f0ff;"></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">THEY</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-server"></i> group: IP_ENFORCEMENT_BOTS</div><div class="bottom-desc">Legaltech entities partner directly with major type foundries.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-network-wired"></i> ENFORCEMENT NET</span><span class="footer-count">29 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 30: use -->
-  <div class="slide" id="slide-30">
-    <div class="bg-grid"></div><div class="bg-glow-green"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-terminal"></i> RETRO TERMINAL</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Deploying Technology</div><div class="sans-desc">Leveraging continuous web crawling scripts.</div></div>
-    <div class="css-art-box"><div class="css-terminal-box"><span style="color:#00e676;">&gt; exec crawler --target=global_web</span><br><span style="color:#64748b;">Scanning CSS font-family declarations...</span></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-green">USE</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-terminal"></i> execution: CONTINUOUS_SCAN</div><div class="bottom-desc">Crawlers extract `@font-face` declarations directly from live CSS.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-gears"></i> BOT DEPLOYMENT</span><span class="footer-count">30 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 31: automated -->
-  <div class="slide" id="slide-31">
-    <div class="bg-grid"></div><div class="bg-glow-amber"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-gear"></i> GEAR COGWHEEL</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Automated Scrapers</div><div class="sans-desc">Zero human bias. 100% automated efficiency.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-gear art-icon amber" style="font-size:160px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-amber">AUTOMATED</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-microchip"></i> system: AI_AUDIT_ENGINE</div><div class="bottom-desc">Automated scrapers don't get tired and don't miss hidden subdomains.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-cpu"></i> AUTOMATION ENGINE</span><span class="footer-count">31 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 32: bots -->
-  <div class="slide" id="slide-32">
-    <div class="bg-grid"></div><div class="bg-glow-green"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-robot"></i> CIRCUIT LIGHTS</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Specialized Web Bots</div><div class="sans-desc">Crawling domain registries 24 hours a day.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-robot art-icon green" style="font-size:150px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-green">BOTS</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-spider"></i> bot_class: FONT_HUNTER_V4</div><div class="bottom-desc">Bots inspect network requests to log font asset origins and licenses.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-spider"></i> WEB BOTS</span><span class="footer-count">32 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 33: to -->
-  <div class="slide" id="slide-33">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-arrow-right"></i> BEAM TERMINATOR</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Designed to Discover</div><div class="sans-desc">Built specifically for vector signature extraction.</div></div>
-    <div class="css-art-box"><div style="display:flex; align-items:center;"><div style="width:220px; height:6px; background:linear-gradient(90deg, transparent, #00f0ff);"></div><div style="width:20px; height:20px; background:#00f0ff; border-radius:50%; box-shadow:0 0 20px #00f0ff;"></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">TO</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-crosshairs"></i> target_objective: AUDIT_DOMAINS</div><div class="bottom-desc">Every index operation adds live site assets to legal review queues.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-bullseye"></i> BOT OBJECTIVE</span><span class="footer-count">33 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 34: crawl -->
-  <div class="slide" id="slide-34">
-    <div class="bg-grid"></div><div class="bg-glow-green"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-barcode"></i> SCANLINES</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Deep Site Crawling</div><div class="sans-desc">Inspecting stylesheets, canvases, and embedded SVGs.</div></div>
-    <div class="css-art-box"><div style="width:300px; height:220px; background:repeating-linear-gradient(180deg, rgba(0,230,118,0.15) 0px, rgba(0,230,118,0.15) 4px, transparent 4px, transparent 8px); border:2px solid #00e676; border-radius:12px;"></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-green">CRAWL</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-sitemap"></i> crawl_depth: FULL_SITE_TREE</div><div class="bottom-desc">Bots crawl staging environments and public links alike.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-spider"></i> RECURSIVE CRAWL</span><span class="footer-count">34 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 35: client -->
-  <div class="slide" id="slide-35">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-link"></i> URL HIGHLIGHT</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Client Asset Mapping</div><div class="sans-desc">Linking domain WHOIS records directly to business entities.</div></div>
-    <div class="css-art-box"><div class="css-url-bar"><i class="fa-solid fa-lock" style="margin-right:10px;"></i>https://client-website.com</div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">CLIENT</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-building-user"></i> entity: CLIENT_REGISTERED_DOMAIN</div><div class="bottom-desc">Corporate domains yield higher legal settlement payouts.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-building"></i> TARGET SECTOR</span><span class="footer-count">35 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 36: websites -->
-  <div class="slide" id="slide-36">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-layer-group"></i> STACKED WINDOWS</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Public Web Presence</div><div class="sans-desc">Any public web server is accessible to crawling bots.</div></div>
-    <div class="css-art-box"><div class="css-browser-window" style="position:absolute; top:80px; left:300px; opacity:0.5;"></div><div class="css-browser-window" style="position:absolute; top:120px; left:350px;"></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">WEBSITES</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-globe"></i> scope: GLOBAL_WWW</div><div class="bottom-desc">If a browser can render the font, the bot can log the violation.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-server"></i> DOMAIN SCAN</span><span class="footer-count">36 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 37: for -->
-  <div class="slide" id="slide-37">
-    <div class="bg-grid"></div><div class="bg-glow-amber"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-magnifying-glass"></i> GLASS ZOOM</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Searching For Violations</div><div class="sans-desc">Looking for assets that lack a valid enterprise license key.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-magnifying-glass art-icon amber" style="font-size:150px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-amber">FOR</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-filter"></i> mode: LICENSE_VERIFICATION</div><div class="bottom-desc">Cross-referencing domain names against sales databases.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-database"></i> DB CROSS CHECK</span><span class="footer-count">37 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 38: unlicensed -->
-  <div class="slide" id="slide-38">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-lock-open"></i> UNLOCKED PADLOCK</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Missing Authorization</div><div class="sans-desc">Zero license purchase match found in the foundry database.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-lock-open art-icon red" style="font-size:150px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">UNLICENSED</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-ban"></i> status: UNLICENSED_VIOLATION</div><div class="bottom-desc">No purchase record means immediate copyright violation classification.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-circle-exclamation"></i> LEGAL STATUS</span><span class="footer-count">38 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 39: vectors. -->
-  <div class="slide" id="slide-39">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-bezier-curve"></i> BEZIER PATH</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Vector Outline Fingerprints</div><div class="sans-desc">Font bezier curves carry unique mathematical signatures.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-bezier-curve art-icon cyan" style="font-size:150px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">VECTORS.</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-vector-square"></i> glyph_data: MATCHED_BEZIER_NODES</div><div class="bottom-desc">Renaming font files does not alter the underlying vector point coordinates.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-bezier-curve"></i> VECTOR ANALYSIS</span><span class="footer-count">39 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 40: When -->
-  <div class="slide" id="slide-40">
-    <div class="bg-grid"></div><div class="bg-glow-amber"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-bolt"></i> LIGHTNING BOLT</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Moment of Arrival</div><div class="sans-desc">When the formal legal claim lands in the client's inbox.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-bolt css-lightning"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-amber">WHEN</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-clock"></i> event: DEMAND_LETTER_SENT</div><div class="bottom-desc">Legal notices are served electronically and via registered certified mail.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-envelope"></i> NOTICE DELIVERY</span><span class="footer-count">40 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 41: the -->
-  <div class="slide" id="slide-41">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-expand"></i> CORNER FOCUS</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Official Document</div><div class="sans-desc">Formal legal correspondence from legal counsel.</div></div>
-    <div class="css-art-box"><div class="css-corner-brackets"><div class="css-corner-bracket css-cb-tl"></div><div class="css-corner-bracket css-cb-tr"></div><div class="css-corner-bracket css-cb-bl"></div><div class="css-corner-bracket css-cb-br"></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">THE</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-file"></i> doc: DEMAND_NOTICE_302</div><div class="bottom-desc">Contains evidence screenshots and server logs.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-gavel"></i> LEGAL NOTICE</span><span class="footer-count">41 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 42: fifty -->
-  <div class="slide" id="slide-42">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-hand-holding-dollar"></i> FIFTY NUMERAL</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Five Figure Fine</div><div class="sans-desc">Statutory damages for willful copyright infringement.</div></div>
-    <div class="css-art-box"><span style="font-family:'Montserrat'; font-size:180px; font-weight:900; color:#ff2a5f; text-shadow:0 0 40px #ff2a5f;">50</span></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">FIFTY</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-money-bill-wave"></i> fine_bracket: $50,000+</div><div class="bottom-desc">Statutory damages range up to $150,000 per willful infringement.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-calculator"></i> DAMAGE SCALE</span><span class="footer-count">42 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 43: thousand -->
-  <div class="slide" id="slide-43">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-fire"></i> FIERY GLOW</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Thousand Dollar Units</div><div class="sans-desc">Compounding legal settlement costs.</div></div>
-    <div class="css-art-box"><span style="font-family:'Montserrat'; font-size:150px; font-weight:900; color:#fff; text-shadow:0 0 50px #ff2a5f;">,000</span></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">THOUSAND</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-chart-line"></i> metric: ESCALATED_FEE</div><div class="bottom-desc">Includes audit fees, back-licensing penalties, and attorney fees.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-vault"></i> FINANCES</span><span class="footer-count">43 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 44: dollar -->
-  <div class="slide" id="slide-44">
-    <div class="bg-grid"></div><div class="bg-glow-green"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-dollar-sign"></i> BLOOM DOLLAR</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Real Capital At Risk</div><div class="sans-desc">Direct financial drain on your client's balance sheet.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-dollar-sign art-icon green" style="font-size:180px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-green">DOLLAR</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-sack-dollar"></i> currency: USD</div><div class="bottom-desc">Settlement amounts must be paid in actual funds.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-money-bill"></i> FINANCIAL COST</span><span class="footer-count">44 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 45: lawsuit -->
-  <div class="slide" id="slide-45">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-scale-balanced"></i> LEGAL SCALE</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Formal Lawsuit Filing</div><div class="sans-desc">Federal court filing for copyright protection.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-scale-balanced art-icon red" style="font-size:150px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">LAWSUIT</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-scale-balanced"></i> case: CIVIL_IP_LITIGATION</div><div class="bottom-desc">Public legal filings permanently damage company reputations.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-gavel"></i> COURT FILING</span><span class="footer-count">45 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 46: arrives, -->
-  <div class="slide" id="slide-46">
-    <div class="bg-grid"></div><div class="bg-glow-amber"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-triangle-exclamation"></i> ALERT POPUP</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Served On Site</div><div class="sans-desc">When executive leadership receives the letter.</div></div>
-    <div class="css-art-box"><div style="border:2px solid #ff2a5f; background:#111; padding:20px 40px; border-radius:16px; color:#ff2a5f; font-family:'DM Mono'; font-size:24px;"><i class="fa-solid fa-triangle-exclamation"></i> SYSTEM_ALERT: LEGAL_SUMMONS</div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-amber">ARRIVES,</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-box"></i> status: SERVED_TO_CLIENT</div><div class="bottom-desc">Panic immediately ensues inside the client executive suite.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-truck"></i> SERVICE COMPLETED</span><span class="footer-count">46 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 47: your -->
-  <div class="slide" id="slide-47">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-crosshairs"></i> LASER DOT</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Your Client Partnership</div><div class="sans-desc">The party who trusted your creative execution.</div></div>
-    <div class="css-art-box"><div style="width:30px; height:30px; background:#ff2a5f; border-radius:50%; box-shadow:0 0 40px #ff2a5f;"></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">YOUR</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-users"></i> account: PRIMARY_CLIENT</div><div class="bottom-desc">Trust built over years vanishes in seconds.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-user"></i> CLIENT STATUS</span><span class="footer-count">47 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 48: client -->
-  <div class="slide" id="slide-48">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-heart-crack"></i> FRACTURED LOGO</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Injured Business</div><div class="sans-desc">Faced with unexpected legal demands due to your work.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-building-circle-xmark art-icon red" style="font-size:150px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">CLIENT</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-building"></i> state: DEFENDANT</div><div class="bottom-desc">Clients expect vendor contracts to protect them from theft claims.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-building-circle-exclamation"></i> LEGAL POSITION</span><span class="footer-count">48 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 49: won't -->
-  <div class="slide" id="slide-49">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-xmark"></i> THICK RED X</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Zero Responsibility</div><div class="sans-desc">They will not take the financial bullet for your mistake.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-xmark art-icon red" style="font-size:200px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">WON'T</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-shield-xmark"></i> policy: ZERO_INDEMNITY</div><div class="bottom-desc">Client legal teams immediately review contractor indemnification clauses.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-ban"></i> REFUSAL STATUS</span><span class="footer-count">49 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 50: pay -->
-  <div class="slide" id="slide-50">
-    <div class="bg-grid"></div><div class="bg-glow-amber"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-credit-card"></i> CRACKED CARD</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">They Won't Cover It</div><div class="sans-desc">Clients expect you to absorb all legal damages.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-credit-card art-icon amber" style="font-size:150px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-amber">PAY</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-receipt"></i> bill_to: DESIGN_AGENCY</div><div class="bottom-desc">The financial burden is instantly passed on to the designer.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-wallet"></i> BILLING RESPONSIBILITY</span><span class="footer-count">50 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 51: it. -->
-  <div class="slide" id="slide-51">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-stamp"></i> REJECTED STAMP</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The $50,000 Fine</div><div class="sans-desc">The fine falls squarely on your shoulders.</div></div>
-    <div class="css-art-box"><div style="border:6px solid #ff2a5f; color:#ff2a5f; font-family:'Montserrat'; font-size:50px; font-weight:900; padding:15px 30px; transform:rotate(-15deg); border-radius:12px;">REJECTED</div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">IT.</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-file-invoice-dollar"></i> debt: TRANSFERRED_TO_DESIGNER</div><div class="bottom-desc">Your contract holds you liable for unauthorized assets.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-file-invoice"></i> LIABILITY RECOVERY</span><span class="footer-count">51 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 52: They -->
-  <div class="slide" id="slide-52">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-rotate-left"></i> REVERSE ARROW</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Client's Response</div><div class="sans-desc">Protecting their balance sheet through legal cross-claims.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-rotate-left art-icon red" style="font-size:150px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">THEY</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-gavel"></i> action: CROSS_CLAIM_FILING</div><div class="bottom-desc">Client corporate lawyers initiate recovery litigation against you.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-scale-balanced"></i> COUNTER SUIT</span><span class="footer-count">52 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 53: will -->
-  <div class="slide" id="slide-53">
-    <div class="bg-grid"></div><div class="bg-glow-amber"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-forward"></i> FAST FORWARD</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Guaranteed Retaliation</div><div class="sans-desc">It is standard legal procedure to pass liability to contractors.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-forward art-icon amber" style="font-size:150px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-amber">WILL</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-triangle-exclamation"></i> probability: 100%</div><div class="bottom-desc">Corporate risk management mandates passing liability to source vendors.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-shield-cat"></i> RISK RECOVERY</span><span class="footer-count">53 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 54: sue -->
-  <div class="slide" id="slide-54">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-lightbulb"></i> EMERGENCY LIGHTS</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Cross-Suing For Breach</div><div class="sans-desc">Suing you for breach of contract and indemnification.</div></div>
-    <div class="css-art-box"><div style="border:4px solid #ff2a5f; padding:30px; border-radius:20px; box-shadow:0 0 50px rgba(255,42,95,0.6);"><i class="fa-solid fa-gavel art-icon red"></i></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">SUE</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-section"></i> breach: WARRANTY_BREACH_CLAIM</div><div class="bottom-desc">You guaranteed clean work; unlicensed assets breach that warranty.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-gavel"></i> COURT SUMMONS</span><span class="footer-count">54 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 55: you. -->
-  <div class="slide" id="slide-55">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-bullseye"></i> BULLSEYE TARGET</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">You Are Left Holding The Bill</div><div class="sans-desc">The legal liability stops directly at your desk.</div></div>
-    <div class="css-art-box"><div style="width:200px; height:200px; border:8px solid #ff2a5f; border-radius:50%; display:flex; align-items:center; justify-content:center;"><div style="width:80px; height:80px; background:#ff2a5f; border-radius:50%;"></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">YOU.</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-circle-exclamation"></i> final_target: INDIVIDUAL_DESIGNER</div><div class="bottom-desc">Freelancers and agencies without legal coverage risk bankruptcy.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-skull"></i> ULTIMATE LIABILITY</span><span class="footer-count">55 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 56: Bad -->
-  <div class="slide" id="slide-56">
-    <div class="bg-grid"></div><div class="bg-glow-amber"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-bug"></i> GLITCH EFFECT</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Comparing Design Errors</div><div class="sans-desc">Poor visual aesthetic vs illegal asset usage.</div></div>
-    <div class="css-art-box"><span style="font-family:'Montserrat'; font-size:120px; font-weight:900; color:#fff; text-shadow:-4px 0 #ff2a5f, 4px 0 #00f0ff;">BAD</span></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-amber">BAD</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-compass-drafting"></i> evaluation: AESTHETIC_FLAW</div><div class="bottom-desc">Subpar design is annoying; stolen software assets are illegal.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-chart-pie"></i> COMPARATIVE RISK</span><span class="footer-count">56 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 57: design -->
-  <div class="slide" id="slide-57">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-palette"></i> COLOR SWATCHES</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Design is Liability</div><div class="sans-desc">Your typography is tangible corporate evidence.</div></div>
-    <div class="css-art-box"><div style="display:flex; gap:-20px;"><div style="width:100px; height:100px; background:#ff2a5f; border-radius:50%; mix-blend-mode:screen;"></div><div style="width:100px; height:100px; background:#00f0ff; border-radius:50%; mix-blend-mode:screen;"></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">DESIGN</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-gavel"></i> liability: EXTREME</div><div class="bottom-desc">Audit trails permanently anchor IP theft directly to creative portfolios.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-check"></i> PORTFOLIO RISK</span><span class="footer-count">57 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 58: loses -->
-  <div class="slide" id="slide-58">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-chart-line-down"></i> MARKET CRASH</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Endless Uncertainty</div><div class="sans-desc">Leaving digital landmines on public servers.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-chart-line art-icon red" style="transform:scaleY(-1); font-size:160px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">LOSES</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-skull-crossbones"></i> future_status: PENDING_AUDIT</div><div class="bottom-desc">Archived projects are scanned just like live ones.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-bomb"></i> ARCHIVE AUDIT</span><span class="footer-count">58 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 59: a -->
-  <div class="slide" id="slide-59">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-vector-square"></i> COLLAPSING FRAME</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Hiding Doesn't Work</div><div class="sans-desc">There is no hiding from automated global IP scrapers.</div></div>
-    <div class="css-art-box"><div style="width:140px; height:140px; border:4px solid #00f0ff; transform:scale(0.7); opacity:0.6;"></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">A</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-eye"></i> visibility: 100%_PUBLIC</div><div class="bottom-desc">If it renders on a screen, the vector coordinates are stolen.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-ban"></i> SECURITY CHECK</span><span class="footer-count">59 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 60: client. -->
-  <div class="slide" id="slide-60">
-    <div class="bg-grid"></div><div class="bg-glow-amber"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-plug-circle-xmark"></i> OFFLINE BADGE</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Cease Operation</div><div class="sans-desc">Break the habit of downloading cracked software assets immediately.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-plug-circle-xmark art-icon amber" style="font-size:150px; filter:grayscale(100%);"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-amber">CLIENT.</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-circle-stop"></i> action: HALT_ALL_USE</div><div class="bottom-desc">Discontinue the integration of unverified typography files.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-lock"></i> COMPLIANCE</span><span class="footer-count">60 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 61: Font -->
-  <div class="slide" id="slide-61">
-    <div class="bg-grid"></div><div class="bg-glow-cyan"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-table-cells"></i> SPECIMEN GRID</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Active Publishing</div><div class="sans-desc">Do not deploy another unverified @font-face rule.</div></div>
-    <div class="css-art-box"><div style="border:1px dashed #00f0ff; padding:30px; display:grid; grid-template-columns:repeat(3, 1fr); gap:20px; font-family:'DM Mono'; color:#00f0ff;"><span>Aa</span><span>Bb</span><span>Cc</span></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-cyan">FONT</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-warning"></i> code: FATAL_LEGAL_ERROR</div><div class="bottom-desc">Code commits containing stolen IP are permanently documented.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-laptop-code"></i> DEPLOYMENT</span><span class="footer-count">61 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 62: theft -->
-  <div class="slide" id="slide-62">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-border-none"></i> DISINTEGRATING PIXELS</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Pirated Typography</div><div class="sans-desc">Unlicensed files carry unseen financial destruction.</div></div>
-    <div class="css-art-box"><div style="position:relative;"><i class="fa-solid fa-lock art-icon red" style="font-size:130px;"></i><div style="position:absolute; top:0; right:0; width:15px; height:15px; background:#ff2a5f; box-shadow:-20px 10px #ff2a5f, 15px -10px #ff2a5f;"></div></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">THEFT</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-ban"></i> tag: ILLEGAL_BINARY</div><div class="bottom-desc">You are injecting liability directly into commercial spaces.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-file-excel"></i> ILLEGAL FILES</span><span class="footer-count">62 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 63: destroys -->
-  <div class="slide" id="slide-63">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-burst"></i> BURST EXPLOSION</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Protected Software</div><div class="sans-desc">Fonts are software, mathematically engineered and protected.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-burst art-icon red" style="font-size:180px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">DESTROYS</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-laptop-code"></i> identity: EXECUTABLE_CODE</div><div class="bottom-desc">Treat typography exactly like enterprise software licenses.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-font"></i> TYPE SOFTWARE</span><span class="footer-count">63 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 64: your -->
-  <div class="slide" id="slide-64">
-    <div class="bg-grid"></div><div class="bg-glow-amber"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-triangle-exclamation"></i> HAZARD SIGN</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Wrong Recipient</div><div class="sans-desc">Why take shortcuts that harm your highest paying customers?</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-triangle-exclamation art-icon amber" style="font-size:160px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-amber">YOUR</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-bullseye"></i> direction: CLIENT_EXPOSURE</div><div class="bottom-desc">It is not worth the personal savings to endanger partners.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-arrow-right"></i> LIABILITY TARGET</span><span class="footer-count">64 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 65: career. -->
-  <div class="slide" id="slide-65">
-    <div class="bg-grid"></div><div class="bg-glow-red"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-arrow-trend-down"></i> PLUMMET LINE</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Your Professional Duty</div><div class="sans-desc">Your job is to protect them through proper clearance.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-arrow-trend-down art-icon red" style="font-size:160px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-red">CAREER.</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-signature"></i> obligation: PROTECT_CLIENT</div><div class="bottom-desc">Professionalism requires absolute adherence to supply chain clearance.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-briefcase"></i> PROFESSIONALISM</span><span class="footer-count">65 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 66: Buy -->
-  <div class="slide" id="slide-66">
-    <div class="bg-grid"></div><div class="bg-glow-green"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-cart-shopping"></i> CTA BUTTON</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Financial Solution</div><div class="sans-desc">Invest in official desktop and web licenses properly.</div></div>
-    <div class="css-art-box"><div style="background:#00e676; padding:25px 60px; border-radius:50px; color:#000; font-family:'Montserrat'; font-size:40px; font-weight:900; box-shadow:0 0 40px rgba(0,230,118,0.6);"><i class="fa-solid fa-cart-shopping" style="margin-right:15px;"></i>BUY NOW</div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-green">BUY</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-cart-check"></i> action: ACQUIRE_LICENSE</div><div class="bottom-desc">Licensing software is a business expense pass-through to clients.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-building-user"></i> SOLUTION</span><span class="footer-count">66 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 67: the -->
-  <div class="slide" id="slide-67">
-    <div class="bg-grid"></div><div class="bg-glow-green"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-circle-check"></i> CHECKMARK BADGE</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">The Verified Seal</div><div class="sans-desc">Ensure every file sent is fully verified and documented.</div></div>
-    <div class="css-art-box"><i class="fa-solid fa-circle-check art-icon green" style="font-size:170px;"></i></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-green">THE</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-folder-closed"></i> file_status: FULLY_CLEARED</div><div class="bottom-desc">Keep font license receipts bundled with all project hand-offs.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-check-double"></i> CLEARANCE</span><span class="footer-count">67 / 68</span></div>
-  </div>
-
-  <!-- SLIDE 68: license. -->
-  <div class="slide" id="slide-68">
-    <div class="bg-grid"></div><div class="bg-glow-green"></div>
-    <div class="slide-header"><span class="header-tag"><i class="fa-solid fa-certificate"></i> CERTIFICATE DOCUMENT</span><span class="header-author"><i class="fa-solid fa-user-ninja"></i> Callistra • @callistra.design</span></div>
-    <div class="slide-top-narrative"><div class="serif-title">Complete Compliance</div><div class="sans-desc">Remediate unlicensed fonts across all active systems today.</div></div>
-    <div class="css-art-box"><div style="border:3px solid #00e676; background:rgba(0,230,118,0.05); padding:30px 50px; border-radius:20px; display:flex; align-items:center; gap:20px; box-shadow:0 0 50px rgba(0,230,118,0.4);"><i class="fa-solid fa-certificate art-icon green" style="font-size:80px;"></i><span style="font-family:'DM Mono'; font-size:26px; color:#00e676;">VERIFIED_LICENSE.PDF</span></div></div>
-    <div class="slide-main-word-wrap"><div class="main-word accent-green">LICENSE.</div></div>
-    <div class="slide-bottom-narrative"><div class="mono-code"><i class="fa-solid fa-bolt"></i> execute: IMMEDIATE_ACTION</div><div class="bottom-desc">End of audit documentation. Protect your agency and your clients.</div></div>
-    <div class="slide-footer"><span class="footer-info"><i class="fa-solid fa-flag-checkered"></i> AUDIT COMPLETE</span><span class="footer-count">68 / 68</span></div>
-  </div>
-
-  <!-- Ferrofluid Magnetic Bloom Text Integration Script -->
-  <script>
-      function getSpatialRandom(x, y) {
-          let n = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
-          return n - Math.floor(n);
-      }
-
-      function applyFerrofluid(canvas, text, gradientColors) {
-          const ctx = canvas.getContext('2d');
-          const targetWidth = canvas.width;
-          const targetHeight = canvas.height;
-          const scale = 1;
-          
-          // Auto-adjust font size based on word length to prevent cutting edges
-          let origFontSize = 110;
-          if (text.length > 8) origFontSize = 80;
-          else if (text.length > 6) origFontSize = 95;
-          
-          const origReach = 16; 
-          const origSharpness = 1.8; 
-          const origPoleCount = 3; 
-          
-          const offscreen = document.createElement('canvas');
-          offscreen.width = targetWidth; 
-          offscreen.height = targetHeight;
-          const octx = offscreen.getContext('2d');
-          
-          octx.font = `900 ${origFontSize}px "Montserrat", sans-serif`;
-          octx.textAlign = 'center';
-          octx.textBaseline = 'middle';
-          
-          let gradient = octx.createLinearGradient(0, 0, 0, targetHeight);
-          gradient.addColorStop(0, gradientColors[0]);
-          gradient.addColorStop(1, gradientColors[1]);
-          octx.fillStyle = gradient;
-          
-          octx.fillText(text, (targetWidth / 2), (targetHeight / 2) + 5);
-
-          const sourceData = octx.getImageData(0, 0, targetWidth, targetHeight);
-          const targetData = ctx.createImageData(targetWidth, targetHeight);
-          const sourceBuffer = new Uint32Array(sourceData.data.buffer);
-          const targetBuffer = new Uint32Array(targetData.data.buffer);
-
-          const textCenterX = targetWidth / 2;
-          const textCenterY = targetHeight / 2;
-          
-          const poles = [
-              {x: textCenterX - 120, y: textCenterY + 30},
-              {x: textCenterX + 100, y: textCenterY - 40},
-              {x: textCenterX - 20,  y: textCenterY - 80},
-              {x: textCenterX + 60,  y: textCenterY + 70}
-          ];
-          
-          const actualPoleCount = Math.min(4, Math.max(1, origPoleCount));
-          const scaledReach = origReach * scale;
-
-          for (let ty = 0; ty < targetHeight; ty++) {
-              for (let tx = 0; tx < targetWidth; tx++) {
-                  let minDist = Infinity;
-                  let nx = 0, ny = 0, px = 0, py = 0;
-                  
-                  for(let i = 0; i < actualPoleCount; i++) {
-                      let p = poles[i];
-                      let vx = tx - p.x;
-                      let vy = ty - p.y;
-                      let d = Math.sqrt(vx*vx + vy*vy) || 1;
-                      if (d < minDist) {
-                          minDist = d;
-                          nx = vx / d;
-                          ny = vy / d;
-                          px = p.x;
-                          py = p.y;
-                      }
-                  }
-
-                  let theta = Math.atan2(ny, nx);
-                  let angularNoise = (Math.sin(theta * 14.0 + px) * 0.4) +
-                                     (Math.cos(theta * 21.0 - py) * 0.25) +
-                                     (Math.sin(theta * 35.0) * 0.15);
-
-                  let currentReach = scaledReach * (1.0 + Math.max(0, angularNoise * 1.8));
-                  let decayRadius = origSharpness * 80 * scale; 
-                  
-                  let offsetMag = currentReach * Math.exp(-minDist / decayRadius);
-
-                  let threshold = 300 * scale;
-                  if (minDist > threshold * 0.5) {
-                      let xVal = Math.max(0, Math.min(1, (minDist - threshold * 0.5) / (threshold * 0.5)));
-                      let smooth = xVal * xVal * (3 - 2 * xVal);
-                      offsetMag *= (1.0 - smooth);
-                  }
-
-                  if (offsetMag < 0.5) {
-                      let srcPixel = sourceBuffer[ty * targetWidth + tx];
-                      if (srcPixel !== 0) targetBuffer[ty * targetWidth + tx] = srcPixel;
-                      continue;
-                  }
-
-                  let fineJitter = (getSpatialRandom(tx, ty) - 0.5) * (offsetMag * 0.1);
-                  offsetMag += fineJitter;
-
-                  let sx = tx - (nx * offsetMag);
-                  let sy = ty - (ny * offsetMag);
-
-                  let intSx = Math.round(sx);
-                  let intSy = Math.round(sy);
-
-                  if (intSx >= 0 && intSx < targetWidth && intSy >= 0 && intSy < targetHeight) {
-                      let sourcePixel = sourceBuffer[intSy * targetWidth + intSx];
-
-                      if (sourcePixel !== 0) {
-                          let fadeThreshold = currentReach * 0.65;
-                          if (offsetMag > fadeThreshold) {
-                              let alphaChance = 1.0 - ((offsetMag - fadeThreshold) / ((currentReach - fadeThreshold) || 1));
-                              if (getSpatialRandom(tx + 50, ty + 50) > alphaChance) {
-                                  continue; 
-                              }
-                          }
-                          targetBuffer[ty * targetWidth + tx] = sourcePixel;
-                      }
-                  }
-              }
-          }
-          
-          ctx.putImageData(targetData, 0, 0);
-      }
-
-      document.addEventListener('DOMContentLoaded', () => {
-          document.fonts.ready.then(() => {
-              const mainWords = document.querySelectorAll('.main-word');
-              
-              const observer = new IntersectionObserver((entries) => {
-                  entries.forEach(entry => {
-                      if (entry.isIntersecting) {
-                          const wordEl = entry.target;
-                          
-                          if(!wordEl.dataset.rendered) {
-                              wordEl.dataset.rendered = "true";
-                              const text = wordEl.dataset.text;
-                              const canvas = wordEl.querySelector('canvas');
-                              
-                              let gradientColors = ['#ffffff', '#cbd5e1'];
-                              if (wordEl.classList.contains('accent-red')) gradientColors = ['#ff4d6d', '#c9184a'];
-                              else if (wordEl.classList.contains('accent-amber')) gradientColors = ['#ffb703', '#fb8500'];
-                              else if (wordEl.classList.contains('accent-cyan')) gradientColors = ['#00f0ff', '#0077b6'];
-                              else if (wordEl.classList.contains('accent-green')) gradientColors = ['#00e676', '#00a843'];
-
-                              requestAnimationFrame(() => {
-                                  applyFerrofluid(canvas, text, gradientColors);
-                              });
-                          }
-                      }
-                  });
-              }, { rootMargin: '600px' }); 
-
-              mainWords.forEach(wordEl => {
-                  const text = wordEl.innerText.trim();
-                  wordEl.dataset.text = text;
-                  wordEl.innerText = '';
-                  
-                  wordEl.style.background = 'none';
-                  wordEl.style.webkitTextFillColor = 'initial';
-                  
-                  const canvas = document.createElement('canvas');
-                  canvas.width = 900;
-                  canvas.height = 200;
-                  canvas.style.display = 'block';
-                  canvas.style.margin = '0 auto';
-                  
-                  wordEl.appendChild(canvas);
-                  observer.observe(wordEl);
-              });
-          });
-      });
-  </script>
 </body>
 </html>
