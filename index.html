@@ -2,490 +2,1231 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pixel Displace - 10 Graphic Design Styles</title>
+  <title>Callistra 22-Slide Carousel</title>
   
-  <!-- GOOGLE FONTS -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;800&family=Orbitron:wght@700;900&family=Outfit:wght@500;700;900&family=Playfair+Display:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@600;800&family=Righteous&family=Space+Grotesk:wght@500;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-  
-  <!-- FONT AWESOME ICONS CDN -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@500&family=Inter:wght@400;700;900&family=Jacquard+12&family=Montserrat:wght@900&family=Playfair+Display:wght@900&display=swap" rel="stylesheet">
 
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { 
-      background-color: #080808; 
-      font-family: 'Space Grotesk', sans-serif; 
-      display: flex; 
-      flex-direction: column; 
-      align-items: center; 
-      padding: 50px 0;
+    
+    body {
+      background-color: #0d0d0d;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 0;
     }
 
-    /* Standard Slide Dimension (4:5 Aspect Ratio) */
+    /* Each slide canvas is exactly 1080 x 1920 */
     .slide {
       width: 1080px;
-      height: 1350px;
+      height: 1920px;
       position: relative;
       overflow: hidden;
-      margin-bottom: 80px;
-      padding: 80px;
+      margin-bottom: 60px; /* Separator for display */
+      background-color: #08080a;
+      color: #ffffff;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+    }
+
+    /* Video Canvas Grid Overlay */
+    .bg-grid {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      z-index: 1;
+    }
+
+    /* Top Branding Header */
+    .brand-header {
+      position: absolute;
+      top: 80px;
+      left: 80px;
+      right: 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 10;
+    }
+
+    .brand-logo-container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo-badge {
+      width: 70px;
+      height: 70px;
+      background: #8257E5;
+      border-radius: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Jacquard 12', cursive;
+      font-size: 52px;
+      color: #ffffff;
+      box-shadow: 0 0 25px rgba(130, 87, 229, 0.5);
+    }
+
+    .brand-details {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-handle {
+      font-size: 22px;
+      color: #8a8a9e;
+      font-weight: 700;
+    }
+
+    .slide-counter {
+      font-size: 28px;
+      font-weight: 700;
+      color: #8257E5;
+      background: rgba(130, 87, 229, 0.12);
+      border: 1px solid rgba(130, 87, 229, 0.3);
+      padding: 10px 24px;
+      border-radius: 30px;
+    }
+
+    /* Main Card Container */
+    .slides-wrapper {
+      position: absolute;
+      top: 200px;
+      left: 80px;
+      width: 920px;
+      height: 1400px;
+      z-index: 5;
+    }
+
+    /* Slide Card UI */
+    .card {
+      position: absolute;
+      inset: 0;
+      background: #111116;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 36px;
+      padding: 80px 60px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
     }
 
-    /* Common Image Box Base Class */
-    .image-placeholder {
-      background-color: #ffffff;
-      width: 100%;
-      height: 620px;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* ==========================================================================
-       STYLE 1: SWISS / INTERNATIONAL TYPOGRAPHIC STYLE
-       ========================================================================== */
-    #slide-swiss {
-      background-color: #F4F4F0;
-      color: #111111;
-      font-family: 'Space Grotesk', sans-serif;
-      border-top: 20px solid #FF2E00;
-    }
-    #slide-swiss .swiss-header {
+    .card-header {
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .card-title {
+      font-size: 64px;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    .highlight {
+      color: #8257E5;
+    }
+
+    .card-body {
+      font-size: 28px;
+      color: #a0a0a0;
+      line-height: 1.4;
+    }
+
+    /* Font Showcase Area Inside Slides */
+    .font-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      justify-content: center;
       align-items: flex-start;
-      border-bottom: 3px solid #111111;
-      padding-bottom: 30px;
+      margin: 40px 0;
+      height: 700px;
     }
-    #slide-swiss .title { font-size: 56px; font-weight: 800; line-height: 1.05; text-transform: uppercase; letter-spacing: -1px; }
-    #slide-swiss .code-badge { font-size: 42px; font-weight: 800; background: #111111; color: #ffffff; padding: 10px 25px; display: inline-block; }
-    #slide-swiss .image-placeholder { border: 4px solid #111111; }
-    #slide-swiss .swiss-footer { display: flex; justify-content: space-between; align-items: flex-end; border-top: 3px solid #111111; padding-top: 30px; }
-    #slide-swiss .url { font-size: 48px; font-weight: 800; color: #FF2E00; text-decoration: none; text-transform: lowercase; }
 
-    /* ==========================================================================
-       STYLE 2: NEO-BRUTALISM
-       ========================================================================== */
-    #slide-neobrutalism {
-      background-color: #FFE600;
-      color: #000000;
-      font-family: 'Bebas Neue', cursive;
-    }
-    #slide-neobrutalism .title { font-size: 72px; line-height: 0.95; letter-spacing: 1px; text-transform: uppercase; }
-    #slide-neobrutalism .code-box {
-      background: #FF5252;
-      color: #ffffff;
+    .font-item-raw {
       font-size: 50px;
-      padding: 15px 30px;
-      border: 5px solid #000;
-      box-shadow: 8px 8px 0px #000;
-      display: inline-block;
-      margin-top: 20px;
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+      white-space: nowrap;
     }
-    #slide-neobrutalism .image-placeholder {
-      border: 6px solid #000000;
-      box-shadow: 16px 16px 0px #000000;
-      border-radius: 0px;
-    }
-    #slide-neobrutalism .url-card {
-      background: #00E5FF;
-      border: 5px solid #000;
-      box-shadow: 10px 10px 0px #000;
-      padding: 20px 40px;
-      text-align: center;
-    }
-    #slide-neobrutalism .url { font-size: 52px; color: #000; text-decoration: none; font-weight: 900; letter-spacing: 2px; }
 
-    /* ==========================================================================
-       STYLE 3: ACID Y2K / CYBERPUNK
-       ========================================================================== */
-    #slide-acid {
-      background: #0B0B12;
-      color: #00F0FF;
-      font-family: 'Syne', sans-serif;
-      background-image: radial-gradient(#1f1c3a 1px, transparent 1px);
-      background-size: 30px 30px;
-    }
-    #slide-acid .title { font-size: 60px; font-weight: 800; line-height: 1.1; color: #ffffff; text-transform: uppercase; text-shadow: 0 0 15px rgba(255,0,127,0.8); }
-    #slide-acid .code-tag {
-      font-size: 45px;
-      font-weight: 800;
-      color: #FF007F;
-      border: 2px solid #FF007F;
-      padding: 10px 30px;
-      border-radius: 50px;
-      box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
-      display: inline-flex;
-      align-items: center;
-      gap: 15px;
-    }
-    #slide-acid .image-placeholder {
-      border: 2px solid #00F0FF;
-      box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
-      border-radius: 12px;
-    }
-    #slide-acid .url-container {
-      background: linear-gradient(90deg, #FF007F, #7928CA);
-      padding: 25px;
-      border-radius: 20px;
-      text-align: center;
-      box-shadow: 0 0 30px rgba(121, 40, 202, 0.5);
-    }
-    #slide-acid .url { font-size: 46px; color: #ffffff; text-decoration: none; font-weight: 800; }
-
-    /* ==========================================================================
-       STYLE 4: GLASSMORPHISM / IOS MODERN
-       ========================================================================== */
-    #slide-glass {
-      background: linear-gradient(135deg, #FF6B6B 0%, #556270 50%, #4ECDC4 100%);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    #slide-glass .glass-card {
-      background: rgba(255, 255, 255, 0.2);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.4);
-      border-radius: 30px;
-      padding: 40px;
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
-    }
-    #slide-glass .title { font-size: 52px; font-weight: 800; color: #ffffff; line-height: 1.15; }
-    #slide-glass .code-pill {
-      font-size: 38px;
-      background: rgba(255, 255, 255, 0.9);
-      color: #111;
-      padding: 10px 25px;
-      border-radius: 50px;
-      font-weight: 800;
-      display: inline-block;
-      margin-top: 15px;
-    }
-    #slide-glass .image-placeholder { border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
-    #slide-glass .url-glass {
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 25px;
+    /* Subtitle Overlay */
+    .subtitle-box {
+      position: absolute;
+      bottom: 90px;
+      left: 80px;
+      right: 80px;
+      height: 100px;
+      background: rgba(17, 17, 22, 0.85);
+      border: 1px solid rgba(130, 87, 229, 0.4);
+      backdrop-filter: blur(12px);
       border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+    }
+
+    .subtitle-text {
+      font-size: 42px;
+      font-weight: 900;
+      color: #ffffff;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-shadow: 0 0 15px rgba(130, 87, 229, 0.6);
+    }
+
+    /* Outro Slide Styling */
+    .outro-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
       text-align: center;
+      gap: 40px;
     }
-    #slide-glass .url { font-size: 44px; color: #ffffff; text-decoration: none; font-weight: 800; letter-spacing: 1px; }
 
-    /* ==========================================================================
-       STYLE 5: HIGH FASHION EDITORIAL
-       ========================================================================== */
-    #slide-editorial {
-      background-color: #0D1612;
-      color: #E6E1D6;
-      font-family: 'Playfair Display', serif;
+    .outro-title {
+      font-size: 84px;
+      font-weight: 900;
+      line-height: 1.1;
     }
-    #slide-editorial .title { font-size: 64px; font-weight: 400; font-style: italic; line-height: 1.1; }
-    #slide-editorial .code-label { font-family: 'Space Grotesk', sans-serif; font-size: 36px; letter-spacing: 4px; text-transform: uppercase; color: #D4AF37; margin-top: 15px; }
-    #slide-editorial .image-placeholder { border: 1px solid #D4AF37; padding: 15px; background-clip: content-box; background-color: #ffffff; }
-    #slide-editorial .editorial-footer { border-top: 1px solid rgba(212, 175, 55, 0.4); padding-top: 30px; text-align: center; }
-    #slide-editorial .url { font-family: 'Space Grotesk', sans-serif; font-size: 42px; color: #E6E1D6; letter-spacing: 6px; text-decoration: none; text-transform: uppercase; }
-
-    /* ==========================================================================
-       STYLE 6: SYNTHWAVE / 80S RETRO
-       ========================================================================== */
-    #slide-synthwave {
-      background: linear-gradient(180deg, #0D0221 0%, #260859 60%, #590B75 100%);
-      color: #00F6FF;
-      font-family: 'Orbitron', sans-serif;
-    }
-    #slide-synthwave .title { font-size: 52px; font-weight: 900; color: #FFF; text-shadow: 0 0 10px #FF007F, 0 0 20px #FF007F; line-height: 1.2; text-transform: uppercase; }
-    #slide-synthwave .code-glow { font-size: 48px; color: #00F6FF; text-shadow: 0 0 15px #00F6FF; margin-top: 15px; }
-    #slide-synthwave .image-placeholder { border: 4px solid #FF007F; box-shadow: 0 0 25px #FF007F, inset 0 0 15px #FF007F; }
-    #slide-synthwave .synth-footer { background: #0D0221; border: 2px solid #00F6FF; box-shadow: 0 0 15px #00F6FF; padding: 20px; text-align: center; }
-    #slide-synthwave .url { font-size: 42px; color: #FFF; text-shadow: 0 0 10px #00F6FF; text-decoration: none; font-weight: 700; }
-
-    /* ==========================================================================
-       STYLE 7: BAUHAUS GEOMETRIC
-       ========================================================================== */
-    #slide-bauhaus {
-      background-color: #F0EAD6;
-      color: #111111;
-      font-family: 'Space Grotesk', sans-serif;
-    }
-    #slide-bauhaus .header-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
-    #slide-bauhaus .title { font-size: 58px; font-weight: 800; line-height: 1.0; text-transform: uppercase; }
-    #slide-bauhaus .bauhaus-circle { background-color: #D32F2F; width: 140px; height: 140px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFF; font-size: 38px; font-weight: 800; }
-    #slide-bauhaus .image-container { position: relative; }
-    #slide-bauhaus .image-container::before { content: ''; position: absolute; top: -20px; left: -20px; width: 100%; height: 100%; background: #1976D2; z-index: 1; }
-    #slide-bauhaus .image-placeholder { position: relative; z-index: 2; }
-    #slide-bauhaus .bauhaus-footer { background-color: #FBC02D; padding: 25px; display: flex; justify-content: space-between; align-items: center; }
-    #slide-bauhaus .url { font-size: 46px; font-weight: 800; color: #111; text-decoration: none; }
-
-    /* ==========================================================================
-       STYLE 8: DARK HUD TECH / SCI-FI
-       ========================================================================== */
-    #slide-hud {
-      background-color: #050B14;
-      color: #00FF66;
-      font-family: 'JetBrains Mono', monospace;
-      border: 2px solid #00FF66;
-    }
-    #slide-hud .hud-header { border-bottom: 1px dashed #00FF66; padding-bottom: 20px; }
-    #slide-hud .title { font-size: 48px; font-weight: 800; color: #FFFFFF; text-transform: uppercase; letter-spacing: -1px; }
-    #slide-hud .code-terminal { font-size: 40px; color: #00FF66; margin-top: 10px; }
-    #slide-hud .image-placeholder { border: 1px solid #00FF66; outline: 10px solid rgba(0, 255, 102, 0.05); }
-    #slide-hud .hud-footer { background: rgba(0, 255, 102, 0.1); border: 1px solid #00FF66; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
-    #slide-hud .url { font-size: 40px; color: #00FF66; text-decoration: none; font-weight: 800; }
-
-    /* ==========================================================================
-       STYLE 9: POP ART / COMIC BOOK
-       ========================================================================== */
-    #slide-popart {
-      background-color: #0066FF;
-      color: #FFFFFF;
-      font-family: 'Righteous', cursive;
-    }
-    #slide-popart .title-banner { background: #FF0055; padding: 20px 30px; border: 5px solid #000; transform: rotate(-2deg); box-shadow: 10px 10px 0 #000; }
-    #slide-popart .title { font-size: 56px; text-transform: uppercase; line-height: 1.1; text-shadow: 3px 3px 0 #000; }
-    #slide-popart .code-burst { background: #FFCC00; color: #000; font-size: 42px; padding: 10px 25px; border: 4px solid #000; display: inline-block; margin-top: 15px; font-weight: 900; }
-    #slide-popart .image-placeholder { border: 6px solid #000; box-shadow: 12px 12px 0 #FFCC00; }
-    #slide-popart .url-banner { background: #00FF66; border: 5px solid #000; padding: 20px; text-align: center; box-shadow: 8px 8px 0 #000; transform: rotate(1deg); }
-    #slide-popart .url { font-size: 48px; color: #000; text-decoration: none; font-weight: 900; }
-
-    /* ==========================================================================
-       STYLE 10: SOFT CLAYMORPHISM / MODERN PASTEL
-       ========================================================================== */
-    #slide-clay {
-      background-color: #EAF0F6;
-      color: #2D3748;
-      font-family: 'Outfit', sans-serif;
-    }
-    #slide-clay .clay-card {
-      background: #EAF0F6;
-      border-radius: 35px;
-      padding: 40px;
-      box-shadow: 15px 15px 30px #c5cad0, -15px -15px 30px #ffffff;
-    }
-    #slide-clay .title { font-size: 54px; font-weight: 900; color: #1A202C; line-height: 1.1; }
-    #slide-clay .code-badge {
-      display: inline-block;
-      margin-top: 15px;
-      background: #667EEA;
-      color: #FFF;
-      font-size: 38px;
-      font-weight: 700;
-      padding: 10px 30px;
-      border-radius: 20px;
-      box-shadow: 6px 6px 12px #b8bec5, -6px -6px 12px #ffffff;
-    }
-    #slide-clay .image-placeholder {
-      border-radius: 30px;
-      box-shadow: inset 8px 8px 16px #d1d6dc, inset -8px -8px 16px #ffffff, 12px 12px 24px #c5cad0;
-    }
-    #slide-clay .url-pill {
-      background: #EAF0F6;
-      padding: 25px;
-      border-radius: 30px;
-      text-align: center;
-      box-shadow: 10px 10px 20px #c5cad0, -10px -10px 20px #ffffff;
-    }
-    #slide-clay .url { font-size: 44px; color: #5A67D8; text-decoration: none; font-weight: 800; }
-
   </style>
 </head>
 <body>
 
-  <!-- ==========================================================================
-       SLIDE 1: SWISS / INTERNATIONAL TYPOGRAPHIC STYLE
-       ========================================================================== -->
-  <div class="slide" id="slide-swiss">
-    <div class="swiss-header">
-      <div class="title">Pixel Displace<br>Text Effect<br>Maker</div>
-      <div class="code-badge">CODE 000</div>
+  <!-- ======================== FRAME 1 ======================== -->
+  <div class="slide" id="frame-1">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">01 / 05</div>
     </div>
-    
-    <!-- EMPTY IMAGE PLACEHOLDER -->
-    <div class="image-placeholder"></div>
-    
-    <div class="swiss-footer">
-      <div class="url">www.callistra.design</div>
-      <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 40px; color: #FF2E00;"></i>
-    </div>
-  </div>
-
-
-  <!-- ==========================================================================
-       SLIDE 2: NEO-BRUTALISM
-       ========================================================================== -->
-  <div class="slide" id="slide-neobrutalism">
-    <div>
-      <div class="title">PIXEL DISPLACE<br>TEXT EFFECT MAKER</div>
-      <div class="code-box"><i class="fa-solid fa-bolt"></i> EFFECT CODE "000"</div>
-    </div>
-    
-    <!-- EMPTY IMAGE PLACEHOLDER -->
-    <div class="image-placeholder"></div>
-    
-    <div class="url-card">
-      <a href="#" class="url">WWW.CALLISTRA.DESIGN</a>
-    </div>
-  </div>
-
-
-  <!-- ==========================================================================
-       SLIDE 3: ACID Y2K / CYBERPUNK
-       ========================================================================== -->
-  <div class="slide" id="slide-acid">
-    <div>
-      <div class="title">PIXEL DISPLACE<br>TEXT EFFECT MAKER</div>
-      <div style="margin-top: 20px;">
-        <div class="code-tag"><i class="fa-solid fa-compact-disc"></i> EFFECT CODE "000"</div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Stop Using <br><span class="highlight">Plain Fonts.</span></div>
+          <div class="card-body">Raw Google Fonts before applying custom visual text algorithms.</div>
+        </div>
+        <div class="font-stack">
+          <div class="font-item-raw" style="font-family: 'Inter', sans-serif; font-weight: 900;">INTER</div>
+          <div class="font-item-raw" style="font-family: 'Montserrat', sans-serif; font-weight: 900;">MONTSERRAT</div>
+          <div class="font-item-raw" style="font-family: 'Playfair Display', serif; font-weight: 900;">PLAYFAIR DISPLAY</div>
+          <div class="font-item-raw" style="font-family: 'DM Mono', monospace; font-weight: 500;">DM MONO</div>
+        </div>
+        <div class="card-body">01 / 05 — Raw Forms</div>
       </div>
     </div>
-    
-    <!-- EMPTY IMAGE PLACEHOLDER -->
-    <div class="image-placeholder"></div>
-    
-    <div class="url-container">
-      <a href="#" class="url">www.callistra.design</a>
-    </div>
+    <div class="subtitle-box"><div class="subtitle-text">Stop</div></div>
   </div>
 
-
-  <!-- ==========================================================================
-       SLIDE 4: GLASSMORPHISM / MODERN SOFT UI
-       ========================================================================== -->
-  <div class="slide" id="slide-glass">
-    <div class="glass-card">
-      <div class="title">Pixel Displace<br>Text Effect Maker</div>
-      <div class="code-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Effect Code "000"</div>
-    </div>
-    
-    <!-- EMPTY IMAGE PLACEHOLDER -->
-    <div class="image-placeholder"></div>
-    
-    <div class="url-glass">
-      <a href="#" class="url">www.callistra.design</a>
-    </div>
-  </div>
-
-
-  <!-- ==========================================================================
-       SLIDE 5: HIGH FASHION EDITORIAL
-       ========================================================================== -->
-  <div class="slide" id="slide-editorial">
-    <div>
-      <div class="title">Pixel Displace<br>Text Effect Maker</div>
-      <div class="code-label">EFFECT CODE "000"</div>
-    </div>
-    
-    <!-- EMPTY IMAGE PLACEHOLDER -->
-    <div class="image-placeholder"></div>
-    
-    <div class="editorial-footer">
-      <a href="#" class="url">www.callistra.design</a>
-    </div>
-  </div>
-
-
-  <!-- ==========================================================================
-       SLIDE 6: SYNTHWAVE / 80S RETRO
-       ========================================================================== -->
-  <div class="slide" id="slide-synthwave">
-    <div>
-      <div class="title"><i class="fa-solid fa-vr-cardboard"></i> PIXEL DISPLACE<br>TEXT EFFECT MAKER</div>
-      <div class="code-glow">EFFECT CODE "000"</div>
-    </div>
-    
-    <!-- EMPTY IMAGE PLACEHOLDER -->
-    <div class="image-placeholder"></div>
-    
-    <div class="synth-footer">
-      <a href="#" class="url">WWW.CALLISTRA.DESIGN</a>
-    </div>
-  </div>
-
-
-  <!-- ==========================================================================
-       SLIDE 7: BAUHAUS GEOMETRIC
-       ========================================================================== -->
-  <div class="slide" id="slide-bauhaus">
-    <div class="header-grid">
-      <div class="title">Pixel Displace<br>Text Effect<br>Maker</div>
-      <div class="bauhaus-circle">000</div>
-    </div>
-    
-    <!-- EMPTY IMAGE PLACEHOLDER -->
-    <div class="image-container">
-      <div class="image-placeholder"></div>
-    </div>
-    
-    <div class="bauhaus-footer">
-      <a href="#" class="url">www.callistra.design</a>
-      <i class="fa-solid fa-shapes" style="font-size: 40px; color: #111;"></i>
-    </div>
-  </div>
-
-
-  <!-- ==========================================================================
-       SLIDE 8: DARK HUD TECH / SCI-FI
-       ========================================================================== -->
-  <div class="slide" id="slide-hud">
-    <div class="hud-header">
-      <div style="font-size: 20px; color: #888; margin-bottom: 10px;">[SYS_STATUS: READY]</div>
-      <div class="title">> Pixel Displace<br>Text Effect Maker</div>
-      <div class="code-terminal">CODE // "000"</div>
-    </div>
-    
-    <!-- EMPTY IMAGE PLACEHOLDER -->
-    <div class="image-placeholder"></div>
-    
-    <div class="hud-footer">
-      <a href="#" class="url">www.callistra.design</a>
-      <i class="fa-solid fa-microchip" style="font-size: 36px;"></i>
-    </div>
-  </div>
-
-
-  <!-- ==========================================================================
-       SLIDE 9: POP ART / COMIC BOOK
-       ========================================================================== -->
-  <div class="slide" id="slide-popart">
-    <div>
-      <div class="title-banner">
-        <div class="title">PIXEL DISPLACE<br>TEXT EFFECT MAKER!</div>
+  <!-- ======================== FRAME 2 ======================== -->
+  <div class="slide" id="frame-2">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
       </div>
-      <div class="code-burst"><i class="fa-solid fa-explosion"></i> CODE "000"</div>
+      <div class="slide-counter">01 / 05</div>
     </div>
-    
-    <!-- EMPTY IMAGE PLACEHOLDER -->
-    <div class="image-placeholder"></div>
-    
-    <div class="url-banner">
-      <a href="#" class="url">WWW.CALLISTRA.DESIGN</a>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Stop Using <br><span class="highlight">Plain Fonts.</span></div>
+          <div class="card-body">Raw Google Fonts before applying custom visual text algorithms.</div>
+        </div>
+        <div class="font-stack">
+          <div class="font-item-raw" style="font-family: 'Inter', sans-serif; font-weight: 900;">INTER</div>
+          <div class="font-item-raw" style="font-family: 'Montserrat', sans-serif; font-weight: 900;">MONTSERRAT</div>
+          <div class="font-item-raw" style="font-family: 'Playfair Display', serif; font-weight: 900;">PLAYFAIR DISPLAY</div>
+          <div class="font-item-raw" style="font-family: 'DM Mono', monospace; font-weight: 500;">DM MONO</div>
+        </div>
+        <div class="card-body">01 / 05 — Raw Forms</div>
+      </div>
     </div>
+    <div class="subtitle-box"><div class="subtitle-text">using</div></div>
+  </div>
+
+  <!-- ======================== FRAME 3 ======================== -->
+  <div class="slide" id="frame-3">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">01 / 05</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Stop Using <br><span class="highlight">Plain Fonts.</span></div>
+          <div class="card-body">Raw Google Fonts before applying custom visual text algorithms.</div>
+        </div>
+        <div class="font-stack">
+          <div class="font-item-raw" style="font-family: 'Inter', sans-serif; font-weight: 900;">INTER</div>
+          <div class="font-item-raw" style="font-family: 'Montserrat', sans-serif; font-weight: 900;">MONTSERRAT</div>
+          <div class="font-item-raw" style="font-family: 'Playfair Display', serif; font-weight: 900;">PLAYFAIR DISPLAY</div>
+          <div class="font-item-raw" style="font-family: 'DM Mono', monospace; font-weight: 500;">DM MONO</div>
+        </div>
+        <div class="card-body">01 / 05 — Raw Forms</div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">plain</div></div>
+  </div>
+
+  <!-- ======================== FRAME 4 ======================== -->
+  <div class="slide" id="frame-4">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">01 / 05</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">Stop Using <br><span class="highlight">Plain Fonts.</span></div>
+          <div class="card-body">Raw Google Fonts before applying custom visual text algorithms.</div>
+        </div>
+        <div class="font-stack">
+          <div class="font-item-raw" style="font-family: 'Inter', sans-serif; font-weight: 900;">INTER</div>
+          <div class="font-item-raw" style="font-family: 'Montserrat', sans-serif; font-weight: 900;">MONTSERRAT</div>
+          <div class="font-item-raw" style="font-family: 'Playfair Display', serif; font-weight: 900;">PLAYFAIR DISPLAY</div>
+          <div class="font-item-raw" style="font-family: 'DM Mono', monospace; font-weight: 500;">DM MONO</div>
+        </div>
+        <div class="card-body">01 / 05 — Raw Forms</div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">fonts.</div></div>
+  </div>
+
+  <!-- ======================== FRAME 5 ======================== -->
+  <div class="slide" id="frame-5">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">02 / 05</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">01. Glitch <br><span class="highlight">Slice.</span></div>
+          <div class="card-body">Horizontal pixel displacement & directional shear distortion.</div>
+        </div>
+        <div class="font-stack">
+          <glitch-text text="INTER" fringe="20" shear="40" chaos="100" font-size="50" color="#ffffff" font-family="Inter, sans-serif" font-weight="900"></glitch-text>
+          <glitch-text text="MONTSERRAT" fringe="20" shear="40" chaos="100" font-size="50" color="#ffffff" font-family="Montserrat, sans-serif" font-weight="900"></glitch-text>
+          <glitch-text text="PLAYFAIR DISPLAY" fringe="20" shear="40" chaos="100" font-size="50" color="#ffffff" font-family="'Playfair Display', serif" font-weight="900"></glitch-text>
+          <glitch-text text="DM MONO" fringe="20" shear="40" chaos="100" font-size="50" color="#ffffff" font-family="'DM Mono', monospace" font-weight="500"></glitch-text>
+        </div>
+        <div class="card-body">02 / 05 — Slice Effect</div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">Slice</div></div>
+  </div>
+
+  <!-- ======================== FRAME 6 ======================== -->
+  <div class="slide" id="frame-6">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">02 / 05</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">01. Glitch <br><span class="highlight">Slice.</span></div>
+          <div class="card-body">Horizontal pixel displacement & directional shear distortion.</div>
+        </div>
+        <div class="font-stack">
+          <glitch-text text="INTER" fringe="20" shear="40" chaos="100" font-size="50" color="#ffffff" font-family="Inter, sans-serif" font-weight="900"></glitch-text>
+          <glitch-text text="MONTSERRAT" fringe="20" shear="40" chaos="100" font-size="50" color="#ffffff" font-family="Montserrat, sans-serif" font-weight="900"></glitch-text>
+          <glitch-text text="PLAYFAIR DISPLAY" fringe="20" shear="40" chaos="100" font-size="50" color="#ffffff" font-family="'Playfair Display', serif" font-weight="900"></glitch-text>
+          <glitch-text text="DM MONO" fringe="20" shear="40" chaos="100" font-size="50" color="#ffffff" font-family="'DM Mono', monospace" font-weight="500"></glitch-text>
+        </div>
+        <div class="card-body">02 / 05 — Slice Effect</div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">them.</div></div>
+  </div>
+
+  <!-- ======================== FRAME 7 ======================== -->
+  <div class="slide" id="frame-7">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">03 / 05</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">02. Broken <br><span class="highlight">Glass.</span></div>
+          <div class="card-body">Voronoi shattered glass dispersion algorithm.</div>
+        </div>
+        <div class="font-stack">
+          <broken-glass-text text="INTER" strength="20" detail="60" font-size="50" color="#ffffff" font-family="Inter, sans-serif" font-weight="900"></broken-glass-text>
+          <broken-glass-text text="MONTSERRAT" strength="20" detail="60" font-size="50" color="#ffffff" font-family="Montserrat, sans-serif" font-weight="900"></broken-glass-text>
+          <broken-glass-text text="PLAYFAIR DISPLAY" strength="20" detail="60" font-size="50" color="#ffffff" font-family="'Playfair Display', serif" font-weight="900"></broken-glass-text>
+          <broken-glass-text text="DM MONO" strength="20" detail="60" font-size="50" color="#ffffff" font-family="'DM Mono', monospace" font-weight="500"></broken-glass-text>
+        </div>
+        <div class="card-body">03 / 05 — Glass Shatter</div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">Break</div></div>
+  </div>
+
+  <!-- ======================== FRAME 8 ======================== -->
+  <div class="slide" id="frame-8">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">03 / 05</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">02. Broken <br><span class="highlight">Glass.</span></div>
+          <div class="card-body">Voronoi shattered glass dispersion algorithm.</div>
+        </div>
+        <div class="font-stack">
+          <broken-glass-text text="INTER" strength="20" detail="60" font-size="50" color="#ffffff" font-family="Inter, sans-serif" font-weight="900"></broken-glass-text>
+          <broken-glass-text text="MONTSERRAT" strength="20" detail="60" font-size="50" color="#ffffff" font-family="Montserrat, sans-serif" font-weight="900"></broken-glass-text>
+          <broken-glass-text text="PLAYFAIR DISPLAY" strength="20" detail="60" font-size="50" color="#ffffff" font-family="'Playfair Display', serif" font-weight="900"></broken-glass-text>
+          <broken-glass-text text="DM MONO" strength="20" detail="60" font-size="50" color="#ffffff" font-family="'DM Mono', monospace" font-weight="500"></broken-glass-text>
+        </div>
+        <div class="card-body">03 / 05 — Glass Shatter</div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">them</div></div>
+  </div>
+
+  <!-- ======================== FRAME 9 ======================== -->
+  <div class="slide" id="frame-9">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">03 / 05</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">02. Broken <br><span class="highlight">Glass.</span></div>
+          <div class="card-body">Voronoi shattered glass dispersion algorithm.</div>
+        </div>
+        <div class="font-stack">
+          <broken-glass-text text="INTER" strength="20" detail="60" font-size="50" color="#ffffff" font-family="Inter, sans-serif" font-weight="900"></broken-glass-text>
+          <broken-glass-text text="MONTSERRAT" strength="20" detail="60" font-size="50" color="#ffffff" font-family="Montserrat, sans-serif" font-weight="900"></broken-glass-text>
+          <broken-glass-text text="PLAYFAIR DISPLAY" strength="20" detail="60" font-size="50" color="#ffffff" font-family="'Playfair Display', serif" font-weight="900"></broken-glass-text>
+          <broken-glass-text text="DM MONO" strength="20" detail="60" font-size="50" color="#ffffff" font-family="'DM Mono', monospace" font-weight="500"></broken-glass-text>
+        </div>
+        <div class="card-body">03 / 05 — Glass Shatter</div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">like</div></div>
+  </div>
+
+  <!-- ======================== FRAME 10 ======================= -->
+  <div class="slide" id="frame-10">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">03 / 05</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">02. Broken <br><span class="highlight">Glass.</span></div>
+          <div class="card-body">Voronoi shattered glass dispersion algorithm.</div>
+        </div>
+        <div class="font-stack">
+          <broken-glass-text text="INTER" strength="20" detail="60" font-size="50" color="#ffffff" font-family="Inter, sans-serif" font-weight="900"></broken-glass-text>
+          <broken-glass-text text="MONTSERRAT" strength="20" detail="60" font-size="50" color="#ffffff" font-family="Montserrat, sans-serif" font-weight="900"></broken-glass-text>
+          <broken-glass-text text="PLAYFAIR DISPLAY" strength="20" detail="60" font-size="50" color="#ffffff" font-family="'Playfair Display', serif" font-weight="900"></broken-glass-text>
+          <broken-glass-text text="DM MONO" strength="20" detail="60" font-size="50" color="#ffffff" font-family="'DM Mono', monospace" font-weight="500"></broken-glass-text>
+        </div>
+        <div class="card-body">03 / 05 — Glass Shatter</div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">glass.</div></div>
+  </div>
+
+  <!-- ======================== FRAME 11 ======================= -->
+  <div class="slide" id="frame-11">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">04 / 05</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">03. Pixel <br><span class="highlight">Scatter.</span></div>
+          <div class="card-body">Grid-based stochastic pixel block displacement.</div>
+        </div>
+        <div class="font-stack">
+          <pixel-displace-text text="INTER" block-size="14" drift="7" font-size="50" color="#ffffff" font-family="Inter, sans-serif" font-weight="900"></pixel-displace-text>
+          <pixel-displace-text text="MONTSERRAT" block-size="14" drift="7" font-size="50" color="#ffffff" font-family="Montserrat, sans-serif" font-weight="900"></pixel-displace-text>
+          <pixel-displace-text text="PLAYFAIR DISPLAY" block-size="14" drift="7" font-size="50" color="#ffffff" font-family="'Playfair Display', serif" font-weight="900"></pixel-displace-text>
+          <pixel-displace-text text="DM MONO" block-size="14" drift="7" font-size="50" color="#ffffff" font-family="'DM Mono', monospace" font-weight="500"></pixel-displace-text>
+        </div>
+        <div class="card-body">04 / 05 — Pixel Displace</div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">Scatter</div></div>
+  </div>
+
+  <!-- ======================== FRAME 12 ======================= -->
+  <div class="slide" id="frame-12">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">04 / 05</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">03. Pixel <br><span class="highlight">Scatter.</span></div>
+          <div class="card-body">Grid-based stochastic pixel block displacement.</div>
+        </div>
+        <div class="font-stack">
+          <pixel-displace-text text="INTER" block-size="14" drift="7" font-size="50" color="#ffffff" font-family="Inter, sans-serif" font-weight="900"></pixel-displace-text>
+          <pixel-displace-text text="MONTSERRAT" block-size="14" drift="7" font-size="50" color="#ffffff" font-family="Montserrat, sans-serif" font-weight="900"></pixel-displace-text>
+          <pixel-displace-text text="PLAYFAIR DISPLAY" block-size="14" drift="7" font-size="50" color="#ffffff" font-family="'Playfair Display', serif" font-weight="900"></pixel-displace-text>
+          <pixel-displace-text text="DM MONO" block-size="14" drift="7" font-size="50" color="#ffffff" font-family="'DM Mono', monospace" font-weight="500"></pixel-displace-text>
+        </div>
+        <div class="card-body">04 / 05 — Pixel Displace</div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">their</div></div>
+  </div>
+
+  <!-- ======================== FRAME 13 ======================= -->
+  <div class="slide" id="frame-13">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">04 / 05</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">03. Pixel <br><span class="highlight">Scatter.</span></div>
+          <div class="card-body">Grid-based stochastic pixel block displacement.</div>
+        </div>
+        <div class="font-stack">
+          <pixel-displace-text text="INTER" block-size="14" drift="7" font-size="50" color="#ffffff" font-family="Inter, sans-serif" font-weight="900"></pixel-displace-text>
+          <pixel-displace-text text="MONTSERRAT" block-size="14" drift="7" font-size="50" color="#ffffff" font-family="Montserrat, sans-serif" font-weight="900"></pixel-displace-text>
+          <pixel-displace-text text="PLAYFAIR DISPLAY" block-size="14" drift="7" font-size="50" color="#ffffff" font-family="'Playfair Display', serif" font-weight="900"></pixel-displace-text>
+          <pixel-displace-text text="DM MONO" block-size="14" drift="7" font-size="50" color="#ffffff" font-family="'DM Mono', monospace" font-weight="500"></pixel-displace-text>
+        </div>
+        <div class="card-body">04 / 05 — Pixel Displace</div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">pixels.</div></div>
+  </div>
+
+  <!-- ======================== FRAME 14 ======================= -->
+  <div class="slide" id="frame-14">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">05 / 05</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">04. 90s TV <br><span class="highlight">CRT Glitch.</span></div>
+          <div class="card-body">Micro scanline horizontal frequency instability.</div>
+        </div>
+        <div class="font-stack">
+          <glitch-text text="INTER" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="Inter, sans-serif" font-weight="900"></glitch-text>
+          <glitch-text text="MONTSERRAT" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="Montserrat, sans-serif" font-weight="900"></glitch-text>
+          <glitch-text text="PLAYFAIR DISPLAY" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="'Playfair Display', serif" font-weight="900"></glitch-text>
+          <glitch-text text="DM MONO" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="'DM Mono', monospace" font-weight="500"></glitch-text>
+        </div>
+        <div class="card-body">05 / 05 — CRT TV Effect</div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">Turn</div></div>
+  </div>
+
+  <!-- ======================== FRAME 15 ======================= -->
+  <div class="slide" id="frame-15">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">05 / 05</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">04. 90s TV <br><span class="highlight">CRT Glitch.</span></div>
+          <div class="card-body">Micro scanline horizontal frequency instability.</div>
+        </div>
+        <div class="font-stack">
+          <glitch-text text="INTER" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="Inter, sans-serif" font-weight="900"></glitch-text>
+          <glitch-text text="MONTSERRAT" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="Montserrat, sans-serif" font-weight="900"></glitch-text>
+          <glitch-text text="PLAYFAIR DISPLAY" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="'Playfair Display', serif" font-weight="900"></glitch-text>
+          <glitch-text text="DM MONO" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="'DM Mono', monospace" font-weight="500"></glitch-text>
+        </div>
+        <div class="card-body">05 / 05 — CRT TV Effect</div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">them</div></div>
+  </div>
+
+  <!-- ======================== FRAME 16 ======================= -->
+  <div class="slide" id="frame-16">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">05 / 05</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">04. 90s TV <br><span class="highlight">CRT Glitch.</span></div>
+          <div class="card-body">Micro scanline horizontal frequency instability.</div>
+        </div>
+        <div class="font-stack">
+          <glitch-text text="INTER" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="Inter, sans-serif" font-weight="900"></glitch-text>
+          <glitch-text text="MONTSERRAT" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="Montserrat, sans-serif" font-weight="900"></glitch-text>
+          <glitch-text text="PLAYFAIR DISPLAY" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="'Playfair Display', serif" font-weight="900"></glitch-text>
+          <glitch-text text="DM MONO" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="'DM Mono', monospace" font-weight="500"></glitch-text>
+        </div>
+        <div class="card-body">05 / 05 — CRT TV Effect</div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">into</div></div>
+  </div>
+
+  <!-- ======================== FRAME 17 ======================= -->
+  <div class="slide" id="frame-17">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">05 / 05</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">04. 90s TV <br><span class="highlight">CRT Glitch.</span></div>
+          <div class="card-body">Micro scanline horizontal frequency instability.</div>
+        </div>
+        <div class="font-stack">
+          <glitch-text text="INTER" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="Inter, sans-serif" font-weight="900"></glitch-text>
+          <glitch-text text="MONTSERRAT" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="Montserrat, sans-serif" font-weight="900"></glitch-text>
+          <glitch-text text="PLAYFAIR DISPLAY" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="'Playfair Display', serif" font-weight="900"></glitch-text>
+          <glitch-text text="DM MONO" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="'DM Mono', monospace" font-weight="500"></glitch-text>
+        </div>
+        <div class="card-body">05 / 05 — CRT TV Effect</div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">90s</div></div>
+  </div>
+
+  <!-- ======================== FRAME 18 ======================= -->
+  <div class="slide" id="frame-18">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">05 / 05</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">04. 90s TV <br><span class="highlight">CRT Glitch.</span></div>
+          <div class="card-body">Micro scanline horizontal frequency instability.</div>
+        </div>
+        <div class="font-stack">
+          <glitch-text text="INTER" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="Inter, sans-serif" font-weight="900"></glitch-text>
+          <glitch-text text="MONTSERRAT" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="Montserrat, sans-serif" font-weight="900"></glitch-text>
+          <glitch-text text="PLAYFAIR DISPLAY" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="'Playfair Display', serif" font-weight="900"></glitch-text>
+          <glitch-text text="DM MONO" fringe="3" shear="12" chaos="50" font-size="50" color="#ffffff" font-family="'DM Mono', monospace" font-weight="500"></glitch-text>
+        </div>
+        <div class="card-body">05 / 05 — CRT TV Effect</div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">TV.</div></div>
+  </div>
+
+  <!-- ======================== FRAME 19 ======================= -->
+  <div class="slide" id="frame-19">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">END</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="outro-content">
+          <div class="logo-badge" style="width: 120px; height: 120px; font-size: 88px; border-radius: 28px;">C</div>
+          <div class="outro-title">Text Effects <br><span class="highlight">by Callistra.</span></div>
+          <div class="card-body" style="font-size: 32px; color: #ffffff;">Save post & elevate your visuals.</div>
+        </div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">Text</div></div>
+  </div>
+
+  <!-- ======================== FRAME 20 ======================= -->
+  <div class="slide" id="frame-20">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">END</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="outro-content">
+          <div class="logo-badge" style="width: 120px; height: 120px; font-size: 88px; border-radius: 28px;">C</div>
+          <div class="outro-title">Text Effects <br><span class="highlight">by Callistra.</span></div>
+          <div class="card-body" style="font-size: 32px; color: #ffffff;">Save post & elevate your visuals.</div>
+        </div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">Effects</div></div>
+  </div>
+
+  <!-- ======================== FRAME 21 ======================= -->
+  <div class="slide" id="frame-21">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">END</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="outro-content">
+          <div class="logo-badge" style="width: 120px; height: 120px; font-size: 88px; border-radius: 28px;">C</div>
+          <div class="outro-title">Text Effects <br><span class="highlight">by Callistra.</span></div>
+          <div class="card-body" style="font-size: 32px; color: #ffffff;">Save post & elevate your visuals.</div>
+        </div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">by</div></div>
+  </div>
+
+  <!-- ======================== FRAME 22 ======================= -->
+  <div class="slide" id="frame-22">
+    <div class="bg-grid"></div>
+    <div class="brand-header">
+      <div class="brand-logo-container">
+        <div class="logo-badge">C</div>
+        <div class="brand-details">
+          <div class="brand-name">Callistra</div>
+          <div class="brand-handle">@callistra.design</div>
+        </div>
+      </div>
+      <div class="slide-counter">END</div>
+    </div>
+    <div class="slides-wrapper">
+      <div class="card">
+        <div class="outro-content">
+          <div class="logo-badge" style="width: 120px; height: 120px; font-size: 88px; border-radius: 28px;">C</div>
+          <div class="outro-title">Text Effects <br><span class="highlight">by Callistra.</span></div>
+          <div class="card-body" style="font-size: 32px; color: #ffffff;">Save post & elevate your visuals.</div>
+        </div>
+      </div>
+    </div>
+    <div class="subtitle-box"><div class="subtitle-text">Callistra.</div></div>
   </div>
 
 
-  <!-- ==========================================================================
-       SLIDE 10: SOFT CLAYMORPHISM / MODERN PASTEL
-       ========================================================================== -->
-  <div class="slide" id="slide-clay">
-    <div class="clay-card">
-      <div class="title">Pixel Displace<br>Text Effect Maker</div>
-      <div class="code-badge"><i class="fa-solid fa-layer-group"></i> Effect Code "000"</div>
-    </div>
-    
-    <!-- EMPTY IMAGE PLACEHOLDER -->
-    <div class="image-placeholder"></div>
-    
-    <div class="url-pill">
-      <a href="#" class="url">www.callistra.design</a>
-    </div>
-  </div>
+  <!-- Reusable Web Component Algorithms (Required for text rendering) -->
+  <script>
+  class GlitchTextElement extends HTMLElement {
+      static get observedAttributes() { return ['text', 'fringe', 'shear', 'chaos', 'font-size', 'color', 'font-family', 'font-weight']; }
+      constructor() {
+          super();
+          this.canvas = document.createElement('canvas');
+          this.ctx = this.canvas.getContext('2d');
+          this.style.display = 'inline-block';
+          this.style.maxHeight = '100%';
+      }
+      connectedCallback() {
+          if (!this.contains(this.canvas)) this.appendChild(this.canvas);
+          if (document.fonts) document.fonts.ready.then(() => this.render());
+          this.render();
+      }
+      attributeChangedCallback() { this.render(); }
+      getSpatialRandom(x, y) {
+          let n = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
+          return n - Math.floor(n);
+      }
+      render() {
+          if (!this.ctx) return;
+          const rawText = this.getAttribute('text') || this.innerText.trim() || 'GLITCH';
+          const text = rawText.replace(/\\n/g, '\n');
+          const fringe = Math.max(1, parseInt(this.getAttribute('fringe')) || 8);
+          const shear = parseInt(this.getAttribute('shear')) || 60;
+          const chaos = (parseInt(this.getAttribute('chaos')) ?? 65) / 100;
+          const fontSize = parseInt(this.getAttribute('font-size')) || 100;
+          const color = this.getAttribute('color') || '#1b1a18';
+          const fontFamily = this.getAttribute('font-family') || 'Montserrat, sans-serif';
+          const fontWeight = this.getAttribute('font-weight') || '900';
+
+          const lines = text.split('\n');
+          const measureCanvas = document.createElement('canvas');
+          const mctx = measureCanvas.getContext('2d');
+          mctx.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
+
+          let maxTextWidth = 1;
+          lines.forEach(line => {
+              const w = mctx.measureText(line).width;
+              if (w > maxTextWidth) maxTextWidth = w;
+          });
+
+          const lineHeight = fontSize * 1.1;
+          const textTotalHeight = lines.length * lineHeight;
+          const paddingX = Math.abs(shear) * 2 + 40;
+          const paddingY = 20;
+
+          const targetWidth = Math.ceil(maxTextWidth + paddingX);
+          const targetHeight = Math.ceil(textTotalHeight + paddingY);
+
+          this.canvas.width = targetWidth;
+          this.canvas.height = targetHeight;
+
+          const offscreen = document.createElement('canvas');
+          offscreen.width = targetWidth;
+          offscreen.height = targetHeight;
+          const octx = offscreen.getContext('2d');
+
+          octx.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
+          octx.textAlign = 'center';
+          octx.textBaseline = 'middle';
+          octx.fillStyle = color;
+
+          const startY = (targetHeight / 2) - (textTotalHeight / 2) + (lineHeight / 2);
+          lines.forEach((line, index) => {
+              octx.fillText(line, targetWidth / 2, startY + (index * lineHeight));
+          });
+
+          const sourceData = octx.getImageData(0, 0, targetWidth, targetHeight);
+          const targetData = this.ctx.createImageData(targetWidth, targetHeight);
+          const sourceBuffer = new Uint32Array(sourceData.data.buffer);
+          const targetBuffer = new Uint32Array(targetData.data.buffer);
+
+          for (let dy = 0; dy < targetHeight; dy++) {
+              const band = Math.floor(dy / fringe);
+              const dir = (band % 2 === 0) ? 1 : -1;
+              const waveShift = Math.sin(band * 0.4) * shear;
+              const macroClump = this.getSpatialRandom(0, Math.floor(band / 3));
+              const microNoise = this.getSpatialRandom(0, band);
+              const chaosIntensity = (macroClump * 1.5 + microNoise * 0.5);
+              const chaoticShift = dir * chaosIntensity * shear;
+              const shiftAmount = (waveShift * (1 - chaos)) + (chaoticShift * chaos);
+              const shiftX = Math.round(shiftAmount);
+              const rowOffset = dy * targetWidth;
+              for (let dx = 0; dx < targetWidth; dx++) {
+                  const sx = dx - shiftX;
+                  if (sx >= 0 && sx < targetWidth) {
+                      const sourcePixel = sourceBuffer[rowOffset + sx];
+                      if (sourcePixel !== 0) targetBuffer[rowOffset + dx] = sourcePixel;
+                  }
+              }
+          }
+          this.ctx.putImageData(targetData, 0, 0);
+      }
+  }
+  if (!customElements.get('glitch-text')) customElements.define('glitch-text', GlitchTextElement);
+
+  class BrokenGlassTextElement extends HTMLElement {
+      static get observedAttributes() { return ['text', 'strength', 'detail', 'font-size', 'color', 'font-family', 'font-weight']; }
+      constructor() {
+          super();
+          this.canvas = document.createElement('canvas');
+          this.ctx = this.canvas.getContext('2d');
+          this.style.display = 'inline-block';
+          this.style.maxHeight = '100%';
+      }
+      connectedCallback() {
+          if (!this.contains(this.canvas)) this.appendChild(this.canvas);
+          if (document.fonts) document.fonts.ready.then(() => this.render());
+          this.render();
+      }
+      attributeChangedCallback() { this.render(); }
+      getSpatialRandom(x, y) {
+          let n = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
+          return n - Math.floor(n);
+      }
+      render() {
+          if (!this.ctx) return;
+          const rawText = this.getAttribute('text') || this.innerText.trim() || 'IMPACT';
+          const text = rawText.replace(/\\n/g, '\n');
+          const strength = Math.max(0, parseInt(this.getAttribute('strength')) ?? 45);
+          const detail = Math.max(10, parseInt(this.getAttribute('detail')) ?? 60);
+          const fontSize = parseInt(this.getAttribute('font-size')) || 100;
+          const color = this.getAttribute('color') || '#1b1a18';
+          const fontFamily = this.getAttribute('font-family') || 'Montserrat, sans-serif';
+          const fontWeight = this.getAttribute('font-weight') || '900';
+
+          const lines = text.split('\n');
+          const measureCanvas = document.createElement('canvas');
+          const mctx = measureCanvas.getContext('2d');
+          mctx.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
+
+          let maxTextWidth = 1;
+          lines.forEach(line => {
+              const w = mctx.measureText(line).width;
+              if (w > maxTextWidth) maxTextWidth = w;
+          });
+
+          const lineHeight = fontSize * 1.1;
+          const textTotalHeight = lines.length * lineHeight;
+          const maxDisplacement = strength * 3;
+          const paddingX = maxDisplacement * 2 + 40;
+          const paddingY = maxDisplacement * 2 + 40;
+
+          const targetWidth = Math.ceil(maxTextWidth + paddingX);
+          const targetHeight = Math.ceil(textTotalHeight + paddingY);
+
+          this.canvas.width = targetWidth;
+          this.canvas.height = targetHeight;
+
+          const offscreen = document.createElement('canvas');
+          offscreen.width = targetWidth;
+          offscreen.height = targetHeight;
+          const octx = offscreen.getContext('2d');
+
+          octx.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
+          octx.textAlign = 'center';
+          octx.textBaseline = 'middle';
+          octx.fillStyle = color;
+
+          const startY = (targetHeight / 2) - (textTotalHeight / 2) + (lineHeight / 2);
+          lines.forEach((line, index) => {
+              octx.fillText(line, targetWidth / 2, startY + (index * lineHeight));
+          });
+
+          const sourceData = octx.getImageData(0, 0, targetWidth, targetHeight);
+          const targetData = this.ctx.createImageData(targetWidth, targetHeight);
+          const sourceBuffer = new Uint32Array(sourceData.data.buffer);
+          const targetBuffer = new Uint32Array(targetData.data.buffer);
+
+          if (strength === 0) {
+              targetBuffer.set(sourceBuffer);
+              this.ctx.putImageData(targetData, 0, 0);
+              return;
+          }
+
+          const cx = (targetWidth / 2) + 10;
+          const cy = (targetHeight / 2) - 5;
+          const maxR = Math.sqrt(cx * cx + cy * cy);
+          const numRings = Math.floor(detail / 10) + 3;
+          const shardCache = new Map();
+          const getSpatialRandom = this.getSpatialRandom;
+
+          function getShardData(sector, ring, sectorsInRing) {
+              const id = sector + ring * 10000;
+              if (shardCache.has(id)) return shardCache.get(id);
+              const seed1 = getSpatialRandom(sector + 1, ring + 1);
+              const seed2 = getSpatialRandom(ring + 2, sector + 2);
+              const seed3 = getSpatialRandom(sector + 3, ring + 3);
+              const sectorAngleSpan = (Math.PI * 2) / sectorsInRing;
+              const phase = ring * 0.5;
+              const shardAngle = (sector + 0.5) * sectorAngleSpan - Math.PI - phase;
+              const ringRatio = (ring + 1) / numRings;
+              const moveDist = strength * Math.pow(ringRatio, 1.5) * (seed1 * 2);
+              const tx = Math.cos(shardAngle) * moveDist;
+              const ty = Math.sin(shardAngle) * moveDist;
+              const maxRot = 0.15;
+              const rotAngle = (seed2 - 0.5) * maxRot * (strength / 100) * ringRatio;
+              const shardScale = 1.0 - (seed3 * 0.03 * (strength / 100));
+              const rCenter = Math.pow((ring + 0.5) / numRings, 0.7) * maxR;
+              const cxShard = cx + Math.cos(shardAngle) * rCenter;
+              const cyShard = cy + Math.sin(shardAngle) * rCenter;
+              const cosRot = Math.cos(rotAngle);
+              const sinRot = Math.sin(rotAngle);
+              const data = { tx, ty, cosRot, sinRot, shardScale, cxShard, cyShard };
+              shardCache.set(id, data);
+              return data;
+          }
+
+          for (let y = 0; y < targetHeight; y++) {
+              const rowOffset = y * targetWidth;
+              const dy = y - cy;
+              for (let x = 0; x < targetWidth; x++) {
+                  const sourcePixel = sourceBuffer[rowOffset + x];
+                  if (sourcePixel === 0) continue;
+                  const dx = x - cx;
+                  const r = Math.sqrt(dx * dx + dy * dy);
+                  const theta = Math.atan2(dy, dx);
+                  const noiseTheta = Math.sin(r * 0.05) * 0.15 + Math.sin(x * 0.02) * 0.1;
+                  const noiseR = Math.sin(theta * 12) * 15;
+                  const thetaJ = theta + noiseTheta;
+                  const rJ = Math.max(0, r + noiseR);
+                  const normalizedR = Math.min(1, rJ / maxR);
+                  const ring = Math.floor(Math.pow(normalizedR, 0.7) * numRings);
+                  const boundedRing = Math.min(ring, numRings - 1);
+                  const sectorsInRing = Math.max(4, Math.floor((boundedRing + 1) * (detail / 12)));
+                  const sectorPhase = boundedRing * 0.5;
+                  let normalizedTheta = (thetaJ + Math.PI + sectorPhase) % (Math.PI * 2);
+                  if (normalizedTheta < 0) normalizedTheta += Math.PI * 2;
+                  const sector = Math.floor(normalizedTheta / ((Math.PI * 2) / sectorsInRing));
+                  const shard = getShardData(sector, boundedRing, sectorsInRing);
+                  let lx = x - shard.cxShard;
+                  let ly = y - shard.cyShard;
+                  lx *= shard.shardScale;
+                  ly *= shard.shardScale;
+                  const nx = lx * shard.cosRot - ly * shard.sinRot;
+                  const ny = lx * shard.sinRot + ly * shard.cosRot;
+                  const fx = Math.round(nx + shard.cxShard + shard.tx);
+                  const fy = Math.round(ny + shard.cyShard + shard.ty);
+                  if (fx >= 0 && fx < targetWidth && fy >= 0 && fy < targetHeight) {
+                      targetBuffer[fy * targetWidth + fx] = sourcePixel;
+                      if (fx + 1 < targetWidth) targetBuffer[fy * targetWidth + fx + 1] = sourcePixel;
+                  }
+              }
+          }
+          this.ctx.putImageData(targetData, 0, 0);
+      }
+  }
+  if (!customElements.get('broken-glass-text')) customElements.define('broken-glass-text', BrokenGlassTextElement);
+
+  class PixelDisplaceTextElement extends HTMLElement {
+      static get observedAttributes() { return ['text', 'block-size', 'drift', 'font-size', 'color', 'font-family', 'font-weight']; }
+      constructor() {
+          super();
+          this.canvas = document.createElement('canvas');
+          this.ctx = this.canvas.getContext('2d');
+          this.style.display = 'inline-block';
+          this.style.maxHeight = '100%';
+      }
+      connectedCallback() {
+          if (!this.contains(this.canvas)) this.appendChild(this.canvas);
+          if (document.fonts) document.fonts.ready.then(() => this.render());
+          this.render();
+      }
+      attributeChangedCallback() { this.render(); }
+      getSpatialRandom(x, y) {
+          let n = Math.sin(x * 12.9898 + y * 78.233) * 43758.5453;
+          return n - Math.floor(n);
+      }
+      render() {
+          if (!this.ctx) return;
+          const rawText = this.getAttribute('text') || this.innerText.trim() || 'DRIFT';
+          const text = rawText.replace(/\\n/g, '\n');
+          const blockSize = Math.max(1, parseInt(this.getAttribute('block-size')) || 20);
+          const drift = parseInt(this.getAttribute('drift')) ?? 15;
+          const fontSize = parseInt(this.getAttribute('font-size')) || 100;
+          const color = this.getAttribute('color') || '#1b1a18';
+          const fontFamily = this.getAttribute('font-family') || 'Montserrat, sans-serif';
+          const fontWeight = this.getAttribute('font-weight') || '900';
+
+          const lines = text.split('\n');
+          const measureCanvas = document.createElement('canvas');
+          const mctx = measureCanvas.getContext('2d');
+          mctx.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
+
+          let maxTextWidth = 1;
+          lines.forEach(line => {
+              const w = mctx.measureText(line).width;
+              if (w > maxTextWidth) maxTextWidth = w;
+          });
+
+          const lineHeight = fontSize * 1.1;
+          const textTotalHeight = lines.length * lineHeight;
+          const paddingX = Math.abs(drift) * 2 + 40;
+          const paddingY = Math.abs(drift) * 2 + 40;
+
+          const targetWidth = Math.ceil(maxTextWidth + paddingX);
+          const targetHeight = Math.ceil(textTotalHeight + paddingY);
+
+          this.canvas.width = targetWidth;
+          this.canvas.height = targetHeight;
+
+          const offscreen = document.createElement('canvas');
+          offscreen.width = targetWidth;
+          offscreen.height = targetHeight;
+          const octx = offscreen.getContext('2d');
+
+          octx.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
+          octx.textAlign = 'center';
+          octx.textBaseline = 'middle';
+          octx.fillStyle = color;
+
+          const startY = (targetHeight / 2) - (textTotalHeight / 2) + (lineHeight / 2);
+          lines.forEach((line, index) => {
+              octx.fillText(line, targetWidth / 2, startY + (index * lineHeight));
+          });
+
+          const sourceData = octx.getImageData(0, 0, targetWidth, targetHeight);
+          const targetData = this.ctx.createImageData(targetWidth, targetHeight);
+          const sourceBuffer = new Uint32Array(sourceData.data.buffer);
+          const targetBuffer = new Uint32Array(targetData.data.buffer);
+
+          for (let y = 0; y < targetHeight; y += blockSize) {
+              for (let x = 0; x < targetWidth; x += blockSize) {
+                  const randX = this.getSpatialRandom(x, y);
+                  const randY = this.getSpatialRandom(x + 100, y + 100);
+                  const driftOffsetX = Math.round((randX - 0.5) * drift);
+                  const driftOffsetY = Math.round((randY - 0.5) * drift);
+                  const blockW = Math.min(blockSize, targetWidth - x);
+                  const blockH = Math.min(blockSize, targetHeight - y);
+
+                  for (let by = 0; by < blockH; by++) {
+                      const sy = x === 0 && y === 0 ? 0 : y + by;
+                      const dy = sy + driftOffsetY;
+                      if (dy >= 0 && dy < targetHeight) {
+                          for (let bx = 0; bx < blockW; bx++) {
+                              const sx = x + bx;
+                              const dx = sx + driftOffsetX;
+                              if (dx >= 0 && dx < targetWidth && sy >= 0 && sx >= 0 && sy < targetHeight && sx < targetWidth) {
+                                  const sourcePixel = sourceBuffer[sy * targetWidth + sx];
+                                  if (sourcePixel !== 0) targetBuffer[dy * targetWidth + dx] = sourcePixel;
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+          this.ctx.putImageData(targetData, 0, 0);
+      }
+  }
+  if (!customElements.get('pixel-displace-text')) customElements.define('pixel-displace-text', PixelDisplaceTextElement);
+  </script>
 
 </body>
 </html>
