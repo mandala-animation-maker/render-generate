@@ -2,543 +2,488 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Pixel Displace - 5 Carousel Slide Styles</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@500;700;800&family=Space+Grotesk:wght@500;700&family=Playfair+Display:ital,wght@0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Displace - 10 Graphic Design Styles</title>
   
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@500;800&family=Orbitron:wght@700;900&family=Outfit:wght@500;700;900&family=Playfair+Display:ital,wght@0,700;1,400&family=Plus+Jakarta+Sans:wght@600;800&family=Righteous&family=Space+Grotesk:wght@500;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- FONT AWESOME ICONS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { 
-      background-color: #050505; 
-      font-family: 'Inter', sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 0;
+      background-color: #080808; 
+      font-family: 'Space Grotesk', sans-serif; 
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      padding: 50px 0;
     }
 
-    /* Common Instagram Carousel Slide Base (1080 x 1350) */
+    /* Standard Slide Dimension (4:5 Aspect Ratio) */
     .slide {
       width: 1080px;
       height: 1350px;
       position: relative;
       overflow: hidden;
-      margin-bottom: 60px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.8);
-      flex-shrink: 0;
+      margin-bottom: 80px;
+      padding: 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
     }
 
-    /* Target Image Container Box */
+    /* Common Image Box Base Class */
     .image-placeholder {
-      background-color: #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #888888;
-      font-weight: 700;
-      font-size: 28px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-
-    /* ==========================================================================
-       STYLE 1: CYBERPUNK / TECH GLITCH
-       ========================================================================== */
-    #slide-style-1 {
-      background: #090B10;
-      color: #FFFFFF;
-      font-family: 'Space Grotesk', sans-serif;
-      padding: 80px 70px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      border: 1px solid #1A2332;
-    }
-    
-    /* Background Grid Overlay */
-    #slide-style-1::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-image: 
-        linear-gradient(to right, rgba(0,255,136,0.04) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,255,136,0.04) 1px, transparent 1px);
-      background-size: 40px 40px;
-      pointer-events: none;
-    }
-
-    .s1-header { display: flex; justify-content: space-between; align-items: center; z-index: 2; }
-    .s1-code { 
-      background: rgba(0, 255, 136, 0.1); 
-      border: 1px solid #00FF88; 
-      color: #00FF88; 
-      padding: 10px 24px; 
-      font-size: 22px; 
-      font-weight: 700;
-      letter-spacing: 3px;
-    }
-    .s1-badge { color: #00E5FF; font-size: 20px; letter-spacing: 2px; }
-
-    .s1-title { 
-      font-size: 72px; 
-      font-weight: 700; 
-      line-height: 1.05; 
-      text-transform: uppercase;
-      margin-top: 20px;
-      margin-bottom: 30px;
-      z-index: 2;
-    }
-    .s1-title span { color: #00FF88; text-shadow: 0 0 15px rgba(0,255,136,0.4); }
-
-    .s1-image-box {
+      background-color: #ffffff;
       width: 100%;
-      height: 760px;
-      border: 2px solid #00E5FF;
-      box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+      height: 620px;
       position: relative;
       z-index: 2;
     }
 
-    .s1-footer { 
-      display: flex; 
-      justify-content: space-between; 
-      align-items: center; 
-      border-top: 1px solid #1A2332;
-      padding-top: 30px;
-      z-index: 2;
-    }
-    .s1-url { color: #FFFFFF; font-size: 32px; font-weight: 700; letter-spacing: 1px; }
-    .s1-tag { color: #667085; font-size: 20px; }
-
-
     /* ==========================================================================
-       STYLE 2: SWISS NEO-BRUTALISM
+       STYLE 1: SWISS / INTERNATIONAL TYPOGRAPHIC STYLE
        ========================================================================== */
-    #slide-style-2 {
-      background: #FFE600;
-      color: #000000;
-      font-family: 'Inter', sans-serif;
-      padding: 70px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .s2-top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 4px solid #000000;
-      padding-bottom: 25px;
-    }
-    .s2-code {
-      background: #000000;
-      color: #FFFFFF;
-      font-weight: 900;
-      font-size: 28px;
-      padding: 8px 20px;
-    }
-    .s2-site { font-size: 32px; font-weight: 900; }
-
-    .s2-title {
-      font-size: 80px;
-      font-weight: 900;
-      line-height: 0.95;
-      text-transform: uppercase;
-      letter-spacing: -2px;
-      margin: 30px 0;
-    }
-
-    .s2-image-box {
-      width: 100%;
-      height: 720px;
-      border: 5px solid #000000;
-      box-shadow: 12px 12px 0px #000000;
-    }
-
-    .s2-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      border-top: 4px solid #000000;
-      padding-top: 25px;
-    }
-    .s2-action { font-size: 36px; font-weight: 900; text-transform: uppercase; }
-    .s2-num { font-size: 40px; font-weight: 900; }
-
-
-    /* ==========================================================================
-       STYLE 3: MODERN DARK GLASSMORPHISM
-       ========================================================================== */
-    #slide-style-3 {
-      background: #0D0E12;
-      color: #FFFFFF;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      padding: 80px 70px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    /* Ambient Glowing Orbs */
-    .s3-orb-1 {
-      position: absolute;
-      width: 500px; height: 500px;
-      background: #7928CA;
-      filter: blur(140px);
-      top: -100px; right: -100px;
-      opacity: 0.5;
-    }
-    .s3-orb-2 {
-      position: absolute;
-      width: 500px; height: 500px;
-      background: #FF0080;
-      filter: blur(150px);
-      bottom: -100px; left: -100px;
-      opacity: 0.35;
-    }
-
-    .s3-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 2;
-    }
-    .s3-pill {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      padding: 12px 28px;
-      border-radius: 100px;
-      font-size: 20px;
-      font-weight: 600;
-    }
-    .s3-pill-accent {
-      background: linear-gradient(135deg, #FF0080, #7928CA);
-      border: none;
-      font-weight: 700;
-    }
-
-    .s3-title {
-      font-size: 68px;
-      font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -1.5px;
-      margin: 20px 0 10px 0;
-      z-index: 2;
-    }
-
-    .s3-image-box {
-      width: 100%;
-      height: 750px;
-      border-radius: 28px;
-      box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 0 0 1px rgba(255,255,255,0.2);
-      z-index: 2;
-    }
-
-    .s3-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 24px 36px;
-      border-radius: 20px;
-      z-index: 2;
-    }
-    .s3-url { font-size: 28px; font-weight: 700; color: #FFFFFF; }
-    .s3-sub { font-size: 20px; color: #A1A1AA; }
-
-
-    /* ==========================================================================
-       STYLE 4: ACID GRAPHIC / Y2K POSTER
-       ========================================================================== */
-    #slide-style-4 {
-      background: #EAE6DF;
+    #slide-swiss {
+      background-color: #F4F4F0;
       color: #111111;
-      font-family: 'Syne', sans-serif;
-      padding: 70px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      font-family: 'Space Grotesk', sans-serif;
+      border-top: 20px solid #FF2E00;
     }
-
-    .s4-meta {
+    #slide-swiss .swiss-header {
       display: flex;
       justify-content: space-between;
-      font-size: 20px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      border-bottom: 2px solid #111;
-      padding-bottom: 15px;
+      align-items: flex-start;
+      border-bottom: 3px solid #111111;
+      padding-bottom: 30px;
     }
-    .s4-highlight { color: #E04026; }
-
-    .s4-title-wrap { margin: 20px 0; }
-    .s4-title {
-      font-size: 76px;
-      font-weight: 800;
-      line-height: 0.95;
-      text-transform: uppercase;
-      letter-spacing: -2px;
-    }
-
-    .s4-image-container {
-      position: relative;
-      width: 100%;
-      height: 740px;
-    }
-    .s4-image-box {
-      width: 100%;
-      height: 100%;
-      border: 3px solid #111111;
-    }
-    /* Crosshair Graphic Corners */
-    .s4-corner {
-      position: absolute;
-      width: 20px; height: 20px;
-      border-top: 3px solid #E04026;
-      border-left: 3px solid #E04026;
-      top: -10px; left: -10px;
-    }
-    .s4-corner-br {
-      top: auto; left: auto;
-      bottom: -10px; right: -10px;
-      border: none;
-      border-bottom: 3px solid #E04026;
-      border-right: 3px solid #E04026;
-    }
-
-    .s4-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #111111;
-      color: #EAE6DF;
-      padding: 25px 35px;
-      margin-top: 20px;
-    }
-    .s4-url { font-size: 32px; font-weight: 800; letter-spacing: -0.5px; }
-    .s4-code-tag { 
-      background: #E04026; 
-      color: #FFFFFF; 
-      padding: 6px 16px; 
-      font-size: 22px; 
-      font-weight: 700; 
-    }
-
+    #slide-swiss .title { font-size: 56px; font-weight: 800; line-height: 1.05; text-transform: uppercase; letter-spacing: -1px; }
+    #slide-swiss .code-badge { font-size: 42px; font-weight: 800; background: #111111; color: #ffffff; padding: 10px 25px; display: inline-block; }
+    #slide-swiss .image-placeholder { border: 4px solid #111111; }
+    #slide-swiss .swiss-footer { display: flex; justify-content: space-between; align-items: flex-end; border-top: 3px solid #111111; padding-top: 30px; }
+    #slide-swiss .url { font-size: 48px; font-weight: 800; color: #FF2E00; text-decoration: none; text-transform: lowercase; }
 
     /* ==========================================================================
-       STYLE 5: LUXURY MODERN EDITORIAL
+       STYLE 2: NEO-BRUTALISM
        ========================================================================== */
-    #slide-style-5 {
-      background: #121110;
-      color: #F4F1EA;
-      font-family: 'Inter', sans-serif;
-      padding: 90px 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    #slide-neobrutalism {
+      background-color: #FFE600;
+      color: #000000;
+      font-family: 'Bebas Neue', cursive;
     }
+    #slide-neobrutalism .title { font-size: 72px; line-height: 0.95; letter-spacing: 1px; text-transform: uppercase; }
+    #slide-neobrutalism .code-box {
+      background: #FF5252;
+      color: #ffffff;
+      font-size: 50px;
+      padding: 15px 30px;
+      border: 5px solid #000;
+      box-shadow: 8px 8px 0px #000;
+      display: inline-block;
+      margin-top: 20px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+    }
+    #slide-neobrutalism .image-placeholder {
+      border: 6px solid #000000;
+      box-shadow: 16px 16px 0px #000000;
+      border-radius: 0px;
+    }
+    #slide-neobrutalism .url-card {
+      background: #00E5FF;
+      border: 5px solid #000;
+      box-shadow: 10px 10px 0px #000;
+      padding: 20px 40px;
+      text-align: center;
+    }
+    #slide-neobrutalism .url { font-size: 52px; color: #000; text-decoration: none; font-weight: 900; letter-spacing: 2px; }
 
-    .s5-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      border-bottom: 1px solid #2A2825;
-      padding-bottom: 25px;
+    /* ==========================================================================
+       STYLE 3: ACID Y2K / CYBERPUNK
+       ========================================================================== */
+    #slide-acid {
+      background: #0B0B12;
+      color: #00F0FF;
+      font-family: 'Syne', sans-serif;
+      background-image: radial-gradient(#1f1c3a 1px, transparent 1px);
+      background-size: 30px 30px;
     }
-    .s5-code-label {
-      font-size: 18px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: #C5A880;
-    }
-    .s5-code-val {
-      font-size: 28px;
-      font-weight: 700;
-      color: #F4F1EA;
-    }
-
-    .s5-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 74px;
-      font-weight: 700;
-      line-height: 1.1;
-      margin: 35px 0;
-      color: #F4F1EA;
-    }
-    .s5-title italic {
-      font-style: italic;
-      font-weight: 400;
-      color: #C5A880;
-    }
-
-    .s5-image-box {
-      width: 100%;
-      height: 720px;
-      border: 1px solid #2A2825;
-      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
-    }
-
-    .s5-footer {
-      display: flex;
-      justify-content: space-between;
+    #slide-acid .title { font-size: 60px; font-weight: 800; line-height: 1.1; color: #ffffff; text-transform: uppercase; text-shadow: 0 0 15px rgba(255,0,127,0.8); }
+    #slide-acid .code-tag {
+      font-size: 45px;
+      font-weight: 800;
+      color: #FF007F;
+      border: 2px solid #FF007F;
+      padding: 10px 30px;
+      border-radius: 50px;
+      box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
+      display: inline-flex;
       align-items: center;
-      padding-top: 25px;
-      border-top: 1px solid #2A2825;
+      gap: 15px;
     }
-    .s5-url {
-      font-size: 30px;
-      font-weight: 600;
-      letter-spacing: -0.5px;
-      color: #F4F1EA;
+    #slide-acid .image-placeholder {
+      border: 2px solid #00F0FF;
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+      border-radius: 12px;
     }
-    .s5-brand {
-      font-size: 18px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #88837A;
+    #slide-acid .url-container {
+      background: linear-gradient(90deg, #FF007F, #7928CA);
+      padding: 25px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(121, 40, 202, 0.5);
     }
+    #slide-acid .url { font-size: 46px; color: #ffffff; text-decoration: none; font-weight: 800; }
+
+    /* ==========================================================================
+       STYLE 4: GLASSMORPHISM / IOS MODERN
+       ========================================================================== */
+    #slide-glass {
+      background: linear-gradient(135deg, #FF6B6B 0%, #556270 50%, #4ECDC4 100%);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    #slide-glass .glass-card {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 30px;
+      padding: 40px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+    }
+    #slide-glass .title { font-size: 52px; font-weight: 800; color: #ffffff; line-height: 1.15; }
+    #slide-glass .code-pill {
+      font-size: 38px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #111;
+      padding: 10px 25px;
+      border-radius: 50px;
+      font-weight: 800;
+      display: inline-block;
+      margin-top: 15px;
+    }
+    #slide-glass .image-placeholder { border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+    #slide-glass .url-glass {
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 25px;
+      border-radius: 24px;
+      text-align: center;
+    }
+    #slide-glass .url { font-size: 44px; color: #ffffff; text-decoration: none; font-weight: 800; letter-spacing: 1px; }
+
+    /* ==========================================================================
+       STYLE 5: HIGH FASHION EDITORIAL
+       ========================================================================== */
+    #slide-editorial {
+      background-color: #0D1612;
+      color: #E6E1D6;
+      font-family: 'Playfair Display', serif;
+    }
+    #slide-editorial .title { font-size: 64px; font-weight: 400; font-style: italic; line-height: 1.1; }
+    #slide-editorial .code-label { font-family: 'Space Grotesk', sans-serif; font-size: 36px; letter-spacing: 4px; text-transform: uppercase; color: #D4AF37; margin-top: 15px; }
+    #slide-editorial .image-placeholder { border: 1px solid #D4AF37; padding: 15px; background-clip: content-box; background-color: #ffffff; }
+    #slide-editorial .editorial-footer { border-top: 1px solid rgba(212, 175, 55, 0.4); padding-top: 30px; text-align: center; }
+    #slide-editorial .url { font-family: 'Space Grotesk', sans-serif; font-size: 42px; color: #E6E1D6; letter-spacing: 6px; text-decoration: none; text-transform: uppercase; }
+
+    /* ==========================================================================
+       STYLE 6: SYNTHWAVE / 80S RETRO
+       ========================================================================== */
+    #slide-synthwave {
+      background: linear-gradient(180deg, #0D0221 0%, #260859 60%, #590B75 100%);
+      color: #00F6FF;
+      font-family: 'Orbitron', sans-serif;
+    }
+    #slide-synthwave .title { font-size: 52px; font-weight: 900; color: #FFF; text-shadow: 0 0 10px #FF007F, 0 0 20px #FF007F; line-height: 1.2; text-transform: uppercase; }
+    #slide-synthwave .code-glow { font-size: 48px; color: #00F6FF; text-shadow: 0 0 15px #00F6FF; margin-top: 15px; }
+    #slide-synthwave .image-placeholder { border: 4px solid #FF007F; box-shadow: 0 0 25px #FF007F, inset 0 0 15px #FF007F; }
+    #slide-synthwave .synth-footer { background: #0D0221; border: 2px solid #00F6FF; box-shadow: 0 0 15px #00F6FF; padding: 20px; text-align: center; }
+    #slide-synthwave .url { font-size: 42px; color: #FFF; text-shadow: 0 0 10px #00F6FF; text-decoration: none; font-weight: 700; }
+
+    /* ==========================================================================
+       STYLE 7: BAUHAUS GEOMETRIC
+       ========================================================================== */
+    #slide-bauhaus {
+      background-color: #F0EAD6;
+      color: #111111;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    #slide-bauhaus .header-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; }
+    #slide-bauhaus .title { font-size: 58px; font-weight: 800; line-height: 1.0; text-transform: uppercase; }
+    #slide-bauhaus .bauhaus-circle { background-color: #D32F2F; width: 140px; height: 140px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #FFF; font-size: 38px; font-weight: 800; }
+    #slide-bauhaus .image-container { position: relative; }
+    #slide-bauhaus .image-container::before { content: ''; position: absolute; top: -20px; left: -20px; width: 100%; height: 100%; background: #1976D2; z-index: 1; }
+    #slide-bauhaus .image-placeholder { position: relative; z-index: 2; }
+    #slide-bauhaus .bauhaus-footer { background-color: #FBC02D; padding: 25px; display: flex; justify-content: space-between; align-items: center; }
+    #slide-bauhaus .url { font-size: 46px; font-weight: 800; color: #111; text-decoration: none; }
+
+    /* ==========================================================================
+       STYLE 8: DARK HUD TECH / SCI-FI
+       ========================================================================== */
+    #slide-hud {
+      background-color: #050B14;
+      color: #00FF66;
+      font-family: 'JetBrains Mono', monospace;
+      border: 2px solid #00FF66;
+    }
+    #slide-hud .hud-header { border-bottom: 1px dashed #00FF66; padding-bottom: 20px; }
+    #slide-hud .title { font-size: 48px; font-weight: 800; color: #FFFFFF; text-transform: uppercase; letter-spacing: -1px; }
+    #slide-hud .code-terminal { font-size: 40px; color: #00FF66; margin-top: 10px; }
+    #slide-hud .image-placeholder { border: 1px solid #00FF66; outline: 10px solid rgba(0, 255, 102, 0.05); }
+    #slide-hud .hud-footer { background: rgba(0, 255, 102, 0.1); border: 1px solid #00FF66; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
+    #slide-hud .url { font-size: 40px; color: #00FF66; text-decoration: none; font-weight: 800; }
+
+    /* ==========================================================================
+       STYLE 9: POP ART / COMIC BOOK
+       ========================================================================== */
+    #slide-popart {
+      background-color: #0066FF;
+      color: #FFFFFF;
+      font-family: 'Righteous', cursive;
+    }
+    #slide-popart .title-banner { background: #FF0055; padding: 20px 30px; border: 5px solid #000; transform: rotate(-2deg); box-shadow: 10px 10px 0 #000; }
+    #slide-popart .title { font-size: 56px; text-transform: uppercase; line-height: 1.1; text-shadow: 3px 3px 0 #000; }
+    #slide-popart .code-burst { background: #FFCC00; color: #000; font-size: 42px; padding: 10px 25px; border: 4px solid #000; display: inline-block; margin-top: 15px; font-weight: 900; }
+    #slide-popart .image-placeholder { border: 6px solid #000; box-shadow: 12px 12px 0 #FFCC00; }
+    #slide-popart .url-banner { background: #00FF66; border: 5px solid #000; padding: 20px; text-align: center; box-shadow: 8px 8px 0 #000; transform: rotate(1deg); }
+    #slide-popart .url { font-size: 48px; color: #000; text-decoration: none; font-weight: 900; }
+
+    /* ==========================================================================
+       STYLE 10: SOFT CLAYMORPHISM / MODERN PASTEL
+       ========================================================================== */
+    #slide-clay {
+      background-color: #EAF0F6;
+      color: #2D3748;
+      font-family: 'Outfit', sans-serif;
+    }
+    #slide-clay .clay-card {
+      background: #EAF0F6;
+      border-radius: 35px;
+      padding: 40px;
+      box-shadow: 15px 15px 30px #c5cad0, -15px -15px 30px #ffffff;
+    }
+    #slide-clay .title { font-size: 54px; font-weight: 900; color: #1A202C; line-height: 1.1; }
+    #slide-clay .code-badge {
+      display: inline-block;
+      margin-top: 15px;
+      background: #667EEA;
+      color: #FFF;
+      font-size: 38px;
+      font-weight: 700;
+      padding: 10px 30px;
+      border-radius: 20px;
+      box-shadow: 6px 6px 12px #b8bec5, -6px -6px 12px #ffffff;
+    }
+    #slide-clay .image-placeholder {
+      border-radius: 30px;
+      box-shadow: inset 8px 8px 16px #d1d6dc, inset -8px -8px 16px #ffffff, 12px 12px 24px #c5cad0;
+    }
+    #slide-clay .url-pill {
+      background: #EAF0F6;
+      padding: 25px;
+      border-radius: 30px;
+      text-align: center;
+      box-shadow: 10px 10px 20px #c5cad0, -10px -10px 20px #ffffff;
+    }
+    #slide-clay .url { font-size: 44px; color: #5A67D8; text-decoration: none; font-weight: 800; }
 
   </style>
 </head>
 <body>
 
-  <!-- ==========================================
-       SLIDE 1: CYBERPUNK / TECH GLITCH
-       ========================================== -->
-  <div class="slide" id="slide-style-1">
-    <div class="s1-header">
-      <div class="s1-code">CODE // 000</div>
-      <div class="s1-badge">CALLISTRA LABS</div>
+  <!-- ==========================================================================
+       SLIDE 1: SWISS / INTERNATIONAL TYPOGRAPHIC STYLE
+       ========================================================================== -->
+  <div class="slide" id="slide-swiss">
+    <div class="swiss-header">
+      <div class="title">Pixel Displace<br>Text Effect<br>Maker</div>
+      <div class="code-badge">CODE 000</div>
     </div>
     
+    <!-- EMPTY IMAGE PLACEHOLDER -->
+    <div class="image-placeholder"></div>
+    
+    <div class="swiss-footer">
+      <div class="url">www.callistra.design</div>
+      <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 40px; color: #FF2E00;"></i>
+    </div>
+  </div>
+
+
+  <!-- ==========================================================================
+       SLIDE 2: NEO-BRUTALISM
+       ========================================================================== -->
+  <div class="slide" id="slide-neobrutalism">
     <div>
-      <div class="s1-title">Pixel Displace <br><span>Text Effect Maker</span></div>
-      <!-- IMAGE PLACEHOLDER BOX -->
-      <div class="image-placeholder s1-image-box">
-        [ MAIN IMAGE HERE ]
-      </div>
+      <div class="title">PIXEL DISPLACE<br>TEXT EFFECT MAKER</div>
+      <div class="code-box"><i class="fa-solid fa-bolt"></i> EFFECT CODE "000"</div>
     </div>
-
-    <div class="s1-footer">
-      <div class="s1-url">callistra.design</div>
-      <div class="s1-tag">SWIPE FOR MORE &#8594;</div>
-    </div>
-  </div>
-
-
-  <!-- ==========================================
-       SLIDE 2: SWISS NEO-BRUTALISM
-       ========================================== -->
-  <div class="slide" id="slide-style-2">
-    <div class="s2-top-bar">
-      <div class="s2-site">CALLISTRA.DESIGN</div>
-      <div class="s2-code">CODE: 000</div>
-    </div>
-
-    <div class="s2-title">
-      Pixel Displace<br>Text Effect<br>Maker
-    </div>
-
-    <!-- IMAGE PLACEHOLDER BOX -->
-    <div class="image-placeholder s2-image-box">
-      [ MAIN IMAGE HERE ]
-    </div>
-
-    <div class="s2-footer">
-      <div class="s2-action">VISIT WEBSITE</div>
-      <div class="s2-num">01/05</div>
+    
+    <!-- EMPTY IMAGE PLACEHOLDER -->
+    <div class="image-placeholder"></div>
+    
+    <div class="url-card">
+      <a href="#" class="url">WWW.CALLISTRA.DESIGN</a>
     </div>
   </div>
 
 
-  <!-- ==========================================
-       SLIDE 3: MODERN DARK GLASSMORPHISM
-       ========================================== -->
-  <div class="slide" id="slide-style-3">
-    <!-- Background Glows -->
-    <div class="s3-orb-1"></div>
-    <div class="s3-orb-2"></div>
-
-    <div class="s3-header">
-      <div class="s3-pill s3-pill-accent">EFFECT CODE 000</div>
-      <div class="s3-pill">PHOTOSHOP ASSET</div>
-    </div>
-
+  <!-- ==========================================================================
+       SLIDE 3: ACID Y2K / CYBERPUNK
+       ========================================================================== -->
+  <div class="slide" id="slide-acid">
     <div>
-      <div class="s3-title">Pixel Displace <br>Text Effect Maker</div>
-      <!-- IMAGE PLACEHOLDER BOX -->
-      <div class="image-placeholder s3-image-box">
-        [ MAIN IMAGE HERE ]
+      <div class="title">PIXEL DISPLACE<br>TEXT EFFECT MAKER</div>
+      <div style="margin-top: 20px;">
+        <div class="code-tag"><i class="fa-solid fa-compact-disc"></i> EFFECT CODE "000"</div>
       </div>
     </div>
-
-    <div class="s3-footer">
-      <div class="s3-url">callistra.design</div>
-      <div class="s3-sub">Get Access Now &#8594;</div>
+    
+    <!-- EMPTY IMAGE PLACEHOLDER -->
+    <div class="image-placeholder"></div>
+    
+    <div class="url-container">
+      <a href="#" class="url">www.callistra.design</a>
     </div>
   </div>
 
 
-  <!-- ==========================================
-       SLIDE 4: ACID GRAPHIC / Y2K POSTER
-       ========================================== -->
-  <div class="slide" id="slide-style-4">
-    <div class="s4-meta">
-      <div>VOL. 01 <span class="s4-highlight">//</span> ASSET DISCOVERY</div>
-      <div>[ CODE 000 ]</div>
+  <!-- ==========================================================================
+       SLIDE 4: GLASSMORPHISM / MODERN SOFT UI
+       ========================================================================== -->
+  <div class="slide" id="slide-glass">
+    <div class="glass-card">
+      <div class="title">Pixel Displace<br>Text Effect Maker</div>
+      <div class="code-pill"><i class="fa-solid fa-wand-magic-sparkles"></i> Effect Code "000"</div>
     </div>
-
-    <div class="s4-title-wrap">
-      <div class="s4-title">Pixel Displace</div>
-      <div class="s4-title" style="color: #E04026;">Text Effect Maker</div>
-    </div>
-
-    <div class="s4-image-container">
-      <div class="s4-corner"></div>
-      <div class="s4-corner s4-corner-br"></div>
-      <!-- IMAGE PLACEHOLDER BOX -->
-      <div class="image-placeholder s4-image-box">
-        [ MAIN IMAGE HERE ]
-      </div>
-    </div>
-
-    <div class="s4-footer">
-      <div class="s4-url">callistra.design</div>
-      <div class="s4-code-tag">REF: #000</div>
+    
+    <!-- EMPTY IMAGE PLACEHOLDER -->
+    <div class="image-placeholder"></div>
+    
+    <div class="url-glass">
+      <a href="#" class="url">www.callistra.design</a>
     </div>
   </div>
 
 
-  <!-- ==========================================
-       SLIDE 5: LUXURY MODERN EDITORIAL
-       ========================================== -->
-  <div class="slide" id="slide-style-5">
-    <div class="s5-header">
-      <div>
-        <div class="s5-code-label">Effect Code</div>
-        <div class="s5-code-val">000</div>
-      </div>
-      <div class="s5-brand">CALLISTRA STUDIO</div>
-    </div>
-
+  <!-- ==========================================================================
+       SLIDE 5: HIGH FASHION EDITORIAL
+       ========================================================================== -->
+  <div class="slide" id="slide-editorial">
     <div>
-      <div class="s5-title">
-        Pixel Displace <br><italic>Text Effect</italic> Maker
-      </div>
-      <!-- IMAGE PLACEHOLDER BOX -->
-      <div class="image-placeholder s5-image-box">
-        [ MAIN IMAGE HERE ]
-      </div>
+      <div class="title">Pixel Displace<br>Text Effect Maker</div>
+      <div class="code-label">EFFECT CODE "000"</div>
     </div>
+    
+    <!-- EMPTY IMAGE PLACEHOLDER -->
+    <div class="image-placeholder"></div>
+    
+    <div class="editorial-footer">
+      <a href="#" class="url">www.callistra.design</a>
+    </div>
+  </div>
 
-    <div class="s5-footer">
-      <div class="s5-url">callistra.design</div>
-      <div class="s5-brand">01 — 05</div>
+
+  <!-- ==========================================================================
+       SLIDE 6: SYNTHWAVE / 80S RETRO
+       ========================================================================== -->
+  <div class="slide" id="slide-synthwave">
+    <div>
+      <div class="title"><i class="fa-solid fa-vr-cardboard"></i> PIXEL DISPLACE<br>TEXT EFFECT MAKER</div>
+      <div class="code-glow">EFFECT CODE "000"</div>
+    </div>
+    
+    <!-- EMPTY IMAGE PLACEHOLDER -->
+    <div class="image-placeholder"></div>
+    
+    <div class="synth-footer">
+      <a href="#" class="url">WWW.CALLISTRA.DESIGN</a>
+    </div>
+  </div>
+
+
+  <!-- ==========================================================================
+       SLIDE 7: BAUHAUS GEOMETRIC
+       ========================================================================== -->
+  <div class="slide" id="slide-bauhaus">
+    <div class="header-grid">
+      <div class="title">Pixel Displace<br>Text Effect<br>Maker</div>
+      <div class="bauhaus-circle">000</div>
+    </div>
+    
+    <!-- EMPTY IMAGE PLACEHOLDER -->
+    <div class="image-container">
+      <div class="image-placeholder"></div>
+    </div>
+    
+    <div class="bauhaus-footer">
+      <a href="#" class="url">www.callistra.design</a>
+      <i class="fa-solid fa-shapes" style="font-size: 40px; color: #111;"></i>
+    </div>
+  </div>
+
+
+  <!-- ==========================================================================
+       SLIDE 8: DARK HUD TECH / SCI-FI
+       ========================================================================== -->
+  <div class="slide" id="slide-hud">
+    <div class="hud-header">
+      <div style="font-size: 20px; color: #888; margin-bottom: 10px;">[SYS_STATUS: READY]</div>
+      <div class="title">> Pixel Displace<br>Text Effect Maker</div>
+      <div class="code-terminal">CODE // "000"</div>
+    </div>
+    
+    <!-- EMPTY IMAGE PLACEHOLDER -->
+    <div class="image-placeholder"></div>
+    
+    <div class="hud-footer">
+      <a href="#" class="url">www.callistra.design</a>
+      <i class="fa-solid fa-microchip" style="font-size: 36px;"></i>
+    </div>
+  </div>
+
+
+  <!-- ==========================================================================
+       SLIDE 9: POP ART / COMIC BOOK
+       ========================================================================== -->
+  <div class="slide" id="slide-popart">
+    <div>
+      <div class="title-banner">
+        <div class="title">PIXEL DISPLACE<br>TEXT EFFECT MAKER!</div>
+      </div>
+      <div class="code-burst"><i class="fa-solid fa-explosion"></i> CODE "000"</div>
+    </div>
+    
+    <!-- EMPTY IMAGE PLACEHOLDER -->
+    <div class="image-placeholder"></div>
+    
+    <div class="url-banner">
+      <a href="#" class="url">WWW.CALLISTRA.DESIGN</a>
+    </div>
+  </div>
+
+
+  <!-- ==========================================================================
+       SLIDE 10: SOFT CLAYMORPHISM / MODERN PASTEL
+       ========================================================================== -->
+  <div class="slide" id="slide-clay">
+    <div class="clay-card">
+      <div class="title">Pixel Displace<br>Text Effect Maker</div>
+      <div class="code-badge"><i class="fa-solid fa-layer-group"></i> Effect Code "000"</div>
+    </div>
+    
+    <!-- EMPTY IMAGE PLACEHOLDER -->
+    <div class="image-placeholder"></div>
+    
+    <div class="url-pill">
+      <a href="#" class="url">www.callistra.design</a>
     </div>
   </div>
 
